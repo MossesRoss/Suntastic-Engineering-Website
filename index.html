@@ -123,7 +123,7 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
 
             <!-- Official Suntastic Brand Logo (Scaled +12% larger) -->
-            <a href="index.html" class="flex items-center gap-3 shrink-0">
+            <a href="main.html" class="flex items-center gap-3 shrink-0">
                 <img src="images/logo.png" alt="Suntastic Solar Systems" class="h-[54px] w-auto object-contain"
                     onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('fallback-logo').style.display='flex';}" />
                 <div id="fallback-logo" class="hidden items-center gap-2">
@@ -141,7 +141,7 @@
 
             <!-- Center Navigation: High-Intent Marketing Links (No Contact Link) -->
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600">
-                <a href="index.html" class="text-slate-900 font-semibold transition whitespace-nowrap">Home</a>
+                <a href="main.html" class="text-slate-900 font-semibold transition whitespace-nowrap">Home</a>
                 <a href="#proof" class="hover:text-slate-900 transition whitespace-nowrap">About Us</a>
 
                 <!-- Solutions Dropdown (Links to dedicated pathway pages) -->
@@ -201,7 +201,7 @@
 
         <!-- Mobile Menu Drawer (No Contact Link) -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4">
-            <a href="index.html" class="block text-base font-semibold text-slate-900">Home</a>
+            <a href="main.html" class="block text-base font-semibold text-slate-900">Home</a>
             <a href="#proof" class="block text-base font-medium text-slate-800">About Us</a>
             <a href="residential.html" class="block text-base font-medium text-slate-800">Residential Solutions</a>
             <a href="commercial-industrial.html" class="block text-base font-medium text-slate-800">Commercial &
@@ -377,85 +377,87 @@
                 </div>
             </div>
 
-            <!-- Asymmetric Peek Viewport (Active Card ~78% Width + Next Card Peeking on Right) -->
+            <!-- Strict 2-Image Viewport Inside max-w-7xl (Only 2 images visible at a time, even when zoomed out) -->
             <div id="active-projects-slider" class="relative">
-                <div id="active-projects-track"
-                    class="flex items-stretch gap-4 sm:gap-6 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform">
+                <div class="overflow-hidden rounded-2xl">
+                    <div id="active-projects-track"
+                        class="flex items-stretch gap-6 transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform">
 
-                    <!-- Project Slide 1 -->
-                    <div data-slide-idx="0"
-                        class="project-slide w-[85%] sm:w-[78%] shrink-0 h-[250px] sm:h-[310px] lg:h-[340px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85"
-                            alt="500 kWp Industrial Rooftop Solar EPC in Coimbatore"
-                            class="w-full h-full object-cover object-center" />
-                        <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
-                            <span
-                                class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
-                                Industrial EPC • Coimbatore, TN
-                            </span>
-                            <span
-                                class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
-                                500 kWp High-Tension Array
-                            </span>
+                        <!-- Project Slide 1 -->
+                        <div data-slide-idx="0"
+                            class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85"
+                                alt="500 kWp Industrial Rooftop Solar EPC in Coimbatore"
+                                class="w-full h-full object-cover object-center" />
+                            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                                <span
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
+                                    Industrial EPC • Coimbatore, TN
+                                </span>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
+                                    500 kWp High-Tension Array
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Project Slide 2 -->
-                    <div data-slide-idx="1"
-                        class="project-slide w-[85%] sm:w-[78%] shrink-0 h-[250px] sm:h-[310px] lg:h-[340px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-50 scale-[0.96] cursor-pointer">
-                        <img src="Sunlit Rooftop Solar Array.png"
-                            onerror="this.onerror=null; this.src='images/Sunlit Rooftop Solar Array.png';"
-                            alt="120 kWp Institutional Solar Plant in Chennai"
-                            class="w-full h-full object-cover object-center" />
-                        <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
-                            <span
-                                class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
-                                Institutional Campus • Chennai, TN
-                            </span>
-                            <span
-                                class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
-                                120 kWp Elevated Rooftop
-                            </span>
+                        <!-- Project Slide 2 -->
+                        <div data-slide-idx="1"
+                            class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer">
+                            <img src="Sunlit Rooftop Solar Array.png"
+                                onerror="this.onerror=null; this.src='images/Sunlit Rooftop Solar Array.png';"
+                                alt="120 kWp Institutional Solar Plant in Chennai"
+                                class="w-full h-full object-cover object-center" />
+                            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                                <span
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
+                                    Institutional Campus • Chennai, TN
+                                </span>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
+                                    120 kWp Elevated Rooftop
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Project Slide 3 -->
-                    <div data-slide-idx="2"
-                        class="project-slide w-[85%] sm:w-[78%] shrink-0 h-[250px] sm:h-[310px] lg:h-[340px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-50 scale-[0.96] cursor-pointer">
-                        <img src="images/panel2.jpg"
-                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=2000&q=85';"
-                            alt="15 kWp Hybrid Villa Solar Installation in Kerala"
-                            class="w-full h-full object-cover object-center" />
-                        <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
-                            <span
-                                class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
-                                Residential Hybrid BESS • Palakkad, KL
-                            </span>
-                            <span
-                                class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
-                                15 kWp + 20 kWh Lithium-LFP
-                            </span>
+                        <!-- Project Slide 3 -->
+                        <div data-slide-idx="2"
+                            class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer">
+                            <img src="images/panel2.jpg"
+                                onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=2000&q=85';"
+                                alt="15 kWp Hybrid Villa Solar Installation in Kerala"
+                                class="w-full h-full object-cover object-center" />
+                            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                                <span
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
+                                    Residential Hybrid BESS • Palakkad, KL
+                                </span>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
+                                    15 kWp + 20 kWh Lithium-LFP
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Trailing Peek Clone of Slide 1 (So Slide 3 always has Slide 1 peeking on the right) -->
-                    <div data-slide-idx="0" aria-hidden="true"
-                        class="project-slide-peek-clone w-[85%] sm:w-[78%] shrink-0 h-[250px] sm:h-[310px] lg:h-[340px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-50 scale-[0.96] cursor-pointer">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85"
-                            alt="500 kWp Industrial Rooftop Solar EPC in Coimbatore"
-                            class="w-full h-full object-cover object-center" />
-                        <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
-                            <span
-                                class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
-                                Industrial EPC • Coimbatore, TN
-                            </span>
-                            <span
-                                class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
-                                500 kWp High-Tension Array
-                            </span>
+                        <!-- Trailing Peek Clone of Slide 1 (So Slide 3 always has Slide 1 in the 2nd slot) -->
+                        <div data-slide-idx="0" aria-hidden="true"
+                            class="project-slide-peek-clone w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85"
+                                alt="500 kWp Industrial Rooftop Solar EPC in Coimbatore"
+                                class="w-full h-full object-cover object-center" />
+                            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                                <span
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
+                                    Industrial EPC • Coimbatore, TN
+                                </span>
+                                <span
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
+                                    500 kWp High-Tension Array
+                                </span>
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
 
                 <!-- Clean Bottom Telemetry Bar (Outside the Image) -->
@@ -996,6 +998,165 @@
                 </div>
             </div>
 
+            <!-- Editorial Insights & Articles Showcase (Below FAQ) -->
+            <div id="insights" class="pt-24 mt-24 border-t border-slate-200">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12">
+                    <div class="max-w-2xl">
+                        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-600 mb-3">
+                            Engineering Journal & Guides
+                        </p>
+                        <h2 class="text-2xl sm:text-3xl font-semibold tracking-tight text-slate-900">
+                            Technical briefings before you go solar.
+                        </h2>
+                    </div>
+
+                    <a href="blog.html"
+                        class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full border border-slate-200 bg-white hover:border-slate-900 hover:bg-slate-900 hover:text-white text-slate-900 text-xs sm:text-sm font-semibold transition self-start sm:self-auto shadow-sm group">
+                        <span>View All Articles</span>
+                        <i class="fa-solid fa-arrow-right text-xs text-amber-500 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-transform"></i>
+                    </a>
+                </div>
+
+                <!-- 3-Column Editorial Article Grid -->
+                <div class="grid md:grid-cols-3 gap-8">
+
+                    <!-- Article 01 -->
+                    <article class="group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white overflow-hidden hover:border-slate-300 hover:shadow-md transition-all duration-300">
+                        <div>
+                            <a href="blog.html" class="block relative aspect-[16/10] overflow-hidden bg-slate-900">
+                                <img src="Sunlit Rooftop Solar Array.png"
+                                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80';"
+                                    alt="PM Surya Ghar and Tamil Nadu State Rooftop Solar Subsidy Guide"
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+                                <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-medium tracking-wide">
+                                    Subsidy & Policy
+                                </span>
+                            </a>
+
+                            <div class="p-6 sm:p-7">
+                                <div class="flex items-center gap-2 text-xs text-slate-400 font-medium mb-3">
+                                    <span>Nov 2026</span>
+                                    <span>•</span>
+                                    <span class="inline-flex items-center gap-1.5 text-amber-600 font-semibold">
+                                        <i class="fa-regular fa-clock text-[11px]"></i>
+                                        4 min read
+                                    </span>
+                                </div>
+
+                                <h3 class="text-base sm:text-lg font-semibold text-slate-900 leading-snug group-hover:text-amber-600 transition-colors">
+                                    <a href="blog.html">
+                                        PM Surya Ghar + TN State Subsidy: How to Claim the Full ₹1,00,000 Direct Bank Credit
+                                    </a>
+                                </h3>
+
+                                <p class="mt-2.5 text-sm text-slate-600 leading-relaxed line-clamp-3">
+                                    A complete walkthrough of ALMM & DCR module mandates, TANGEDCO bi-directional net-metering feasibility, and direct DBT disbursement timelines.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <a href="blog.html" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-amber-600 transition">
+                                <span>Read Technical Brief</span>
+                                <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <span class="text-[11px] font-medium text-slate-400">#01</span>
+                        </div>
+                    </article>
+
+                    <!-- Article 02 -->
+                    <article class="group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white overflow-hidden hover:border-slate-300 hover:shadow-md transition-all duration-300">
+                        <div>
+                            <a href="blog.html" class="block relative aspect-[16/10] overflow-hidden bg-slate-900">
+                                <img src="images/panel2.jpg"
+                                    onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1200&q=80';"
+                                    alt="N-Type TOPCon vs Mono-PERC Solar Modules in South India"
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+                                <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-medium tracking-wide">
+                                    System Architecture
+                                </span>
+                            </a>
+
+                            <div class="p-6 sm:p-7">
+                                <div class="flex items-center gap-2 text-xs text-slate-400 font-medium mb-3">
+                                    <span>Nov 2026</span>
+                                    <span>•</span>
+                                    <span class="inline-flex items-center gap-1.5 text-amber-600 font-semibold">
+                                        <i class="fa-regular fa-clock text-[11px]"></i>
+                                        6 min read
+                                    </span>
+                                </div>
+
+                                <h3 class="text-base sm:text-lg font-semibold text-slate-900 leading-snug group-hover:text-amber-600 transition-colors">
+                                    <a href="blog.html">
+                                        N-Type TOPCon vs. Mono-PERC: Why Cell Chemistry Dictates 25-Year Generation Yield
+                                    </a>
+                                </h3>
+
+                                <p class="mt-2.5 text-sm text-slate-600 leading-relaxed line-clamp-3">
+                                    Evaluating thermal coefficients in 40°C+ Chennai and Coimbatore summers, zero-LID degradation, and morning/evening low-light harvest.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <a href="blog.html" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-amber-600 transition">
+                                <span>Read Technical Brief</span>
+                                <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <span class="text-[11px] font-medium text-slate-400">#02</span>
+                        </div>
+                    </article>
+
+                    <!-- Article 03 -->
+                    <article class="group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white overflow-hidden hover:border-slate-300 hover:shadow-md transition-all duration-300">
+                        <div>
+                            <a href="blog.html" class="block relative aspect-[16/10] overflow-hidden bg-slate-900">
+                                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80"
+                                    alt="Commercial and Industrial Rooftop Solar ROI in Tamil Nadu and Kerala"
+                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
+                                <span class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-medium tracking-wide">
+                                    Commercial & Industrial EPC
+                                </span>
+                            </a>
+
+                            <div class="p-6 sm:p-7">
+                                <div class="flex items-center gap-2 text-xs text-slate-400 font-medium mb-3">
+                                    <span>Oct 2026</span>
+                                    <span>•</span>
+                                    <span class="inline-flex items-center gap-1.5 text-amber-600 font-semibold">
+                                        <i class="fa-regular fa-clock text-[11px]"></i>
+                                        5 min read
+                                    </span>
+                                </div>
+
+                                <h3 class="text-base sm:text-lg font-semibold text-slate-900 leading-snug group-hover:text-amber-600 transition-colors">
+                                    <a href="blog.html">
+                                        Industrial Solar ROI: Combining 40% Accelerated Tax Depreciation with HT Tariff Offset
+                                    </a>
+                                </h3>
+
+                                <p class="mt-2.5 text-sm text-slate-600 leading-relaxed line-clamp-3">
+                                    How factories, textile mills, and hospitals across South India achieve a 2.8-year payback while hedging against peak-hour grid demand charges.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                            <a href="blog.html" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-amber-600 transition">
+                                <span>Read Technical Brief</span>
+                                <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                            <span class="text-[11px] font-medium text-slate-400">#03</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -1179,7 +1340,7 @@
 
                 <!-- Brand & Socials (5 Cols) - Fixed Suntastic Logo + Scaled +12% larger -->
                 <div class="lg:col-span-5 space-y-5">
-                    <a href="index.html" class="inline-flex items-center gap-3">
+                    <a href="main.html" class="inline-flex items-center gap-3">
                         <img src="images/logo.png" alt="Suntastic Solar Systems"
                             class="h-[50px] w-auto object-contain bg-white px-3 py-1.5 rounded-lg"
                             onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('footer-fallback-logo').style.display='flex';}" />
@@ -1233,6 +1394,8 @@
                                 Industrial EPC</a></li>
                         <li><a href="on-grid-hybrid.html" class="hover:text-white transition">On-Grid & Hybrid
                                 Systems</a></li>
+                        <li><a href="#projects" class="hover:text-white transition">Projects</a></li>
+                        <li><a href="career.html" class="hover:text-white transition">Career</a></li>
                     </ul>
                 </div>
 
@@ -1246,6 +1409,7 @@
                         <li><a href="#faq" class="hover:text-white transition">Subsidy Guide</a></li>
                         <li><a href="on-grid-hybrid.html" class="hover:text-white transition">Net-Metering Guide</a>
                         </li>
+                        <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
                     </ul>
                 </div>
             </div>
@@ -1409,8 +1573,8 @@
                     const isActive = i === currentProj;
                     slide.classList.toggle('opacity-100', isActive);
                     slide.classList.toggle('scale-100', isActive);
-                    slide.classList.toggle('opacity-50', !isActive);
-                    slide.classList.toggle('scale-[0.96]', !isActive);
+                    slide.classList.toggle('opacity-60', !isActive);
+                    slide.classList.toggle('scale-[0.97]', !isActive);
                 });
 
                 dots.forEach((dot, i) => {

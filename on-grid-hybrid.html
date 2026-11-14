@@ -52,7 +52,7 @@
 
             <!-- Official Suntastic Brand Logo (Scaled +12% larger) -->
             <a href="main.html" class="flex items-center gap-3 shrink-0">
-                <img src="images.png" alt="Suntastic Solar Systems" class="h-[54px] w-auto object-contain"
+                <img src="images/logo.png" alt="Suntastic Solar Systems" class="h-[54px] w-auto object-contain"
                     onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('fallback-logo').style.display='flex';}" />
                 <div id="fallback-logo" class="hidden items-center gap-2">
                     <svg class="w-11 h-11 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
@@ -103,12 +103,9 @@
                 </div>
 
                 <a href="main.html#faq" class="hover:text-slate-900 transition whitespace-nowrap">Subsidy Scheme</a>
-                <a href="calculator.html"
-                    class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 text-amber-700 hover:bg-amber-500/20 font-semibold transition whitespace-nowrap">
-                    <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                    <span>Solar Calculator</span>
-                </a>
-                <a href="main.html#proof" class="hover:text-slate-900 transition whitespace-nowrap">Projects</a>
+                <a href="calculator.html" class="hover:text-slate-900 transition whitespace-nowrap">Solar Calculator</a>
+                <a href="main.html#projects" class="hover:text-slate-900 transition whitespace-nowrap">Projects</a>
+                <a href="blog.html" class="hover:text-slate-900 transition whitespace-nowrap">Blog</a>
             </nav>
 
             <!-- Right Action -->
@@ -137,13 +134,13 @@
             <a href="residential.html" class="block text-base font-medium text-slate-800">Residential Solutions</a>
             <a href="commercial-industrial.html" class="block text-base font-medium text-slate-800">Commercial &
                 Industrial EPC</a>
-            <a href="on-grid-hybrid.html" class="block text-base font-semibold text-amber-600">On-Grid & Hybrid
+            <a href="on-grid-hybrid.html" class="block text-base font-semibold text-slate-900">On-Grid & Hybrid
                 Systems</a>
             <a href="main.html#faq" class="block text-base font-medium text-slate-800">Subsidy Scheme (Up to
                 ₹1,00,000)</a>
-            <a href="calculator.html" class="block text-base font-semibold text-amber-600">Solar Savings Calculator
-                →</a>
-            <a href="main.html#proof" class="block text-base font-medium text-slate-800">Projects</a>
+            <a href="calculator.html" class="block text-base font-medium text-slate-800">Solar Calculator</a>
+            <a href="main.html#projects" class="block text-base font-medium text-slate-800">Projects</a>
+            <a href="blog.html" class="block text-base font-medium text-slate-800">Blog</a>
             <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
                 <a href="tel:+918148133644" class="text-sm font-medium text-slate-600">Call +91 81481 33644</a>
                 <a href="#consultation"
@@ -233,7 +230,7 @@
                     </div>
 
                     <div class="mt-8 pt-6 border-t border-slate-100">
-                        <a href="#consultation" onclick="selectSystemType('Residential')"
+                        <a href="#consultation" onclick="selectSystemType('On-Grid Solar')"
                             class="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-amber-600 transition">
                             <span>Request On-Grid Quote</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -277,7 +274,7 @@
                     </div>
 
                     <div class="mt-8 pt-6 border-t border-slate-800">
-                        <a href="#consultation" onclick="selectSystemType('Residential')"
+                        <a href="#consultation" onclick="selectSystemType('Hybrid Solar (BESS)')"
                             class="inline-flex items-center gap-2 text-sm font-semibold text-amber-400 hover:text-amber-300 transition">
                             <span>Request Hybrid BESS Quote</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -321,7 +318,7 @@
                     </div>
 
                     <div class="mt-8 pt-6 border-t border-slate-100">
-                        <a href="#consultation" onclick="selectSystemType('Residential')"
+                        <a href="#consultation" onclick="selectSystemType('Off-Grid Solar')"
                             class="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 hover:text-amber-600 transition">
                             <span>Request Off-Grid Quote</span>
                             <i class="fa-solid fa-arrow-right text-xs"></i>
@@ -549,7 +546,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-slate-800/80">
                 <div class="lg:col-span-5 space-y-5">
                     <a href="main.html" class="inline-flex items-center gap-3">
-                        <img src="images.png" alt="Suntastic Solar Systems"
+                        <img src="images/logo.png" alt="Suntastic Solar Systems"
                             class="h-[50px] w-auto object-contain bg-white px-3 py-1.5 rounded-lg"
                             onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('footer-fallback-logo').style.display='flex';}" />
                         <div id="footer-fallback-logo" class="hidden items-center gap-2.5">
@@ -588,6 +585,8 @@
                                 Industrial EPC</a></li>
                         <li><a href="on-grid-hybrid.html" class="text-white font-medium transition">On-Grid & Hybrid
                                 Systems</a></li>
+                        <li><a href="main.html#projects" class="hover:text-white transition">Projects</a></li>
+                        <li><a href="career.html" class="hover:text-white transition">Career</a></li>
                     </ul>
                 </div>
 
@@ -598,6 +597,8 @@
                                 class="text-amber-400 hover:text-amber-300 font-medium transition">Solar Calculator</a>
                         </li>
                         <li><a href="main.html#faq" class="hover:text-white transition">Subsidy Guide</a></li>
+                        <li><a href="on-grid-hybrid.html" class="hover:text-white transition">Net-Metering Guide</a></li>
+                        <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
                     </ul>
                 </div>
             </div>
@@ -614,6 +615,13 @@
         mobileBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        function selectSystemType(type) {
+            const radios = document.querySelectorAll('input[name="looking-for"]');
+            radios.forEach(r => {
+                if (r.value === type) r.checked = true;
+            });
+        }
 
         function submitConsultation(e) {
             e.preventDefault();
