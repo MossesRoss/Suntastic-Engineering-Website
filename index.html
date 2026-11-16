@@ -85,6 +85,16 @@
     </script>
 
     <style>
+        /* Native SPA-Grade Multi-Page View Transitions */
+        @view-transition {
+            navigation: auto;
+        }
+
+        /* Tabular Numerals for Zero-Jitter Financial & Telemetry Readouts */
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
+        }
+
         details>summary {
             list-style: none;
         }
@@ -113,13 +123,158 @@
         .client-marquee-wrapper:hover .client-marquee-track {
             animation-play-state: paused;
         }
+
+        /* Optical Normalization for Client Logos */
+        .client-logo-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+        .client-logo-card img {
+            filter: grayscale(100%) contrast(1.08);
+            opacity: 0.72;
+            transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .client-logo-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(245, 158, 11, 0.45);
+            box-shadow: 0 14px 28px -10px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(245, 158, 11, 0.15);
+        }
+
+        .client-logo-card:hover img {
+            filter: grayscale(0%) contrast(1);
+            opacity: 1;
+            transform: scale(1.04);
+        }
+
+        /* Hero Ken Burns Optical Scale & Progress Pill */
+        .hero-slide img {
+            transform: scale(1.06);
+            transition: transform 4.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .hero-slide.is-active img {
+            transform: scale(1);
+        }
+
+        @keyframes pillProgress {
+            from {
+                transform: scaleX(0);
+            }
+
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .hero-dot-fill {
+            transform-origin: left center;
+            animation: pillProgress 4000ms linear forwards;
+        }
+
+        /* Cursor-Tracked Solar Irradiance Spotlight Cards */
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                    rgba(245, 158, 11, 0.09),
+                    transparent 45%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Scroll-Driven & Interactive 4-Step Process Bar */
+        .process-step-card {
+            position: relative;
+            transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .process-step-bar {
+            position: absolute;
+            top: -2px;
+            left: 0;
+            height: 2px;
+            width: 100%;
+            background: linear-gradient(90deg, #0F172A 0%, #F59E0B 100%);
+            transform: scaleX(0);
+            transform-origin: left center;
+            transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .process-step-card.is-step-active .process-step-bar {
+            transform: scaleX(1);
+        }
+
+        .process-icon-shell {
+            transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .process-step-card.is-step-active .process-icon-shell {
+            background-color: #0F172A;
+            color: #F59E0B;
+            border-color: #0F172A;
+            box-shadow: 0 10px 22px -6px rgba(15, 23, 42, 0.22);
+            transform: translateY(-2px);
+        }
+
+        .process-step-card.is-step-active .step-num-badge {
+            color: #D97706;
+        }
+
+        /* Subtle Micro-Animations inside the 4 Unique Process Icons */
+        @keyframes sunOrbitPulse {
+            0%, 100% {
+                transform: rotate(0deg) scale(1);
+            }
+            50% {
+                transform: rotate(12deg) scale(1.06);
+            }
+        }
+
+        @keyframes energyFlowDash {
+            to {
+                stroke-dashoffset: -16;
+            }
+        }
+
+        .process-step-card.is-step-active .anim-sun-orbit {
+            transform-origin: center;
+            animation: sunOrbitPulse 3.2s ease-in-out infinite;
+        }
+
+        .process-step-card.is-step-active .anim-dash-flow {
+            stroke-dasharray: 4 4;
+            animation: energyFlowDash 1.2s linear infinite;
+        }
+
+        /* Subtle Ambient Grid Pattern */
+        .architectural-grid-bg {
+            background-image: radial-gradient(rgba(15, 23, 42, 0.055) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
     </style>
 </head>
 
 <body class="bg-white text-slate-900 font-sans antialiased selection:bg-amber-500 selection:text-white">
 
     <!-- 1. HIGH-CONVERSION NAVIGATION BAR -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80">
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/80 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
 
             <!-- Official Suntastic Brand Logo (Scaled +12% larger) -->
@@ -154,7 +309,7 @@
                     </button>
                     <div
                         class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                        <div class="w-64 bg-white rounded-xl border border-slate-200/90 shadow-xl p-2 space-y-1">
+                        <div class="w-64 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200/90 shadow-xl p-2 space-y-1">
                             <a href="residential.html"
                                 class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50/60 transition">
                                 <div class="text-xs font-semibold text-slate-900">Residential Rooftops</div>
@@ -183,12 +338,12 @@
             <!-- Right Action: Direct Helpline + Logo-Orange Get Free Quote Button -->
             <div class="hidden md:flex items-center gap-5 shrink-0">
                 <a href="tel:+918148133644"
-                    class="text-sm font-medium text-slate-600 hover:text-slate-900 transition whitespace-nowrap flex items-center gap-2">
+                    class="text-sm font-medium text-slate-600 hover:text-slate-900 transition whitespace-nowrap flex items-center gap-2 tabular-nums">
                     <i class="fa-solid fa-phone text-xs text-amber-500"></i>
                     <span>+91 81481 33644</span>
                 </a>
                 <a href="#consultation"
-                    class="px-5 py-2.5 rounded-full bg-[#F59E0B] hover:bg-[#D97706] text-white font-semibold text-sm shadow-sm transition whitespace-nowrap">
+                    class="magnetic-btn px-5 py-2.5 rounded-full bg-[#F59E0B] hover:bg-[#D97706] text-white font-semibold text-sm shadow-sm transition whitespace-nowrap">
                     Get Free Quote
                 </a>
             </div>
@@ -213,7 +368,7 @@
             <a href="#projects" class="block text-base font-medium text-slate-800">Projects</a>
             <a href="blog.html" class="block text-base font-medium text-slate-800">Blog</a>
             <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
-                <a href="tel:+918148133644" class="text-sm font-medium text-slate-600">Call +91 81481 33644</a>
+                <a href="tel:+918148133644" class="text-sm font-medium text-slate-600 tabular-nums">Call +91 81481 33644</a>
                 <a href="#consultation"
                     class="w-full py-3 rounded-full bg-[#F59E0B] text-white text-center text-sm font-semibold">
                     Get Free Quote
@@ -223,13 +378,14 @@
     </header>
 
     <!-- 2. HERO SECTION: Architectural Daylight & Auto-Scrolling Showcase -->
-    <section class="pt-16 pb-12 lg:pt-24 lg:pb-16 bg-white relative">
+    <section class="pt-16 pb-12 lg:pt-24 lg:pb-16 bg-white relative architectural-grid-bg">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
             <!-- Editorial Header Block (Pinned while the image slides above on scroll) -->
-            <div class="max-w-3xl sticky top-28 lg:top-36 z-0">
-                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-600 mb-4">
-                    MES 'S' Class Contractor &nbsp;•&nbsp; TANGEDCO & MNRE Empanelled
+            <div id="hero-pinned-header" class="max-w-3xl sticky top-28 lg:top-36 z-0 transition-transform duration-300 will-change-transform">
+                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-600 mb-4 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span>
+                    <span>MES 'S' Class Contractor &nbsp;•&nbsp; TANGEDCO & MNRE Empanelled</span>
                 </p>
                 <h1 class="text-4xl sm:text-6xl font-semibold tracking-tight text-slate-900 leading-[1.08]">
                     ₹0 Electricity Bills.<br />
@@ -243,26 +399,26 @@
                 <!-- Two Clean Actions -->
                 <div class="mt-9 flex flex-wrap items-center gap-5">
                     <a href="calculator.html"
-                        class="px-7 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white text-sm font-medium transition">
+                        class="magnetic-btn px-7 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white text-sm font-medium transition shadow-sm">
                         Calculate Your Savings
                     </a>
                     <a href="commercial-industrial.html"
-                        class="text-sm font-medium text-slate-700 hover:text-amber-600 transition flex items-center gap-2 py-2">
+                        class="group text-sm font-medium text-slate-700 hover:text-amber-600 transition flex items-center gap-2 py-2">
                         <span>Explore Commercial & Industrial EPC</span>
-                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Slide-Over Curtain Container (Slides up over the hero text on scroll) -->
-            <div class="mt-14 relative z-10 bg-white rounded-2xl shadow-[0_-24px_32px_12px_#ffffff] will-change-transform">
+            <div id="hero-curtain" class="mt-14 relative z-10 bg-white rounded-2xl shadow-[0_-24px_32px_12px_#ffffff] will-change-transform">
 
                 <!-- Auto-Scrolling Architectural Visual Frame (3 Slides + Synchronized Dynamic Text) -->
                 <div id="hero-carousel"
-                    class="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 aspect-[16/9] sm:aspect-[21/9] shadow-sm">
+                    class="relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 aspect-[16/9] sm:aspect-[21/9] shadow-xl">
 
                     <!-- Slide 1: Uploaded Rooftop Solar Array -->
-                    <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-100 z-10">
+                    <div class="hero-slide is-active absolute inset-0 transition-opacity duration-700 opacity-100 z-10">
                         <img src="Sunlit Rooftop Solar Array.png"
                             onerror="this.onerror=null; this.src='images/Sunlit Rooftop Solar Array.png';"
                             alt="Sunlit rooftop solar array engineered by Suntastic Solar Systems"
@@ -284,52 +440,54 @@
 
                     <!-- Gradient Overlay -->
                     <div
-                        class="absolute inset-0 bg-gradient-to-t from-slate-950/65 via-slate-950/15 to-transparent z-20 pointer-events-none">
+                        class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-transparent z-20 pointer-events-none">
                     </div>
 
                     <!-- Synchronized Dynamic Caption Bar + Slide Dots -->
                     <div
                         class="absolute bottom-5 left-6 right-6 z-30 flex flex-wrap items-center justify-between gap-4 text-white text-xs font-medium">
-                        <span id="hero-caption-left" class="transition-opacity duration-300">
+                        <span id="hero-caption-left" class="transition-opacity duration-300 bg-slate-950/45 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
                             Tier-1 Mono-PERC & TOPCon Architecture • Hot-Dip GI Elevated Mounting
                         </span>
 
-                        <div class="flex items-center gap-4">
+                        <div class="flex items-center gap-4 bg-slate-950/45 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
                             <span id="hero-caption-right" class="hidden sm:inline transition-opacity duration-300">
                                 Tamil Nadu &nbsp;•&nbsp; Kerala
                             </span>
                             <div class="flex items-center gap-1.5" role="tablist" aria-label="Hero slides">
                                 <button type="button" data-slide="0" aria-label="Slide 1"
-                                    class="hero-dot w-6 h-1.5 rounded-full bg-[#F59E0B] transition-all duration-300"></button>
+                                    class="hero-dot relative overflow-hidden w-7 h-1.5 rounded-full bg-white/30 transition-all duration-300">
+                                    <span class="hero-dot-fill block w-full h-full bg-[#F59E0B] rounded-full"></span>
+                                </button>
                                 <button type="button" data-slide="1" aria-label="Slide 2"
-                                    class="hero-dot w-2 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300"></button>
+                                    class="hero-dot relative overflow-hidden w-2 h-1.5 rounded-full bg-white/40 hover:bg-white/75 transition-all duration-300"></button>
                                 <button type="button" data-slide="2" aria-label="Slide 3"
-                                    class="hero-dot w-2 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300"></button>
+                                    class="hero-dot relative overflow-hidden w-2 h-1.5 rounded-full bg-white/40 hover:bg-white/75 transition-all duration-300"></button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Quiet Proof Bar: 4-Column Hairline Strip (No Cartoon Icons) -->
+                <!-- Quiet Proof Bar: 4-Column Hairline Strip (Tabular Numerals) -->
                 <div class="mt-12 pt-10 border-t border-slate-200 grid grid-cols-2 lg:grid-cols-4 gap-8 bg-white">
-                    <div>
-                        <div class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900"><span class="counter" data-target="25000">0</span>+</div>
+                    <div class="group">
+                        <div class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 tabular-nums group-hover:text-amber-600 transition-colors"><span class="counter" data-target="25000">0</span>+</div>
                         <div class="mt-1 text-xs uppercase tracking-wider text-slate-500 font-medium">Installations
                             Completed</div>
                     </div>
-                    <div class="lg:border-l lg:border-slate-200 lg:pl-8">
-                        <div class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900"><span class="counter" data-target="10">0</span>+ MWp</div>
+                    <div class="lg:border-l lg:border-slate-200 lg:pl-8 group">
+                        <div class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 tabular-nums group-hover:text-amber-600 transition-colors"><span class="counter" data-target="10">0</span>+ MWp</div>
                         <div class="mt-1 text-xs uppercase tracking-wider text-slate-500 font-medium">Cumulative Solar
                             Capacity</div>
                     </div>
-                    <div class="lg:border-l lg:border-slate-200 lg:pl-8">
-                        <div class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900">₹<span class="counter" data-target="100000">0</span></div>
+                    <div class="lg:border-l lg:border-slate-200 lg:pl-8 group">
+                        <div class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 tabular-nums group-hover:text-amber-600 transition-colors">₹<span class="counter" data-target="100000">0</span></div>
                         <div class="mt-1 text-xs uppercase tracking-wider text-slate-500 font-medium">Max PM Surya Ghar + TN
                             Subsidy</div>
                     </div>
-                    <div class="lg:border-l lg:border-slate-200 lg:pl-8">
+                    <div class="lg:border-l lg:border-slate-200 lg:pl-8 group">
                         <div
-                            class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 flex items-center gap-2">
+                            class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 flex items-center gap-2 tabular-nums">
                             <span class="counter" data-target="4.9" data-decimals="1">0.0</span>
                             <i class="fa-solid fa-star text-amber-500 text-xl"></i>
                         </div>
@@ -363,7 +521,7 @@
 
                 <!-- Slide Counter & Navigation Arrows -->
                 <div class="flex items-center gap-3 self-start sm:self-auto">
-                    <span id="project-counter" class="text-xs font-semibold tracking-widest text-slate-400 mr-1">
+                    <span id="project-counter" class="text-xs font-semibold tracking-widest text-slate-400 mr-1 tabular-nums">
                         01 / 03
                     </span>
                     <button type="button" id="project-prev" aria-label="Previous project"
@@ -377,7 +535,7 @@
                 </div>
             </div>
 
-            <!-- Strict 2-Image Viewport Inside max-w-7xl (Only 2 images visible at a time, even when zoomed out) -->
+            <!-- Strict 2-Image Viewport Inside max-w-7xl -->
             <div id="active-projects-slider" class="relative">
                 <div class="overflow-hidden rounded-2xl">
                     <div id="active-projects-track"
@@ -385,17 +543,18 @@
 
                         <!-- Project Slide 1 -->
                         <div data-slide-idx="0"
-                            class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer">
+                            class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer group">
                             <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85"
                                 alt="500 kWp Industrial Rooftop Solar EPC in Coimbatore"
-                                class="w-full h-full object-cover object-center" />
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
                             <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
                                 <span
-                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide border border-white/10">
                                     Industrial EPC • Coimbatore, TN
                                 </span>
                                 <span
-                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide shadow-sm">
                                     500 kWp High-Tension Array
                                 </span>
                             </div>
@@ -403,18 +562,19 @@
 
                         <!-- Project Slide 2 -->
                         <div data-slide-idx="1"
-                            class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer">
+                            class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer group">
                             <img src="Sunlit Rooftop Solar Array.png"
                                 onerror="this.onerror=null; this.src='images/Sunlit Rooftop Solar Array.png';"
                                 alt="120 kWp Institutional Solar Plant in Chennai"
-                                class="w-full h-full object-cover object-center" />
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
                             <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
                                 <span
-                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide border border-white/10">
                                     Institutional Campus • Chennai, TN
                                 </span>
                                 <span
-                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide shadow-sm">
                                     120 kWp Elevated Rooftop
                                 </span>
                             </div>
@@ -422,36 +582,38 @@
 
                         <!-- Project Slide 3 -->
                         <div data-slide-idx="2"
-                            class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer">
+                            class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer group">
                             <img src="images/panel2.jpg"
                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=2000&q=85';"
                                 alt="15 kWp Hybrid Villa Solar Installation in Kerala"
-                                class="w-full h-full object-cover object-center" />
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
                             <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
                                 <span
-                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide border border-white/10">
                                     Residential Hybrid BESS • Palakkad, KL
                                 </span>
                                 <span
-                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide shadow-sm">
                                     15 kWp + 20 kWh Lithium-LFP
                                 </span>
                             </div>
                         </div>
 
-                        <!-- Trailing Peek Clone of Slide 1 (So Slide 3 always has Slide 1 in the 2nd slot) -->
+                        <!-- Trailing Peek Clone of Slide 1 -->
                         <div data-slide-idx="0" aria-hidden="true"
-                            class="project-slide-peek-clone w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer">
+                            class="project-slide-peek-clone w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/80 shadow-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer group">
                             <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85"
                                 alt="500 kWp Industrial Rooftop Solar EPC in Coimbatore"
-                                class="w-full h-full object-cover object-center" />
+                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent"></div>
                             <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
                                 <span
-                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide">
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide border border-white/10">
                                     Industrial EPC • Coimbatore, TN
                                 </span>
                                 <span
-                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide">
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide shadow-sm">
                                     500 kWp High-Tension Array
                                 </span>
                             </div>
@@ -509,7 +671,7 @@
             </div>
         </div>
 
-        <!-- Single-Row Infinite Auto-Scrolling Treadmill -->
+        <!-- Single-Row Infinite Auto-Scrolling Treadmill (Optically Unified) -->
         <div class="relative client-marquee-wrapper max-w-7xl mx-auto"
             aria-label="Suntastic Solar Systems client logos">
 
@@ -521,13 +683,13 @@
                 class="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-white to-transparent z-10">
             </div>
 
-            <div class="overflow-hidden py-2">
+            <div class="overflow-hidden py-3">
                 <div id="client-marquee-track" class="client-marquee-track gap-6 px-3">
 
-                    <!-- Primary Set of 23 Client Logos (Internet URLs + Vector Brand Emblems) -->
+                    <!-- Primary Set of 23 Client Logos -->
                     <!-- 1. India Post -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/India_Post_Logo.svg/512px-India_Post_Logo.svg.png"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="India Post logo" loading="lazy" decoding="async"
@@ -543,7 +705,7 @@
 
                     <!-- 2. Government of Tamil Nadu -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/TamilNadu_Logo.svg/512px-TamilNadu_Logo.svg.png"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Government of Tamil Nadu logo" loading="lazy" decoding="async"
@@ -559,7 +721,7 @@
 
                     <!-- 3. Indian Railways -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/83/Indian_Railways.svg/512px-Indian_Railways.svg.png"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Indian Railways logo" loading="lazy" decoding="async"
@@ -575,7 +737,7 @@
 
                     <!-- 4. KELTRON -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Keltron_logo.svg/512px-Keltron_logo.svg.png"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="KELTRON logo" loading="lazy" decoding="async"
@@ -588,7 +750,7 @@
 
                     <!-- 5. Rail Vikas Nigam Limited (RVNL) -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Rail_Vikas_Nigam_Limited_logo.svg/512px-Rail_Vikas_Nigam_Limited_logo.svg.png"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Rail Vikas Nigam Limited logo" loading="lazy" decoding="async"
@@ -604,7 +766,7 @@
 
                     <!-- 6. Indian Forest Service -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Emblem_of_India.svg/512px-Emblem_of_India.svg.png"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Indian Forest Service logo" loading="lazy" decoding="async"
@@ -618,7 +780,7 @@
 
                     <!-- 7. TVS Emerald -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://logo.clearbit.com/tvsemerald.com"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="TVS Emerald Haven logo" loading="lazy" decoding="async"
@@ -631,7 +793,7 @@
 
                     <!-- 8. Bharath University (BIHER) -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://upload.wikimedia.org/wikipedia/en/f/fe/Bharath_University_Logo.png"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Bharath University logo" loading="lazy" decoding="async"
@@ -647,7 +809,7 @@
 
                     <!-- 9. Vels University (VISTAS) -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Vels_University_logo.png"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Vels University logo" loading="lazy" decoding="async"
@@ -663,7 +825,7 @@
 
                     <!-- 10. Jones Foundations -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://logo.clearbit.com/jonesfoundations.com"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Jones Foundations logo" loading="lazy" decoding="async"
@@ -676,7 +838,7 @@
 
                     <!-- 11. IL&FS Skills -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://logo.clearbit.com/ilfsskills.com"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="IL&FS Skills logo" loading="lazy" decoding="async"
@@ -689,7 +851,7 @@
 
                     <!-- 12. Tagore Institutions -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="https://logo.clearbit.com/tagoreengg.edu.in"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Tagore Engineering & Medical College logo" loading="lazy" decoding="async"
@@ -705,7 +867,7 @@
 
                     <!-- 13. CMS Educational Institutions -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/cms-school.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="CMS School logo" loading="lazy" decoding="async"
@@ -721,7 +883,7 @@
 
                     <!-- 14. Jaisun Solar -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/jaisun.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Jaisun Solar logo" loading="lazy" decoding="async"
@@ -734,7 +896,7 @@
 
                     <!-- 15. RK Tech -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/rk-tech.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="RK Tech logo" loading="lazy" decoding="async"
@@ -750,7 +912,7 @@
 
                     <!-- 16. Sri Mari Hitech Green Powers -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/sri-mari-hitech.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Sri Mari Hitech Green Powers logo" loading="lazy" decoding="async"
@@ -763,7 +925,7 @@
 
                     <!-- 17. Day Star Solar -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/day-star.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Day Star logo" loading="lazy" decoding="async"
@@ -779,7 +941,7 @@
 
                     <!-- 18. Sri Lakshmi Groups -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/sri-lakshmi.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Sri Lakshmi logo" loading="lazy" decoding="async"
@@ -792,7 +954,7 @@
 
                     <!-- 19. Ambari -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/ambari.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Ambari client logo" loading="lazy" decoding="async"
@@ -805,7 +967,7 @@
 
                     <!-- 20. Sri Venkatesa Mills / Group -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/sri-venkatesa.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Sri Venkatesa logo" loading="lazy" decoding="async"
@@ -818,7 +980,7 @@
 
                     <!-- 21. Military Engineer Services (MES) -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/c5.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="Military Engineer Services logo" loading="lazy" decoding="async"
@@ -834,7 +996,7 @@
 
                     <!-- 22. TANGEDCO -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/c6.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="TANGEDCO logo" loading="lazy" decoding="async"
@@ -850,7 +1012,7 @@
 
                     <!-- 23. KSEB / ANERT Kerala -->
                     <div
-                        class="w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-amber-300 transition-all duration-300">
+                        class="client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm">
                         <img src="client/c7.jpg"
                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
                             alt="KSEB ANERT logo" loading="lazy" decoding="async"
@@ -873,8 +1035,8 @@
     <section id="process" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-            <!-- 4-Step Execution Grid -->
-            <div class="pb-24 border-b border-slate-200">
+            <!-- 4-Step Execution Grid (Scroll-Driven + 4 Unique Minimalist Architectural Icons) -->
+            <div id="process-steps-wrapper" class="pb-24 border-b border-slate-200">
                 <div class="max-w-2xl mb-14">
                     <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-600 mb-3">
                         How We Work
@@ -885,33 +1047,97 @@
                 </div>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-                    <div class="border-t-2 border-slate-900 pt-5">
-                        <span class="text-xs font-semibold text-slate-400">01</span>
-                        <h3 class="mt-2 text-base font-semibold text-slate-900">Site & Load Assessment</h3>
+                    <!-- Step 01: 3D Solar Azimuth & Roof Shadow Geometry Icon -->
+                    <div data-step="0" class="process-step-card is-step-active spotlight-card border-t border-slate-200 pt-6 rounded-b-xl px-3 pb-4 -mx-3">
+                        <span class="process-step-bar"></span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="step-num-badge text-xs font-semibold text-slate-400 tabular-nums tracking-widest">01</span>
+                            <div class="process-icon-shell w-10 h-10 rounded-xl border border-slate-200/90 bg-slate-50/80 text-slate-700 flex items-center justify-center">
+                                <!-- Unique Icon 01: 3D Roof Prism & Solar Azimuth Arc -->
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <!-- Dashed Solar Trajectory Arc -->
+                                    <path d="M3 13a9 9 0 0 1 18 0" stroke-dasharray="2.5 2.5" class="opacity-60" />
+                                    <!-- Sun Node -->
+                                    <circle cx="12" cy="4" r="1.75" class="anim-sun-orbit" fill="currentColor" />
+                                    <!-- 3D Isometric Roof Structure -->
+                                    <path d="M4.5 17.5L12 13l7.5 4.5L12 21l-7.5-3.5z" />
+                                    <path d="M12 13v8" class="opacity-60" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="mt-1 text-base font-semibold text-slate-900">Site & Load Assessment</h3>
                         <p class="mt-2 text-sm text-slate-600 leading-relaxed">
                             Our engineers evaluate your 12-month electricity consumption, roof structure, and 3D shadow
                             profile.
                         </p>
                     </div>
-                    <div class="border-t border-slate-200 pt-5">
-                        <span class="text-xs font-semibold text-slate-400">02</span>
-                        <h3 class="mt-2 text-base font-semibold text-slate-900">Engineering & Subsidy Filing</h3>
+
+                    <!-- Step 02: CAD Blueprint & Portal Seal Icon -->
+                    <div data-step="1" class="process-step-card spotlight-card border-t border-slate-200 pt-6 rounded-b-xl px-3 pb-4 -mx-3">
+                        <span class="process-step-bar"></span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="step-num-badge text-xs font-semibold text-slate-400 tabular-nums tracking-widest">02</span>
+                            <div class="process-icon-shell w-10 h-10 rounded-xl border border-slate-200/90 bg-slate-50/80 text-slate-700 flex items-center justify-center">
+                                <!-- Unique Icon 02: Architectural CAD Blueprint & Verified Subsidy Stamp -->
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="4" y="3.5" width="13" height="17" rx="2" />
+                                    <line x1="7.5" y1="8" x2="13.5" y2="8" />
+                                    <line x1="7.5" y1="11.5" x2="11.5" y2="11.5" class="opacity-65" />
+                                    <!-- Verified Portal Node Badge -->
+                                    <circle cx="16.5" cy="16.5" r="4" class="fill-white/10" />
+                                    <path d="M14.8 16.5l1.2 1.2 2.3-2.4" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="mt-1 text-base font-semibold text-slate-900">Engineering & Subsidy Filing</h3>
                         <p class="mt-2 text-sm text-slate-600 leading-relaxed">
                             Custom plant blueprint and complete paperwork registration on the PM Surya Ghar and
                             TANGEDCO/KSEB portals.
                         </p>
                     </div>
-                    <div class="border-t border-slate-200 pt-5">
-                        <span class="text-xs font-semibold text-slate-400">03</span>
-                        <h3 class="mt-2 text-base font-semibold text-slate-900">Precision EPC Installation</h3>
+
+                    <!-- Step 03: Precision Solar Array & Bidirectional Grid Pulse Icon -->
+                    <div data-step="2" class="process-step-card spotlight-card border-t border-slate-200 pt-6 rounded-b-xl px-3 pb-4 -mx-3">
+                        <span class="process-step-bar"></span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="step-num-badge text-xs font-semibold text-slate-400 tabular-nums tracking-widest">03</span>
+                            <div class="process-icon-shell w-10 h-10 rounded-xl border border-slate-200/90 bg-slate-50/80 text-slate-700 flex items-center justify-center">
+                                <!-- Unique Icon 03: Elevated Module Array + Bidirectional Meter Circuit -->
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <!-- Tilted Solar Array -->
+                                    <polygon points="5 5 19 5 21 12 3 12 5 5" />
+                                    <line x1="12" y1="5" x2="12" y2="12" class="opacity-65" />
+                                    <line x1="4.2" y1="8.5" x2="19.8" y2="8.5" class="opacity-65" />
+                                    <!-- GI Mounting & Bidirectional Pulse -->
+                                    <path d="M8 12v4.5M16 12v4.5" />
+                                    <path d="M5 19h14" class="anim-dash-flow" />
+                                    <polyline points="16.5 17 19 19 16.5 21" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="mt-1 text-base font-semibold text-slate-900">Precision EPC Installation</h3>
                         <p class="mt-2 text-sm text-slate-600 leading-relaxed">
                             Cyclone-rated hot-dip GI mounting, Tier-1 module array wiring, earthing, and bidirectional
                             meter commissioning.
                         </p>
                     </div>
-                    <div class="border-t border-slate-200 pt-5">
-                        <span class="text-xs font-semibold text-slate-400">04</span>
-                        <h3 class="mt-2 text-base font-semibold text-slate-900">Monitoring & Subsidy Credit</h3>
+
+                    <!-- Step 04: Real-Time Telemetry Waveform & Direct Bank Credit Node Icon -->
+                    <div data-step="3" class="process-step-card spotlight-card border-t border-slate-200 pt-6 rounded-b-xl px-3 pb-4 -mx-3">
+                        <span class="process-step-bar"></span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="step-num-badge text-xs font-semibold text-slate-400 tabular-nums tracking-widest">04</span>
+                            <div class="process-icon-shell w-10 h-10 rounded-xl border border-slate-200/90 bg-slate-50/80 text-slate-700 flex items-center justify-center">
+                                <!-- Unique Icon 04: Live Telemetry Curve + Direct Credit Node -->
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3.5 18.5h17" class="opacity-50" />
+                                    <polyline points="4.5 14.5 8.5 10.5 12 13 17.5 6.5" />
+                                    <circle cx="17.5" cy="6.5" r="2" fill="currentColor" />
+                                    <path d="M15 6.5h2.5V9" />
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="mt-1 text-base font-semibold text-slate-900">Monitoring & Subsidy Credit</h3>
                         <p class="mt-2 text-sm text-slate-600 leading-relaxed">
                             Real-time mobile app generation tracking while your government subsidy disburses directly to
                             your bank account.
@@ -920,7 +1146,7 @@
                 </div>
             </div>
 
-            <!-- Minimalist Accordion FAQ -->
+            <!-- Minimalist Accordion FAQ (Smooth Spring Drawer Physics) -->
             <div id="faq" class="pt-24 grid lg:grid-cols-12 gap-12">
                 <div class="lg:col-span-4">
                     <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-600 mb-3">
@@ -931,69 +1157,81 @@
                     </h2>
                     <p class="mt-3 text-sm text-slate-600">
                         Have a specific technical question? Speak directly with our engineering desk at <a
-                            href="tel:+918148133644" class="text-slate-900 font-medium underline underline-offset-4">+91
+                            href="tel:+918148133644" class="text-slate-900 font-medium underline underline-offset-4 tabular-nums">+91
                             81481 33644</a>.
                     </p>
                 </div>
 
                 <div class="lg:col-span-8 divide-y divide-slate-200 border-y border-slate-200">
-                    <details class="group py-6" open>
+                    <details class="smooth-faq group py-6" open>
                         <summary
-                            class="flex items-center justify-between cursor-pointer text-base font-medium text-slate-900">
+                            class="flex items-center justify-between cursor-pointer text-base font-medium text-slate-900 hover:text-amber-600 transition-colors">
                             <span>How much solar subsidy can I get in Tamil Nadu?</span>
-                            <i
-                                class="fa-solid fa-plus text-xs text-slate-400 group-open:rotate-45 transition-transform"></i>
+                            <span class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center shrink-0 ml-4 group-open:bg-slate-900 group-open:border-slate-900 group-open:text-white transition-all">
+                                <i class="fa-solid fa-plus text-[11px] group-open:rotate-45 transition-transform duration-300"></i>
+                            </span>
                         </summary>
-                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-                            Eligible households in Tamil Nadu can receive up to <strong>₹1,00,000 in combined government
-                                subsidies</strong>—comprising up to ₹78,000 from the Central Government (PM Surya Ghar:
-                            Muft Bijli Yojana) and up to ₹22,000 from the Tamil Nadu State additional rooftop solar
-                            subsidy.
-                        </p>
+                        <div class="faq-content overflow-hidden">
+                            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                                Eligible households in Tamil Nadu can receive up to <strong>₹1,00,000 in combined government
+                                    subsidies</strong>—comprising up to ₹78,000 from the Central Government (PM Surya Ghar:
+                                Muft Bijli Yojana) and up to ₹22,000 from the Tamil Nadu State additional rooftop solar
+                                subsidy.
+                            </p>
+                        </div>
                     </details>
 
-                    <details class="group py-6">
+                    <details class="smooth-faq group py-6">
                         <summary
-                            class="flex items-center justify-between cursor-pointer text-base font-medium text-slate-900">
+                            class="flex items-center justify-between cursor-pointer text-base font-medium text-slate-900 hover:text-amber-600 transition-colors">
                             <span>Can solar panels reduce my electricity bill to zero?</span>
-                            <i
-                                class="fa-solid fa-plus text-xs text-slate-400 group-open:rotate-45 transition-transform"></i>
+                            <span class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center shrink-0 ml-4 group-open:bg-slate-900 group-open:border-slate-900 group-open:text-white transition-all">
+                                <i class="fa-solid fa-plus text-[11px] group-open:rotate-45 transition-transform duration-300"></i>
+                            </span>
                         </summary>
-                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-                            Yes. When your solar system is accurately sized to match your bi-monthly TANGEDCO or monthly
-                            KSEB consumption, the daytime units exported to the grid offset your consumption charges via
-                            net-metering, leaving only minimal statutory fixed charges.
-                        </p>
+                        <div class="faq-content overflow-hidden">
+                            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                                Yes. When your solar system is accurately sized to match your bi-monthly TANGEDCO or monthly
+                                KSEB consumption, the daytime units exported to the grid offset your consumption charges via
+                                net-metering, leaving only minimal statutory fixed charges.
+                            </p>
+                        </div>
                     </details>
 
-                    <details class="group py-6">
+                    <details class="smooth-faq group py-6">
                         <summary
-                            class="flex items-center justify-between cursor-pointer text-base font-medium text-slate-900">
+                            class="flex items-center justify-between cursor-pointer text-base font-medium text-slate-900 hover:text-amber-600 transition-colors">
                             <span>What is the difference between On-Grid, Off-Grid, and Hybrid systems?</span>
-                            <i
-                                class="fa-solid fa-plus text-xs text-slate-400 group-open:rotate-45 transition-transform"></i>
+                            <span class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center shrink-0 ml-4 group-open:bg-slate-900 group-open:border-slate-900 group-open:text-white transition-all">
+                                <i class="fa-solid fa-plus text-[11px] group-open:rotate-45 transition-transform duration-300"></i>
+                            </span>
                         </summary>
-                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-                            <strong>On-Grid</strong> connects directly to the utility grid for net-metering and
-                            qualifies for maximum subsidies. <strong>Off-Grid</strong> uses batteries for areas without
-                            grid reliability. <strong>Hybrid (BESS)</strong> combines both—delivering seamless blackout
-                            backup alongside grid bill savings.
-                        </p>
+                        <div class="faq-content overflow-hidden">
+                            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                                <strong>On-Grid</strong> connects directly to the utility grid for net-metering and
+                                qualifies for maximum subsidies. <strong>Off-Grid</strong> uses batteries for areas without
+                                grid reliability. <strong>Hybrid (BESS)</strong> combines both—delivering seamless blackout
+                                backup alongside grid bill savings.
+                            </p>
+                        </div>
                     </details>
 
-                    <details class="group py-6">
+                    <details class="smooth-faq group py-6">
                         <summary
-                            class="flex items-center justify-between cursor-pointer text-base font-medium text-slate-900">
+                            class="flex items-center justify-between cursor-pointer text-base font-medium text-slate-900 hover:text-amber-600 transition-colors">
                             <span>Which locations does Suntastic Engineering serve?</span>
-                            <i
-                                class="fa-solid fa-plus text-xs text-slate-400 group-open:rotate-45 transition-transform"></i>
+                            <span class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center shrink-0 ml-4 group-open:bg-slate-900 group-open:border-slate-900 group-open:text-white transition-all">
+                                <i class="fa-solid fa-plus text-[11px] group-open:rotate-45 transition-transform duration-300"></i>
+                            </span>
                         </summary>
-                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-                            We execute residential, commercial, and government installations across Tamil Nadu and
-                            Kerala, supported by our offices in <strong>Chennai (Chrompet)</strong>, <strong>Coimbatore
-                                (Madukkarai)</strong>, <strong>Palakkad</strong>, and
-                            <strong>Thiruvananthapuram</strong>.
-                        </p>
+                        <div class="faq-content overflow-hidden">
+                            <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                                We execute residential, commercial, and government installations across Tamil Nadu and
+                                Kerala, supported by our offices in <strong>Chennai (Chrompet)</strong>, <strong>Coimbatore
+                                    (Madukkarai)</strong>, <strong>Palakkad</strong>, and
+                                <strong>Thiruvananthapuram</strong>.
+                            </p>
+                        </div>
                     </details>
                 </div>
             </div>
@@ -1021,8 +1259,8 @@
                 <div class="grid md:grid-cols-3 gap-8">
 
                     <!-- Article 01 -->
-                    <article class="group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white overflow-hidden hover:border-slate-300 hover:shadow-md transition-all duration-300">
-                        <div>
+                    <article class="spotlight-card group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all duration-300">
+                        <div class="relative z-10">
                             <a href="blog.html" class="block relative aspect-[16/10] overflow-hidden bg-slate-900">
                                 <img src="Sunlit Rooftop Solar Array.png"
                                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80';"
@@ -1056,18 +1294,18 @@
                             </div>
                         </div>
 
-                        <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div class="relative z-10 px-6 sm:px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                             <a href="blog.html" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-amber-600 transition">
                                 <span>Read Technical Brief</span>
                                 <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
                             </a>
-                            <span class="text-[11px] font-medium text-slate-400">#01</span>
+                            <span class="text-[11px] font-medium text-slate-400 tabular-nums">#01</span>
                         </div>
                     </article>
 
                     <!-- Article 02 -->
-                    <article class="group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white overflow-hidden hover:border-slate-300 hover:shadow-md transition-all duration-300">
-                        <div>
+                    <article class="spotlight-card group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all duration-300">
+                        <div class="relative z-10">
                             <a href="blog.html" class="block relative aspect-[16/10] overflow-hidden bg-slate-900">
                                 <img src="images/panel2.jpg"
                                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=1200&q=80';"
@@ -1101,18 +1339,18 @@
                             </div>
                         </div>
 
-                        <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div class="relative z-10 px-6 sm:px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                             <a href="blog.html" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-amber-600 transition">
                                 <span>Read Technical Brief</span>
                                 <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
                             </a>
-                            <span class="text-[11px] font-medium text-slate-400">#02</span>
+                            <span class="text-[11px] font-medium text-slate-400 tabular-nums">#02</span>
                         </div>
                     </article>
 
                     <!-- Article 03 -->
-                    <article class="group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white overflow-hidden hover:border-slate-300 hover:shadow-md transition-all duration-300">
-                        <div>
+                    <article class="spotlight-card group flex flex-col justify-between rounded-2xl border border-slate-200/90 bg-white overflow-hidden hover:border-slate-300 hover:shadow-lg transition-all duration-300">
+                        <div class="relative z-10">
                             <a href="blog.html" class="block relative aspect-[16/10] overflow-hidden bg-slate-900">
                                 <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=80"
                                     alt="Commercial and Industrial Rooftop Solar ROI in Tamil Nadu and Kerala"
@@ -1145,12 +1383,12 @@
                             </div>
                         </div>
 
-                        <div class="px-6 sm:px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <div class="relative z-10 px-6 sm:px-7 pb-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                             <a href="blog.html" class="inline-flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-amber-600 transition">
                                 <span>Read Technical Brief</span>
                                 <i class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
                             </a>
-                            <span class="text-[11px] font-medium text-slate-400">#03</span>
+                            <span class="text-[11px] font-medium text-slate-400 tabular-nums">#03</span>
                         </div>
                     </article>
 
@@ -1186,7 +1424,7 @@
                                 class="text-xs uppercase tracking-wider text-slate-400 font-semibold block">Centralized
                                 Engineering Helpline</span>
                             <a href="tel:+918148133644"
-                                class="text-xl font-semibold text-slate-900 hover:text-amber-600 transition mt-1 inline-block">
+                                class="text-xl font-semibold text-slate-900 hover:text-amber-600 transition mt-1 inline-block tabular-nums">
                                 +91 81481 33644
                             </a>
                         </div>
@@ -1212,8 +1450,8 @@
                 </div>
 
                 <!-- Right Column: Clean, Breathable Form Card -->
-                <div class="lg:col-span-7 bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-10 shadow-sm">
-                    <form id="consultation-form" onsubmit="submitConsultation(event)" class="space-y-6">
+                <div class="spotlight-card lg:col-span-7 bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-10 shadow-sm">
+                    <form id="consultation-form" onsubmit="submitConsultation(event)" class="relative z-10 space-y-6">
                         <input type="hidden" name="enquirycode" value="cf5d0cfb0b547d36a326c0ca9ad84794" />
 
                         <!-- Segmented Property Selector -->
@@ -1226,21 +1464,21 @@
                                     <input type="radio" name="looking-for" value="Residential" class="peer sr-only"
                                         checked />
                                     <div
-                                        class="py-3 px-4 rounded-xl border border-slate-200 peer-checked:border-slate-900 peer-checked:bg-slate-900 peer-checked:text-white text-slate-700 text-xs sm:text-sm font-medium text-center transition">
+                                        class="py-3 px-4 rounded-xl border border-slate-200 peer-checked:border-slate-900 peer-checked:bg-slate-900 peer-checked:text-white text-slate-700 text-xs sm:text-sm font-medium text-center transition shadow-2xs">
                                         Residential
                                     </div>
                                 </label>
                                 <label class="cursor-pointer">
                                     <input type="radio" name="looking-for" value="Commercial" class="peer sr-only" />
                                     <div
-                                        class="py-3 px-4 rounded-xl border border-slate-200 peer-checked:border-slate-900 peer-checked:bg-slate-900 peer-checked:text-white text-slate-700 text-xs sm:text-sm font-medium text-center transition">
+                                        class="py-3 px-4 rounded-xl border border-slate-200 peer-checked:border-slate-900 peer-checked:bg-slate-900 peer-checked:text-white text-slate-700 text-xs sm:text-sm font-medium text-center transition shadow-2xs">
                                         Commercial
                                     </div>
                                 </label>
                                 <label class="cursor-pointer">
                                     <input type="radio" name="looking-for" value="Industrial" class="peer sr-only" />
                                     <div
-                                        class="py-3 px-4 rounded-xl border border-slate-200 peer-checked:border-slate-900 peer-checked:bg-slate-900 peer-checked:text-white text-slate-700 text-xs sm:text-sm font-medium text-center transition">
+                                        class="py-3 px-4 rounded-xl border border-slate-200 peer-checked:border-slate-900 peer-checked:bg-slate-900 peer-checked:text-white text-slate-700 text-xs sm:text-sm font-medium text-center transition shadow-2xs">
                                         Industrial
                                     </div>
                                 </label>
@@ -1251,13 +1489,13 @@
                             <div>
                                 <label class="block text-xs font-medium text-slate-600 mb-1.5">Full Name *</label>
                                 <input type="text" name="fname" required placeholder="Your name"
-                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-slate-900 outline-none transition" />
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
                             </div>
                             <div>
                                 <label class="block text-xs font-medium text-slate-600 mb-1.5">Mobile Number *</label>
                                 <input type="tel" name="number" required pattern="[0-9]{10}"
                                     placeholder="10-digit mobile number"
-                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-slate-900 outline-none transition" />
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm tabular-nums focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
                             </div>
                         </div>
 
@@ -1266,13 +1504,13 @@
                                 <label class="block text-xs font-medium text-slate-600 mb-1.5">Avg. Monthly Electricity
                                     Bill (₹) *</label>
                                 <input type="number" id="form-bill" name="billnumbers" required placeholder="e.g. 3500"
-                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-slate-900 outline-none transition" />
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm tabular-nums focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
                             </div>
                             <div>
                                 <label class="block text-xs font-medium text-slate-600 mb-1.5">6-Digit Pincode *</label>
                                 <input type="text" name="pinnumber" required pattern="[0-9]{6}"
                                     placeholder="e.g. 641105"
-                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-slate-900 outline-none transition" />
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm tabular-nums focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
                             </div>
                         </div>
 
@@ -1280,13 +1518,13 @@
                             <label class="block text-xs font-medium text-slate-600 mb-1.5">Email Address
                                 (Optional)</label>
                             <input type="email" name="email" placeholder="you@example.com"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-slate-900 outline-none transition" />
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
                         </div>
 
                         <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <span class="text-xs text-slate-400">No obligation • Direct EPC consultation</span>
                             <button type="submit" id="submit-btn"
-                                class="px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white text-sm font-medium transition">
+                                class="magnetic-btn px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white text-sm font-medium transition shadow-sm">
                                 Request Custom Proposal
                             </button>
                         </div>
@@ -1297,7 +1535,7 @@
         </div>
     </section>
 
-    <!-- 8. TWO-TIER ENTERPRISE FOOTER (Suntastic Logo Orange CTA Card + Dark Multi-Column Footer) -->
+    <!-- 8. TWO-TIER ENTERPRISE FOOTER -->
     <footer class="bg-[#05070B] text-slate-400 relative mt-28">
 
         <!-- Top Overlapping CTA Banner in Suntastic Logo Orange -->
@@ -1315,7 +1553,7 @@
 
                 <div class="flex flex-wrap items-center gap-6">
                     <a href="#consultation"
-                        class="px-7 py-3.5 rounded-lg bg-white hover:bg-slate-100 text-slate-900 text-sm font-semibold shadow-sm transition">
+                        class="magnetic-btn px-7 py-3.5 rounded-lg bg-white hover:bg-slate-100 text-slate-900 text-sm font-semibold shadow-sm transition">
                         Contact us
                     </a>
 
@@ -1326,7 +1564,7 @@
                         </span>
                         <div>
                             <span class="block text-xs text-white/90 font-medium">Need any help</span>
-                            <span class="block text-base sm:text-lg font-bold text-white tracking-tight">+91 81481
+                            <span class="block text-base sm:text-lg font-bold text-white tracking-tight tabular-nums">+91 81481
                                 33644</span>
                         </div>
                     </a>
@@ -1334,11 +1572,11 @@
             </div>
         </div>
 
-            <!-- Main Dark Footer Content -->
+        <!-- Main Dark Footer Content -->
         <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-14">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-slate-800/80">
 
-                <!-- Brand & Socials (5 Cols) - Fixed Suntastic Logo + Scaled +12% larger -->
+                <!-- Brand & Socials (5 Cols) -->
                 <div class="lg:col-span-5 space-y-5">
                     <a href="index.html" class="inline-flex items-center gap-3">
                         <img src="images/logo.png" alt="Suntastic Solar Systems"
@@ -1421,10 +1659,11 @@
         </div>
     </footer>
 
-    <!-- SUBTLE, NON-INTRUSIVE WHATSAPP BUTTON (Styled in Dark/Logo-Orange, Zero Green) -->
+    <!-- SUBTLE, NON-INTRUSIVE WHATSAPP BUTTON (Styled in Dark/Logo-Orange with Live Pulse Ring) -->
     <a href="https://api.whatsapp.com/send?phone=918148133644&text=Hi%20Suntastic%20Engineering,%20I%20would%20like%20to%20discuss%20a%20solar%20installation."
         target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
-        class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-slate-900 hover:bg-[#F59E0B] text-white shadow-lg flex items-center justify-center transition">
+        class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-slate-900 hover:bg-[#F59E0B] text-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-105 group">
+        <span class="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-amber-500 border-2 border-white"></span>
         <i class="fa-brands fa-whatsapp text-2xl"></i>
     </a>
 
@@ -1450,7 +1689,100 @@
             }
         })();
 
-        // Hero Auto-Scrolling Image & Dynamic Text Carousel
+        // Cursor-Tracked Solar Spotlight Effect on Cards
+        (function () {
+            document.querySelectorAll('.spotlight-card').forEach(card => {
+                card.addEventListener('mousemove', e => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                    card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+                });
+            });
+
+            // Subtle Magnetic Pull on Primary CTA Buttons
+            document.querySelectorAll('.magnetic-btn').forEach(btn => {
+                btn.addEventListener('mousemove', e => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = (e.clientX - rect.left - rect.width / 2) * 0.14;
+                    const y = (e.clientY - rect.top - rect.height / 2) * 0.18;
+                    btn.style.transform = `translate(${x}px, ${y}px)`;
+                });
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = 'translate(0px, 0px)';
+                });
+            });
+        })();
+
+        // Scroll-Driven & Hover-Interactive 4-Step Process Timeline
+        (function () {
+            const wrapper = document.getElementById('process-steps-wrapper');
+            const stepCards = document.querySelectorAll('.process-step-card');
+            if (!wrapper || !stepCards.length) return;
+
+            let isHoveringStep = false;
+
+            stepCards.forEach((card, idx) => {
+                card.addEventListener('mouseenter', () => {
+                    isHoveringStep = true;
+                    stepCards.forEach((c, i) => {
+                        c.classList.toggle('is-step-active', i <= idx);
+                    });
+                });
+            });
+
+            wrapper.addEventListener('mouseleave', () => {
+                isHoveringStep = false;
+                updateStepsOnScroll();
+            });
+
+            function updateStepsOnScroll() {
+                if (isHoveringStep) return;
+                const rect = wrapper.getBoundingClientRect();
+                const viewH = window.innerHeight;
+                // Calculate progress as section moves through the viewport
+                const progress = Math.max(0, Math.min(1, (viewH * 0.72 - rect.top) / (rect.height * 0.85)));
+                const activeCount = Math.max(1, Math.ceil(progress * stepCards.length));
+
+                stepCards.forEach((card, i) => {
+                    card.classList.toggle('is-step-active', i < activeCount);
+                });
+            }
+
+            window.addEventListener('scroll', updateStepsOnScroll, { passive: true });
+            updateStepsOnScroll();
+        })();
+
+        // Smooth Spring-Physics Accordion for <details class="smooth-faq">
+        (function () {
+            document.querySelectorAll('details.smooth-faq').forEach(detail => {
+                const summary = detail.querySelector('summary');
+                const content = detail.querySelector('.faq-content');
+                if (!summary || !content) return;
+
+                summary.addEventListener('click', e => {
+                    e.preventDefault();
+                    if (detail.open) {
+                        const startHeight = content.offsetHeight;
+                        const anim = content.animate(
+                            [{ height: `${startHeight}px`, opacity: 1 }, { height: '0px', opacity: 0 }],
+                            { duration: 260, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+                        );
+                        anim.onfinish = () => {
+                            detail.open = false;
+                        };
+                    } else {
+                        detail.open = true;
+                        const endHeight = content.offsetHeight;
+                        content.animate(
+                            [{ height: '0px', opacity: 0 }, { height: `${endHeight}px`, opacity: 1 }],
+                            { duration: 300, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+                        );
+                    }
+                });
+            });
+        })();
+
+        // Hero Auto-Scrolling Image & Dynamic Text Carousel with Live Progress Pill
         (function () {
             const slides = document.querySelectorAll('.hero-slide');
             const dots = document.querySelectorAll('.hero-dot');
@@ -1478,17 +1810,21 @@
             function showSlide(index) {
                 currentIndex = (index + slides.length) % slides.length;
                 slides.forEach((slide, i) => {
-                    slide.classList.toggle('opacity-100', i === currentIndex);
-                    slide.classList.toggle('z-10', i === currentIndex);
-                    slide.classList.toggle('opacity-0', i !== currentIndex);
-                    slide.classList.toggle('z-0', i !== currentIndex);
+                    const active = i === currentIndex;
+                    slide.classList.toggle('opacity-100', active);
+                    slide.classList.toggle('z-10', active);
+                    slide.classList.toggle('is-active', active);
+                    slide.classList.toggle('opacity-0', !active);
+                    slide.classList.toggle('z-0', !active);
                 });
 
                 dots.forEach((dot, i) => {
                     if (i === currentIndex) {
-                        dot.className = 'hero-dot w-6 h-1.5 rounded-full bg-[#F59E0B] transition-all duration-300';
+                        dot.className = 'hero-dot relative overflow-hidden w-7 h-1.5 rounded-full bg-white/30 transition-all duration-300';
+                        dot.innerHTML = '<span class="hero-dot-fill block w-full h-full bg-[#F59E0B] rounded-full"></span>';
                     } else {
-                        dot.className = 'hero-dot w-2 h-1.5 rounded-full bg-white/50 hover:bg-white/80 transition-all duration-300';
+                        dot.className = 'hero-dot relative overflow-hidden w-2 h-1.5 rounded-full bg-white/40 hover:bg-white/75 transition-all duration-300';
+                        dot.innerHTML = '';
                     }
                 });
 
@@ -1519,7 +1855,7 @@
             startAutoScroll();
         })();
 
-        // Active Projects Asymmetric Peek Track Auto-Slider (Option B)
+        // Active Projects Asymmetric Peek Track Auto-Slider
         (function () {
             const sliderContainer = document.getElementById('active-projects-slider');
             const track = document.getElementById('active-projects-track');
@@ -1625,7 +1961,6 @@
                 });
             }
 
-            // Clicking a peeking card advances directly to that project
             slides.forEach((slide, idx) => {
                 slide.addEventListener('click', () => {
                     if (idx !== currentProj) {
@@ -1709,7 +2044,7 @@
 
         // Counter Animation using IntersectionObserver
         const counters = document.querySelectorAll('.counter');
-        const duration = 2000; // 2 seconds
+        const duration = 2000;
 
         const counterObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
@@ -1722,8 +2057,7 @@
                     const updateCount = (currentTime) => {
                         const elapsedTime = currentTime - startTime;
                         const progress = Math.min(elapsedTime / duration, 1);
-                        
-                        // Ease out quad
+
                         const easeProgress = progress * (2 - progress);
                         const currentVal = easeProgress * target;
 
@@ -1743,7 +2077,7 @@
                             }
                         }
                     };
-                    
+
                     requestAnimationFrame(updateCount);
                     observer.unobserve(counter);
                 }
