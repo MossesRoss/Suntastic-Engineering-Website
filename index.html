@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
     <!-- SEO Metadata: Clean, high-intent regional positioning for Tamil Nadu & Kerala -->
     <title>Suntastic Engineering | Rooftop Solar & Industrial EPC — Chennai, Coimbatore & Kerala</title>
@@ -12,6 +12,9 @@
     <meta name="keywords"
         content="Suntastic Engineering, rooftop solar Chennai, solar company Coimbatore, PM Surya Ghar subsidy Tamil Nadu, industrial solar EPC, TANGEDCO net metering, KSEB ANERT solar" />
     <meta name="robots" content="index, follow" />
+    <link rel="icon" href="images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <link rel="canonical" href="https://suntasticsolarsystems.com/" />
+    <meta name="theme-color" content="#0F172A" />
 
     <!-- Open Graph -->
     <meta property="og:locale" content="en_IN" />
@@ -21,6 +24,11 @@
         content="25,000+ solar installations across homes, factories, hospitals, and government infrastructure in South India." />
     <meta property="og:url" content="https://suntasticsolarsystems.com/" />
     <meta property="og:site_name" content="Suntastic Engineering" />
+    <meta property="og:image" content="https://suntasticsolarsystems.com/images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <meta property="og:image:alt" content="Suntastic Engineering logo" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Suntastic Engineering" />
+    <meta name="twitter:image" content="https://suntasticsolarsystems.com/images/5b55c9a5e03751532348837Suntastic-Logo.png" />
 
     <!-- Structured Data (Centralized Number + 4.9 Rating) -->
     <script type="application/ld+json">
@@ -699,6 +707,11 @@
                 animation: none !important;
             }
         }
+    
+        /* Mobile/launch fixes */
+        html { scroll-padding-top: 96px; }
+        .hero-dot { height: 26px !important; border-top: 10px solid transparent !important; border-bottom: 10px solid transparent !important; background-clip: padding-box; }
+        .wa-float { bottom: max(1.5rem, env(safe-area-inset-bottom)) !important; right: max(1.5rem, env(safe-area-inset-right)) !important; }
     </style>
 </head>
 
@@ -709,27 +722,26 @@
         class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/80 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
 
-            <!-- Official Suntastic Brand Logo (Scaled +12% larger) -->
+            <!-- Official Suntastic Brand Logo (Improved wordmark legibility) -->
             <a href="index.html" class="flex items-center gap-3 shrink-0">
-                <img src="images/logo.png" alt="Suntastic Engineering" class="h-[54px] w-auto object-contain"
+                <img src="images/logo.png" alt="Suntastic Engineering" class="h-[60px] w-auto object-contain"
                     onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('fallback-logo').style.display='flex';}" />
-                <div id="fallback-logo" class="hidden items-center gap-2">
+                <div id="fallback-logo" class="hidden items-center gap-2.5">
                     <svg class="w-11 h-11 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
                         <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4" stroke-dasharray="12 6" />
                         <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="3" stroke-dasharray="10 5" />
                         <circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2.5"
                             stroke-dasharray="8 4" />
                     </svg>
-                    <span class="font-bold text-lg tracking-[0.18em] text-slate-900">
-                        SUN TASTIC<sup class="text-[9px] font-semibold ml-0.5">TM</sup>
+                    <span class="font-bold text-xl tracking-wider text-slate-900">
+                        SUN TASTIC<sup class="text-xs font-semibold ml-0.5">TM</sup>
                     </span>
                 </div>
             </a>
 
-            <!-- Center Navigation: High-Intent Marketing Links (No Contact Link) -->
+            <!-- Center Navigation: High-Intent Marketing Links (Removed redundant Home link) -->
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600">
-                <a href="index.html" class="text-slate-900 font-semibold transition whitespace-nowrap">Home</a>
-                <a href="#proof" class="hover:text-slate-900 transition whitespace-nowrap">About Us</a>
+                <a href="about-us.html" class="hover:text-slate-900 transition whitespace-nowrap">About Us</a>
 
                 <!-- Solutions Dropdown (Links to dedicated pathway pages) -->
                 <div class="relative group py-6">
@@ -737,7 +749,7 @@
                         class="flex items-center gap-1.5 hover:text-slate-900 transition whitespace-nowrap">
                         <span>Solutions</span>
                         <i
-                            class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+                            class="fa-solid fa-chevron-down text-xs text-slate-400 group-hover:rotate-180 transition-transform"></i>
                     </button>
                     <div
                         class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
@@ -746,17 +758,17 @@
                             <a href="residential.html"
                                 class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50/60 transition">
                                 <div class="text-xs font-semibold text-slate-900">Residential Rooftops</div>
-                                <div class="text-[11px] text-slate-500 mt-0.5">Homes, villas & apartments</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Homes, villas & apartments</div>
                             </a>
                             <a href="commercial-industrial.html"
                                 class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50/60 transition">
                                 <div class="text-xs font-semibold text-slate-900">Commercial & Industrial EPC</div>
-                                <div class="text-[11px] text-slate-500 mt-0.5">Factories, hospitals & institutions</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Factories, hospitals & institutions</div>
                             </a>
                             <a href="on-grid-hybrid.html"
                                 class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50/60 transition">
                                 <div class="text-xs font-semibold text-slate-900">On-Grid & Hybrid Systems</div>
-                                <div class="text-[11px] text-slate-500 mt-0.5">TANGEDCO & KSEB net-metering</div>
+                                <div class="text-xs text-slate-500 mt-0.5">TANGEDCO & KSEB net-metering</div>
                             </a>
                         </div>
                     </div>
@@ -768,7 +780,7 @@
                 <a href="blog.html" class="hover:text-slate-900 transition whitespace-nowrap">Blog</a>
             </nav>
 
-            <!-- Right Action: Direct Helpline + Logo-Orange Get Free Quote Button -->
+            <!-- Right Action: Direct Helpline + High-Contrast Amber Get Free Quote Button -->
             <div class="hidden md:flex items-center gap-5 shrink-0">
                 <a href="tel:+918148133644"
                     class="text-sm font-medium text-slate-600 hover:text-slate-900 transition whitespace-nowrap flex items-center gap-2 tabular-nums">
@@ -776,21 +788,20 @@
                     <span>+91 81481 33644</span>
                 </a>
                 <a href="#consultation"
-                    class="magnetic-btn px-5 py-2.5 rounded-full bg-[#F59E0B] hover:bg-[#D97706] text-white font-semibold text-sm shadow-sm transition whitespace-nowrap">
+                    class="magnetic-btn px-5 py-2.5 rounded-full bg-[#F59E0B] hover:bg-[#D97706] text-slate-900 font-semibold text-sm shadow-sm transition whitespace-nowrap">
                     Get Free Quote
                 </a>
             </div>
 
             <!-- Mobile Menu Trigger -->
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-600 hover:text-slate-900" aria-label="Menu">
+            <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden p-2 text-slate-600 hover:text-slate-900" aria-label="Menu">
                 <i class="fa-solid fa-bars text-lg"></i>
             </button>
         </div>
 
-        <!-- Mobile Menu Drawer (No Contact Link) -->
+        <!-- Mobile Menu Drawer (Removed redundant Home link, fixed CTA contrast) -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4">
-            <a href="index.html" class="block text-base font-semibold text-slate-900">Home</a>
-            <a href="#proof" class="block text-base font-medium text-slate-800">About Us</a>
+            <a href="about-us.html" class="block text-base font-medium text-slate-800">About Us</a>
             <a href="residential.html" class="block text-base font-medium text-slate-800">Residential Solutions</a>
             <a href="commercial-industrial.html" class="block text-base font-medium text-slate-800">Commercial &
                 Industrial EPC</a>
@@ -804,7 +815,7 @@
                 <a href="tel:+918148133644" class="text-sm font-medium text-slate-600 tabular-nums">Call +91 81481
                     33644</a>
                 <a href="#consultation"
-                    class="w-full py-3 rounded-full bg-[#F59E0B] text-white text-center text-sm font-semibold">
+                    class="w-full py-3 rounded-full bg-[#F59E0B] hover:bg-[#D97706] text-slate-900 text-center text-sm font-semibold">
                     Get Free Quote
                 </a>
             </div>
@@ -817,46 +828,41 @@
 
             <!-- Editorial Header Block (Pinned while the image slides above on scroll, then smoothly masked) -->
             <div id="hero-pinned-header" class="max-w-3xl sticky top-28 lg:top-36 z-0 will-change-[transform,opacity]">
-                <p
-                    class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-600 mb-4 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span>
-                    <span>MES 'S' Class Contractor &nbsp;•&nbsp; TANGEDCO & MNRE Empanelled</span>
-                </p>
                 <h1 class="text-4xl sm:text-6xl font-semibold tracking-tight text-slate-900 leading-[1.08]">
-                    Your Trusted, Experienced<br />
-                    <span class="text-slate-400 font-normal">Solar Partner</span>
+                    Your Trusted, Experienced Solar Partner<br />
+                    <span class="text-slate-500 font-normal">Cutting the Power Bill</span>
                 </h1>
                 <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl font-normal">
                     Suntastic Engineering designs and commissions high-yield solar power systems for homes, industrial
                     facilities, and government infrastructure across Tamil Nadu and Kerala.
                 </p>
 
-                <!-- Two Clean Actions -->
-                <div class="mt-9 flex flex-wrap items-center gap-5">
+                <!-- Equal-Weight Dual-Audience Actions: Amber Primary (Homes) + Navy Secondary (Business/Industrial) -->
+                <div class="mt-9 flex flex-wrap items-center gap-4">
                     <a href="calculator.html"
-                        class="magnetic-btn px-7 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white text-sm font-medium transition shadow-sm">
+                        class="magnetic-btn px-7 py-3.5 rounded-full bg-[#F59E0B] hover:bg-[#D97706] text-slate-900 text-sm font-semibold transition shadow-sm">
                         Calculate Your Savings
                     </a>
                     <a href="commercial-industrial.html"
-                        class="group text-sm font-medium text-slate-700 hover:text-amber-600 transition flex items-center gap-2 py-2">
-                        <span>Explore Commercial & Industrial EPC</span>
-                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                        class="magnetic-btn group px-7 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold transition shadow-sm inline-flex items-center gap-2.5">
+                        <span>Explore Commercial &amp; Industrial EPC</span>
+                        <i class="fa-solid fa-arrow-right text-xs text-amber-400 group-hover:translate-x-1 transition-transform"></i>
                     </a>
                 </div>
 
-                <!-- Compact achievement chips (below xl, where the panel does not fit) -->
+                <!-- Compact credential chips (below xl, where the panel does not fit) -->
                 <div class="xl:hidden mt-8 flex flex-wrap gap-2.5">
                     <span
                         class="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-3.5 py-2 text-xs font-semibold shadow-sm">
-                        <i class="fa-solid fa-trophy text-amber-400"></i> No.1 EPC Contractor
-                    </span>
-                    <span
-                        class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white text-slate-700 px-3.5 py-2 text-xs font-semibold shadow-sm">
-                        <i class="fa-solid fa-solar-panel text-amber-500"></i> 25,000+ Installations
+                        <i class="fa-solid fa-building-columns text-amber-400"></i> MNRE &amp; TANGEDCO Empanelled
                     </span>
                     <span
                         class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white text-slate-700 px-3.5 py-2 text-xs font-semibold shadow-sm">
                         <i class="fa-solid fa-shield-halved text-amber-500"></i> MES 'S' Class
+                    </span>
+                    <span
+                        class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white text-slate-700 px-3.5 py-2 text-xs font-semibold shadow-sm">
+                        <i class="fa-solid fa-solar-panel text-amber-500"></i> 25,000+ Installations
                     </span>
                 </div>
 
@@ -980,46 +986,49 @@
                     </div>
                 </div>
 
-                <!-- Quiet Proof Bar: 4-Column Hairline Strip (Tabular Numerals) -->
-                <div class="mt-12 pt-10 border-t border-slate-200 grid grid-cols-2 lg:grid-cols-4 gap-8 bg-white">
-                    <div class="group">
-                        <div
-                            class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 tabular-nums group-hover:text-amber-600 transition-colors">
-                            <span class="counter" data-target="25000">0</span>+
-                        </div>
-                        <div class="mt-1 text-xs uppercase tracking-wider text-slate-500 font-medium">Installations
-                            Completed</div>
-                    </div>
-                    <div class="lg:border-l lg:border-slate-200 lg:pl-8 group">
-                        <div
-                            class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 tabular-nums group-hover:text-amber-600 transition-colors">
-                            <span class="counter" data-target="10">0</span>+ MWp
-                        </div>
-                        <div class="mt-1 text-xs uppercase tracking-wider text-slate-500 font-medium">Cumulative Solar
-                            Capacity</div>
-                    </div>
-                    <div class="lg:border-l lg:border-slate-200 lg:pl-8 group">
-                        <div
-                            class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 tabular-nums group-hover:text-amber-600 transition-colors">
-                            ₹<span class="counter" data-target="100000">0</span></div>
-                        <div class="mt-1 text-xs uppercase tracking-wider text-slate-500 font-medium">Max PM Surya Ghar
-                            + TN
-                            Subsidy</div>
-                    </div>
-                    <div class="lg:border-l lg:border-slate-200 lg:pl-8 group">
-                        <div
-                            class="text-3xl sm:text-4xl font-semibold tracking-tight text-slate-900 flex items-center gap-2 tabular-nums">
-                            <span class="counter" data-target="4.9" data-decimals="1">0.0</span>
-                            <i class="fa-solid fa-star text-amber-500 text-xl"></i>
-                        </div>
-                        <div class="mt-1 text-xs uppercase tracking-wider text-slate-500 font-medium">Verified Google
-                            Rating
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
+        </div>
+    </section>
+
+    <!-- 3. SUN-CYCLE SHOWPIECE: four stats act as tabs, each morphs the canvas into its own scene -->
+    <section id="sun-cycle" class="relative overflow-hidden text-white bg-[#0F172A]">
+        <div class="sc-bg sc-dawn" aria-hidden="true"></div>
+        <div class="sc-bg sc-noon is-on" aria-hidden="true"></div>
+        <div class="sc-bg sc-dusk" aria-hidden="true"></div>
+        <div class="sc-bg sc-night" aria-hidden="true"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-24">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#FBBF24] mb-3">Performance</p>
+            <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight max-w-2xl">Built around the sun. Engineered
+                for every hour of it.</h2>
+
+            <div class="sc-stats mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3" role="group" aria-label="Highlights">
+                <button type="button" class="sc-stat" data-scene="0" aria-pressed="false">
+                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter" data-target="25000">0</span>+</span>
+                    <span class="mt-1 block text-sm">installations completed</span>
+                </button>
+                <button type="button" class="sc-stat is-active" data-scene="1" aria-pressed="true">
+                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter" data-target="25">0</span> yrs</span>
+                    <span class="mt-1 block text-sm">performance warranty</span>
+                </button>
+                <button type="button" class="sc-stat" data-scene="2" aria-pressed="false">
+                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums">₹<span class="counter" data-target="100000">0</span></span>
+                    <span class="mt-1 block text-sm">maximum subsidy</span>
+                </button>
+                <button type="button" class="sc-stat" data-scene="3" aria-pressed="false">
+                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter" data-target="4.9" data-decimals="1">0.0</span>★</span>
+                    <span class="mt-1 block text-sm">Google rating</span>
+                </button>
+            </div>
+
+            <div class="relative mt-6">
+                <canvas id="sun-canvas" class="w-full h-[300px] sm:h-[460px]" aria-hidden="true"></canvas>
+                <button id="sc-time" type="button" class="sc-time" aria-label="Time of day: Noon. Press to change.">
+                    <i id="sc-time-icon" class="fa-solid fa-sun" aria-hidden="true"></i><span id="sc-time-label">Noon</span>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -1075,11 +1084,11 @@
                             </div>
                             <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
                                 <span
-                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide border border-white/10">
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/10">
                                     Industrial EPC • Coimbatore, TN
                                 </span>
                                 <span
-                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide shadow-sm">
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-xs font-bold tracking-wide shadow-sm">
                                     500 kWp High-Tension Array
                                 </span>
                             </div>
@@ -1097,11 +1106,11 @@
                             </div>
                             <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
                                 <span
-                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide border border-white/10">
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/10">
                                     Institutional Campus • Chennai, TN
                                 </span>
                                 <span
-                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide shadow-sm">
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-xs font-bold tracking-wide shadow-sm">
                                     120 kWp Elevated Rooftop
                                 </span>
                             </div>
@@ -1119,11 +1128,11 @@
                             </div>
                             <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
                                 <span
-                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide border border-white/10">
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/10">
                                     Residential Hybrid BESS • Palakkad, KL
                                 </span>
                                 <span
-                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide shadow-sm">
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-xs font-bold tracking-wide shadow-sm">
                                     15 kWp + 20 kWh Lithium-LFP
                                 </span>
                             </div>
@@ -1140,11 +1149,11 @@
                             </div>
                             <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
                                 <span
-                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-semibold tracking-wide border border-white/10">
+                                    class="px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/10">
                                     Industrial EPC • Coimbatore, TN
                                 </span>
                                 <span
-                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-[11px] font-bold tracking-wide shadow-sm">
+                                    class="px-3 py-1 rounded-full bg-amber-500 text-slate-950 text-xs font-bold tracking-wide shadow-sm">
                                     500 kWp High-Tension Array
                                 </span>
                             </div>
@@ -1187,46 +1196,6 @@
                 </div>
             </div>
 
-        </div>
-    </section>
-
-    <!-- 4b. SUN-CYCLE SHOWPIECE: four stats act as tabs, each morphs the canvas into its own scene -->
-    <section id="sun-cycle" class="relative overflow-hidden text-white bg-[#0F172A]">
-        <div class="sc-bg sc-dawn" aria-hidden="true"></div>
-        <div class="sc-bg sc-noon is-on" aria-hidden="true"></div>
-        <div class="sc-bg sc-dusk" aria-hidden="true"></div>
-        <div class="sc-bg sc-night" aria-hidden="true"></div>
-
-        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-24">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#FBBF24] mb-3">Performance</p>
-            <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight max-w-2xl">Built around the sun. Engineered
-                for every hour of it.</h2>
-
-            <div class="sc-stats mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3" role="group" aria-label="Highlights">
-                <button type="button" class="sc-stat" data-scene="0" aria-pressed="false">
-                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter" data-target="25000">0</span>+</span>
-                    <span class="mt-1 block text-sm">installations completed</span>
-                </button>
-                <button type="button" class="sc-stat is-active" data-scene="1" aria-pressed="true">
-                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter" data-target="25">0</span> yrs</span>
-                    <span class="mt-1 block text-sm">performance warranty</span>
-                </button>
-                <button type="button" class="sc-stat" data-scene="2" aria-pressed="false">
-                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums">₹<span class="counter" data-target="100000">0</span></span>
-                    <span class="mt-1 block text-sm">maximum subsidy</span>
-                </button>
-                <button type="button" class="sc-stat" data-scene="3" aria-pressed="false">
-                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter" data-target="4.9" data-decimals="1">0.0</span>★</span>
-                    <span class="mt-1 block text-sm">Google rating</span>
-                </button>
-            </div>
-
-            <div class="relative mt-6">
-                <canvas id="sun-canvas" class="w-full h-[300px] sm:h-[460px]" aria-hidden="true"></canvas>
-                <button id="sc-time" type="button" class="sc-time" aria-label="Time of day: Noon. Press to change.">
-                    <i id="sc-time-icon" class="fa-solid fa-sun" aria-hidden="true"></i><span id="sc-time-label">Noon</span>
-                </button>
-            </div>
         </div>
     </section>
 
@@ -1421,7 +1390,7 @@
                             <span
                                 class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center shrink-0 ml-4 group-open:bg-slate-900 group-open:border-slate-900 group-open:text-white transition-all">
                                 <i
-                                    class="fa-solid fa-plus text-[11px] group-open:rotate-45 transition-transform duration-300"></i>
+                                    class="fa-solid fa-plus text-xs group-open:rotate-45 transition-transform duration-300"></i>
                             </span>
                         </summary>
                         <div class="faq-content overflow-hidden">
@@ -1443,7 +1412,7 @@
                             <span
                                 class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center shrink-0 ml-4 group-open:bg-slate-900 group-open:border-slate-900 group-open:text-white transition-all">
                                 <i
-                                    class="fa-solid fa-plus text-[11px] group-open:rotate-45 transition-transform duration-300"></i>
+                                    class="fa-solid fa-plus text-xs group-open:rotate-45 transition-transform duration-300"></i>
                             </span>
                         </summary>
                         <div class="faq-content overflow-hidden">
@@ -1464,7 +1433,7 @@
                             <span
                                 class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center shrink-0 ml-4 group-open:bg-slate-900 group-open:border-slate-900 group-open:text-white transition-all">
                                 <i
-                                    class="fa-solid fa-plus text-[11px] group-open:rotate-45 transition-transform duration-300"></i>
+                                    class="fa-solid fa-plus text-xs group-open:rotate-45 transition-transform duration-300"></i>
                             </span>
                         </summary>
                         <div class="faq-content overflow-hidden">
@@ -1486,7 +1455,7 @@
                             <span
                                 class="w-7 h-7 rounded-full border border-slate-200 flex items-center justify-center shrink-0 ml-4 group-open:bg-slate-900 group-open:border-slate-900 group-open:text-white transition-all">
                                 <i
-                                    class="fa-solid fa-plus text-[11px] group-open:rotate-45 transition-transform duration-300"></i>
+                                    class="fa-solid fa-plus text-xs group-open:rotate-45 transition-transform duration-300"></i>
                             </span>
                         </summary>
                         <div class="faq-content overflow-hidden">
@@ -1538,7 +1507,7 @@
                                     class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent">
                                 </div>
                                 <span
-                                    class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-medium tracking-wide">
+                                    class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-xs font-medium tracking-wide">
                                     Subsidy & Policy
                                 </span>
                             </a>
@@ -1548,7 +1517,7 @@
                                     <span>Nov 2026</span>
                                     <span>•</span>
                                     <span class="inline-flex items-center gap-1.5 text-amber-600 font-semibold">
-                                        <i class="fa-regular fa-clock text-[11px]"></i>
+                                        <i class="fa-regular fa-clock text-xs"></i>
                                         4 min read
                                     </span>
                                 </div>
@@ -1574,9 +1543,9 @@
                                 class="inline-flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-amber-600 transition">
                                 <span>Read Technical Brief</span>
                                 <i
-                                    class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                                    class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                             </a>
-                            <span class="text-[11px] font-medium text-slate-400 tabular-nums">#01</span>
+                            <span class="text-xs font-medium text-slate-400 tabular-nums">#01</span>
                         </div>
                     </article>
 
@@ -1593,7 +1562,7 @@
                                     class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent">
                                 </div>
                                 <span
-                                    class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-medium tracking-wide">
+                                    class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-xs font-medium tracking-wide">
                                     System Architecture
                                 </span>
                             </a>
@@ -1603,7 +1572,7 @@
                                     <span>Nov 2026</span>
                                     <span>•</span>
                                     <span class="inline-flex items-center gap-1.5 text-amber-600 font-semibold">
-                                        <i class="fa-regular fa-clock text-[11px]"></i>
+                                        <i class="fa-regular fa-clock text-xs"></i>
                                         6 min read
                                     </span>
                                 </div>
@@ -1629,9 +1598,9 @@
                                 class="inline-flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-amber-600 transition">
                                 <span>Read Technical Brief</span>
                                 <i
-                                    class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                                    class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                             </a>
-                            <span class="text-[11px] font-medium text-slate-400 tabular-nums">#02</span>
+                            <span class="text-xs font-medium text-slate-400 tabular-nums">#02</span>
                         </div>
                     </article>
 
@@ -1647,7 +1616,7 @@
                                     class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent">
                                 </div>
                                 <span
-                                    class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-[11px] font-medium tracking-wide">
+                                    class="absolute top-3.5 left-3.5 px-3 py-1 rounded-full bg-slate-950/75 backdrop-blur-md text-white text-xs font-medium tracking-wide">
                                     Commercial & Industrial EPC
                                 </span>
                             </a>
@@ -1657,7 +1626,7 @@
                                     <span>Oct 2026</span>
                                     <span>•</span>
                                     <span class="inline-flex items-center gap-1.5 text-amber-600 font-semibold">
-                                        <i class="fa-regular fa-clock text-[11px]"></i>
+                                        <i class="fa-regular fa-clock text-xs"></i>
                                         5 min read
                                     </span>
                                 </div>
@@ -1683,9 +1652,9 @@
                                 class="inline-flex items-center gap-2 text-xs font-semibold text-slate-900 group-hover:text-amber-600 transition">
                                 <span>Read Technical Brief</span>
                                 <i
-                                    class="fa-solid fa-arrow-right text-[10px] group-hover:translate-x-1 transition-transform"></i>
+                                    class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                             </a>
-                            <span class="text-[11px] font-medium text-slate-400 tabular-nums">#03</span>
+                            <span class="text-xs font-medium text-slate-400 tabular-nums">#03</span>
                         </div>
                     </article>
 
@@ -1750,7 +1719,7 @@
                 <div
                     class="spotlight-card lg:col-span-7 bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-10 shadow-sm">
                     <form id="consultation-form" onsubmit="submitConsultation(event)" class="relative z-10 space-y-6">
-                        <input type="hidden" name="enquirycode" value="cf5d0cfb0b547d36a326c0ca9ad84794" />
+                        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
 
                         <!-- Segmented Property Selector -->
                         <div>
@@ -1785,47 +1754,49 @@
 
                         <div class="grid sm:grid-cols-2 gap-5">
                             <div>
-                                <label class="block text-xs font-medium text-slate-600 mb-1.5">Full Name *</label>
-                                <input type="text" name="fname" required placeholder="Your name"
-                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
+                                <label for="f-name" class="block text-xs font-medium text-slate-600 mb-1.5">Full Name *</label>
+                                <input type="text" name="fname" id="f-name" autocomplete="name" required placeholder="Your name"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-base sm:text-sm focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
                             </div>
                             <div>
-                                <label class="block text-xs font-medium text-slate-600 mb-1.5">Mobile Number *</label>
-                                <input type="tel" name="number" required pattern="[0-9]{10}"
+                                <label for="f-phone" class="block text-xs font-medium text-slate-600 mb-1.5">Mobile Number *</label>
+                                <input type="tel" name="number" id="f-phone" inputmode="numeric" autocomplete="tel-national" maxlength="10" required pattern="[0-9]{10}"
                                     placeholder="10-digit mobile number"
-                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm tabular-nums focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-base sm:text-sm tabular-nums focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
                             </div>
                         </div>
 
                         <div class="grid sm:grid-cols-2 gap-5">
                             <div>
-                                <label class="block text-xs font-medium text-slate-600 mb-1.5">Avg. Monthly Electricity
+                                <label for="form-bill" class="block text-xs font-medium text-slate-600 mb-1.5">Avg. Monthly Electricity
                                     Bill (₹) *</label>
-                                <input type="number" id="form-bill" name="billnumbers" required placeholder="e.g. 3500"
-                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm tabular-nums focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
+                                <input type="number" id="form-bill" name="billnumbers" inputmode="numeric" min="0" required placeholder="e.g. 3500"
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-base sm:text-sm tabular-nums focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
                             </div>
                             <div>
-                                <label class="block text-xs font-medium text-slate-600 mb-1.5">6-Digit Pincode *</label>
-                                <input type="text" name="pinnumber" required pattern="[0-9]{6}"
+                                <label for="f-pin" class="block text-xs font-medium text-slate-600 mb-1.5">6-Digit Pincode *</label>
+                                <input type="text" name="pinnumber" id="f-pin" inputmode="numeric" autocomplete="postal-code" maxlength="6" required pattern="[0-9]{6}"
                                     placeholder="e.g. 641105"
-                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm tabular-nums focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
+                                    class="w-full px-4 py-3 rounded-xl border border-slate-200 text-base sm:text-sm tabular-nums focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-xs font-medium text-slate-600 mb-1.5">Email Address
+                            <label for="f-email" class="block text-xs font-medium text-slate-600 mb-1.5">Email Address
                                 (Optional)</label>
-                            <input type="email" name="email" placeholder="you@example.com"
-                                class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
+                            <input type="email" name="email" id="f-email" inputmode="email" autocomplete="email" placeholder="you@example.com"
+                                class="w-full px-4 py-3 rounded-xl border border-slate-200 text-base sm:text-sm focus:border-slate-900 focus:ring-2 focus:ring-amber-500/15 outline-none transition" />
                         </div>
 
                         <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                             <span class="text-xs text-slate-400">No obligation • Direct EPC consultation</span>
                             <button type="submit" id="submit-btn"
-                                class="magnetic-btn px-8 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white text-sm font-medium transition shadow-sm">
+                                class="magnetic-btn px-8 py-3.5 rounded-full bg-[#F59E0B] hover:bg-[#D97706] text-slate-900 text-sm font-semibold transition shadow-sm">
                                 Request Custom Proposal
                             </button>
                         </div>
+                        <p id="form-status" class="text-xs text-slate-600 min-h-[1rem]" role="status" aria-live="polite"></p>
+                        <p class="text-xs text-slate-400">By submitting, you agree to our <a href="privacy-policy.html" class="underline hover:text-slate-700">Privacy Policy</a>.</p>
                     </form>
                 </div>
 
@@ -1880,7 +1851,7 @@
                 <div class="lg:col-span-5 space-y-5">
                     <a href="index.html" class="inline-flex items-center gap-3">
                         <img src="images/logo.png" alt="Suntastic Engineering"
-                            class="h-[50px] w-auto object-contain bg-white px-3 py-1.5 rounded-lg"
+                            class="h-[54px] w-auto object-contain bg-white px-3 py-1.5 rounded-lg"
                             onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('footer-fallback-logo').style.display='flex';}" />
                         <div id="footer-fallback-logo" class="hidden items-center gap-2.5">
                             <svg class="w-10 h-10 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
@@ -1889,8 +1860,8 @@
                                 <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="3"
                                     stroke-dasharray="10 5" />
                             </svg>
-                            <span class="font-bold text-lg tracking-[0.18em] text-white">
-                                SUN TASTIC<sup class="text-[9px] font-semibold ml-0.5 text-amber-400">TM</sup>
+                            <span class="font-bold text-xl tracking-wider text-white">
+                                SUN TASTIC<sup class="text-xs font-semibold ml-0.5 text-amber-400">TM</sup>
                             </span>
                         </div>
                     </a>
@@ -1898,8 +1869,13 @@
                         Providing innovative solar solutions for homes, industries, and government infrastructure.
                         Committed to a sustainable future across South India.
                     </p>
+                    <address class="not-italic text-xs text-slate-500 leading-relaxed max-w-sm space-y-2">
+                        <p><span class="text-slate-300">Registered office:</span> No. 69/27A, First Pillaiyar Koil Street, Lakshmipuram, Chrompet, Chennai – 600 044</p>
+                        <p><span class="text-slate-300">Coimbatore branch:</span> SF No 803/2C,3, Site No 308, Covai Auto Mobile Nagar, Madukkarai – 641 105</p>
+                        <p>Also at Palakkad and Thiruvananthapuram</p>
+                    </address>
                     <div class="flex items-center gap-5 pt-2 text-slate-400">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"
+                        <a href="https://www.facebook.com/profile.php?id=61586789438858" target="_blank" rel="noopener" aria-label="Facebook"
                             class="hover:text-amber-400 transition text-lg"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/suntastic_engineering" target="_blank" rel="noopener"
                             aria-label="Instagram" class="hover:text-amber-400 transition text-lg"><i
@@ -1907,8 +1883,6 @@
                         <a href="https://www.linkedin.com/company/suntastic-engineering-pvt-ltd/" target="_blank"
                             rel="noopener" aria-label="LinkedIn" class="hover:text-amber-400 transition text-lg"><i
                                 class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"
-                            class="hover:text-amber-400 transition text-lg"><i class="fa-brands fa-youtube"></i></a>
                     </div>
                 </div>
 
@@ -1917,8 +1891,7 @@
                     <div class="text-white font-semibold tracking-tight mb-4">Legal</div>
                     <ul class="space-y-3">
                         <li><a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a></li>
-                        <li><a href="#consultation" class="hover:text-white transition">Terms</a></li>
-                        <li><a href="#proof" class="hover:text-white transition">Empanelments</a></li>
+                                                <li><a href="about-us.html#empanelments" class="hover:text-white transition">Empanelments</a></li>
                     </ul>
                 </div>
 
@@ -1959,22 +1932,27 @@
         </div>
     </footer>
 
-    <!-- SUBTLE, NON-INTRUSIVE WHATSAPP BUTTON (Styled in Dark/Logo-Orange with Live Pulse Ring) -->
+    <!-- WHATSAPP BUTTON (Removed fake notification badge, added "Chat with us" label & tooltip) -->
     <a href="https://api.whatsapp.com/send?phone=918148133644&text=Hi%20Suntastic%20Engineering,%20I%20would%20like%20to%20discuss%20a%20solar%20installation."
-        target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
-        class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-slate-900 hover:bg-[#F59E0B] text-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-105 group">
-        <span class="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-amber-500 border-2 border-white"></span>
+        target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat with us"
+        class="fixed bottom-6 right-6 z-40 wa-float px-4 h-12 rounded-full bg-slate-900 hover:bg-[#F59E0B] text-white hover:text-slate-900 shadow-xl flex items-center gap-2.5 transition-all duration-300 hover:scale-105 group">
         <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="text-xs font-semibold tracking-wide pr-0.5">Chat with us</span>
     </a>
 
     <!-- INTERACTIVE SCRIPTS -->
     <script>
-        // Mobile Menu Toggle
+        // Mobile Menu Toggle (closes after a link is tapped, on Escape, and on desktop resize)
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            mobileBtn.setAttribute('aria-expanded', String(open));
+        }
+        mobileBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+        window.matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
         // Client Logo Strip: build from /images/Clients, 3 copies for a seamless two-way loop,
         // real scrolling (drag / swipe / wheel / keyboard) with a gentle JS auto-drift
@@ -2120,7 +2098,7 @@
             }));
         })();
 
-        // Hall of Fame panel: cursor-follow glow
+        // Credentials panel: cursor-follow glow
         (function () {
             const panel = document.getElementById('hof-panel');
             if (!panel) return;
@@ -2131,9 +2109,9 @@
             });
         })();
 
-        // Hero Pinned Header & Hall of Fame Curtain Occlusion Fix:
+        // Hero Pinned Header & Credentials Panel Curtain Occlusion Fix:
         // Smoothly fades out #hero-pinned-header (and #hof-panel) as #hero-curtain slides over it,
-        // preventing the sticky header or Hall of Fame drop-shadow from peeking out underneath the Quiet Proof Bar.
+        // preventing the sticky header or panel drop-shadow from peeking out underneath the Quiet Proof Bar.
         (function () {
             const pinnedHeader = document.getElementById('hero-pinned-header');
             const curtain = document.getElementById('hero-curtain');
@@ -2495,28 +2473,33 @@
             }
         });
 
-        // Consultation Form Submission -> Centralized Number (+91 81481 33644)
+        // Lead capture: paste your Google Apps Script Web App URL here (see lead-capture.gs). Leave '' for WhatsApp-only.
+        const LEAD_ENDPOINT = '';
+        const WA_NUMBER = '918148133644';
+
         function submitConsultation(e) {
             e.preventDefault();
             const form = e.target;
-            const segment = form['looking-for'].value;
-            const name = form.fname.value;
-            const mobile = form.number.value;
-            const bill = form.billnumbers.value;
-            const pin = form.pinnumber.value;
-
-            const btn = document.getElementById('submit-btn');
-            btn.textContent = 'Sending Request...';
-
-            const message = encodeURIComponent(
-                `Hello Suntastic Engineering,\n\nI would like a solar consultation:\n• Property Type: ${segment}\n• Name: ${name}\n• Mobile: ${mobile}\n• Avg. Monthly Bill: ₹${bill}\n• Pincode: ${pin}`
-            );
-
-            setTimeout(() => {
-                window.open(`https://api.whatsapp.com/send?phone=918148133644&text=${message}`, '_blank');
-                btn.textContent = 'Request Sent ✓';
-                form.reset();
-            }, 400);
+            if (form.website && form.website.value) return; // spam honeypot
+            const d = {
+                segment: form['looking-for'].value, name: form.fname.value.trim(), mobile: form.number.value.trim(),
+                bill: form.billnumbers.value, pincode: form.pinnumber.value.trim(), email: (form.email.value || '').trim(),
+                page: location.href
+            };
+            if (LEAD_ENDPOINT) {
+                try {
+                    fetch(LEAD_ENDPOINT, { method: 'POST', mode: 'no-cors', keepalive: true,
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(d) }).catch(() => { });
+                } catch (err) { }
+            }
+            const msg = encodeURIComponent(`Hello Suntastic Engineering,\n\nI would like a solar consultation:\n• Property Type: ${d.segment}\n• Name: ${d.name}\n• Mobile: ${d.mobile}\n• Avg. Monthly Bill: ₹${d.bill}\n• Pincode: ${d.pincode}` + (d.email ? `\n• Email: ${d.email}` : ''));
+            const url = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${msg}`;
+            const w = window.open(url, '_blank'); // opened inside the tap, so iOS/in-app browsers allow it
+            if (w) { w.opener = null; } else { window.location.href = url; }
+            const btn = document.getElementById('submit-btn'), status = document.getElementById('form-status');
+            btn.textContent = 'Opening WhatsApp…';
+            if (status) status.textContent = 'Last step: tap Send in WhatsApp to confirm your request.';
+            setTimeout(() => { btn.textContent = 'Request Custom Proposal'; form.reset(); }, 2500);
         }
 
         // Sun-Cycle: ONE set of particles (dot + line) that morphs between four scenes, one per stat
