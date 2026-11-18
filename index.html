@@ -134,60 +134,35 @@
         }
 
         /* Sun-Cycle Showpiece Section */
-        .sc-bg {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 1.2s ease;
+        .sc-bg { position: absolute; inset: 0; opacity: 0; transition: opacity 1.2s ease; }
+        .sc-bg.is-on { opacity: 1; }
+        .sc-dawn { background: linear-gradient(180deg, #1e1b4b 0%, #7c3aed 50%, #f59e0b 100%); }
+        .sc-noon { background: linear-gradient(180deg, #0f2a5c 0%, #2563eb 55%, #fbbf24 120%); }
+        .sc-dusk { background: linear-gradient(180deg, #3b0764 0%, #be185d 50%, #f97316 100%); }
+        .sc-night { background: linear-gradient(180deg, #020617 0%, #0f172a 60%, #1e293b 100%); }
+
+        /* Stat tabs: the active one is boxed, the rest fade back */
+        .sc-stat {
+            padding: 1.1rem .75rem; border-radius: .9rem; text-align: center;
+            border: 1px solid transparent; color: rgba(255, 255, 255, .72);
+            transition: background-color .3s, border-color .3s, color .3s, box-shadow .3s;
+        }
+        .sc-stat:hover { background: rgba(255, 255, 255, .07); color: #fff; }
+        .sc-stat:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+        .sc-stat.is-active {
+            color: #fff; background: rgba(255, 255, 255, .1);
+            border-color: rgba(255, 255, 255, .75); box-shadow: 0 0 0 3px rgba(255, 255, 255, .08);
         }
 
-        .sc-bg.is-on {
-            opacity: 1;
+        /* Time-of-day button (top-right of the canvas) */
+        .sc-time {
+            position: absolute; top: .5rem; right: .5rem; display: inline-flex; align-items: center; gap: .5rem;
+            padding: .55rem .9rem; border-radius: 999px; font-size: .8rem; font-weight: 600; color: #fff;
+            background: rgba(15, 23, 42, .5); border: 1px solid rgba(255, 255, 255, .4);
+            -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); transition: background-color .25s;
         }
-
-        .sc-dawn {
-            background: linear-gradient(180deg, #1e1b4b 0%, #7c3aed 50%, #f59e0b 100%);
-        }
-
-        .sc-noon {
-            background: linear-gradient(180deg, #0f2a5c 0%, #2563eb 55%, #fbbf24 120%);
-        }
-
-        .sc-dusk {
-            background: linear-gradient(180deg, #3b0764 0%, #be185d 50%, #f97316 100%);
-        }
-
-        .sc-night {
-            background: linear-gradient(180deg, #020617 0%, #0f172a 60%, #1e293b 100%);
-        }
-
-        .sc-btn {
-            padding: .55rem 1.1rem;
-            border-radius: 999px;
-            font-size: .8rem;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, .35);
-            color: #fff;
-            background: rgba(15, 23, 42, .5);
-            -webkit-backdrop-filter: blur(6px);
-            backdrop-filter: blur(6px);
-            transition: background-color .25s, color .25s, border-color .25s;
-        }
-
-        .sc-btn:hover {
-            background: rgba(15, 23, 42, .7);
-        }
-
-        .sc-btn:focus-visible {
-            outline: 2px solid #fff;
-            outline-offset: 2px;
-        }
-
-        .sc-btn.is-active {
-            background: #fff;
-            border-color: #fff;
-            color: #0F172A;
-        }
+        .sc-time:hover { background: rgba(15, 23, 42, .75); }
+        .sc-time:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 
         /* Optical Normalization for Client Logos */
         .client-logo-card {
@@ -1215,7 +1190,7 @@
         </div>
     </section>
 
-    <!-- 4b. SUN-CYCLE SHOWPIECE: stats + time-of-day toggle + dotted generation ribbon -->
+    <!-- 4b. SUN-CYCLE SHOWPIECE: four stats act as tabs, each morphs the canvas into its own scene -->
     <section id="sun-cycle" class="relative overflow-hidden text-white bg-[#0F172A]">
         <div class="sc-bg sc-dawn" aria-hidden="true"></div>
         <div class="sc-bg sc-noon is-on" aria-hidden="true"></div>
@@ -1227,36 +1202,30 @@
             <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight max-w-2xl">Built around the sun. Engineered
                 for every hour of it.</h2>
 
-            <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-8 border-t border-white/20 pt-8">
-                <div>
-                    <div class="text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter"
-                            data-target="25000">0</span>+</div>
-                    <div class="mt-1 text-sm text-white/75">installations completed</div>
-                </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter"
-                            data-target="25">0</span> yrs</div>
-                    <div class="mt-1 text-sm text-white/75">performance warranty</div>
-                </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-semibold tabular-nums">₹<span class="counter"
-                            data-target="100000">0</span></div>
-                    <div class="mt-1 text-sm text-white/75">maximum subsidy</div>
-                </div>
-                <div>
-                    <div class="text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter"
-                            data-target="4.9" data-decimals="1">0.0</span>★</div>
-                    <div class="mt-1 text-sm text-white/75">Google rating</div>
-                </div>
+            <div class="sc-stats mt-12 grid grid-cols-2 lg:grid-cols-4 gap-3" role="group" aria-label="Highlights">
+                <button type="button" class="sc-stat" data-scene="0" aria-pressed="false">
+                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter" data-target="25000">0</span>+</span>
+                    <span class="mt-1 block text-sm">installations completed</span>
+                </button>
+                <button type="button" class="sc-stat is-active" data-scene="1" aria-pressed="true">
+                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter" data-target="25">0</span> yrs</span>
+                    <span class="mt-1 block text-sm">performance warranty</span>
+                </button>
+                <button type="button" class="sc-stat" data-scene="2" aria-pressed="false">
+                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums">₹<span class="counter" data-target="100000">0</span></span>
+                    <span class="mt-1 block text-sm">maximum subsidy</span>
+                </button>
+                <button type="button" class="sc-stat" data-scene="3" aria-pressed="false">
+                    <span class="block text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter" data-target="4.9" data-decimals="1">0.0</span>★</span>
+                    <span class="mt-1 block text-sm">Google rating</span>
+                </button>
             </div>
 
-            <canvas id="sun-canvas" class="w-full h-[260px] sm:h-[380px] mt-6" aria-hidden="true"></canvas>
-
-            <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Time of day">
-                <button type="button" data-phase="dawn" aria-pressed="false" class="sc-btn">Dawn</button>
-                <button type="button" data-phase="noon" aria-pressed="true" class="sc-btn is-active">Noon</button>
-                <button type="button" data-phase="dusk" aria-pressed="false" class="sc-btn">Dusk</button>
-                <button type="button" data-phase="night" aria-pressed="false" class="sc-btn">Night</button>
+            <div class="relative mt-6">
+                <canvas id="sun-canvas" class="w-full h-[300px] sm:h-[460px]" aria-hidden="true"></canvas>
+                <button id="sc-time" type="button" class="sc-time" aria-label="Time of day: Noon. Press to change.">
+                    <i id="sc-time-icon" class="fa-solid fa-sun" aria-hidden="true"></i><span id="sc-time-label">Noon</span>
+                </button>
             </div>
         </div>
     </section>
@@ -2550,79 +2519,174 @@
             }, 400);
         }
 
-        // Sun-Cycle ribbon: dotted solar-generation curve + time-of-day toggle
+        // Sun-Cycle: ONE set of particles (dot + line) that morphs between four scenes, one per stat
         (function () {
             const sec = document.getElementById('sun-cycle');
             const cv = document.getElementById('sun-canvas');
             if (!sec || !cv) return;
             const ctx = cv.getContext('2d');
             const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const N = 318, TAU = Math.PI * 2, GA = Math.PI * (3 - Math.sqrt(5)), D = 3.5;
+            const clamp = x => Math.max(0, Math.min(1, x));
+            const ease = x => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
 
             const PHASES = {
-                dawn: { sun: 0.25, tint: '#FDBA74' },
-                noon: { sun: 1.00, tint: '#FDE68A' },
-                dusk: { sun: 0.40, tint: '#FDA4AF' },
-                night: { sun: 0.03, tint: '#94A3B8' }
+                dawn:  { sun: 0.25, tint: [253, 186, 116], bg: '.sc-dawn',  icon: 'fa-cloud-sun',  label: 'Dawn' },
+                noon:  { sun: 1.00, tint: [253, 230, 138], bg: '.sc-noon',  icon: 'fa-sun',        label: 'Noon' },
+                dusk:  { sun: 0.40, tint: [253, 164, 175], bg: '.sc-dusk',  icon: 'fa-cloud-moon', label: 'Dusk' },
+                night: { sun: 0.03, tint: [148, 163, 184], bg: '.sc-night', icon: 'fa-moon',       label: 'Night' }
             };
-            let target = PHASES.noon.sun, cur = target, tint = PHASES.noon.tint;
-            const N = 120;
-            let W = 0, H = 0, t = 0, running = false, raf = 0;
+            const ORDER = ['dawn', 'noon', 'dusk', 'night'];
+            let phase = 'noon', sun = 1, sunT = 1, tint = PHASES.noon.tint.slice();
+
+            // Each scene writes [dotX, dotY, dotZ, baseX, baseY, baseZ, alpha, size] for particle i.
+            // The line is drawn base -> dot, so the same particles can be a globe, a ribbon, rays or a disc.
+            const S = [
+                // 0 installations: a rotating globe of sites, with a few bigger "hub" dots
+                (i, t, o) => {
+                    const y = 1 - 2 * (i + .5) / N, r = Math.sqrt(1 - y * y), a = i * GA, x = r * Math.cos(a), z = r * Math.sin(a);
+                    o[0] = x; o[1] = y; o[2] = z; o[3] = x * .9; o[4] = y * .9; o[5] = z * .9; o[6] = 1; o[7] = i % 9 ? 1 : 1.7;
+                },
+                // 1 warranty: the generation curve, 3 strands of columns; height follows the sun
+                (i, t, o) => {
+                    const c = Math.floor(i / 3), u = c / 105, x = (u - .5) * 3.2, z = Math.sin(u * TAU * .9 + t * .5) * .55 + (i % 3 - 1) * .14;
+                    const bell = Math.exp(-Math.pow((u - .5) / .24, 2)), h = (bell * sun + .06 + .03 * Math.sin(u * 18 + t * 2)) * .8;
+                    o[0] = x; o[1] = -.4 + h; o[2] = z; o[3] = x; o[4] = -.4; o[5] = z; o[6] = 1; o[7] = 1;
+                },
+                // 2 subsidy: rays bursting from one point into a dome
+                (i, t, o) => {
+                    const y = (i + .5) / N, r = Math.sqrt(1 - y * y), a = i * GA, d = 1.15 + .08 * Math.sin(t * 1.5 + i * .7);
+                    const x = r * Math.cos(a), z = r * Math.sin(a);
+                    o[0] = x * d; o[1] = y * d - .55; o[2] = z * d; o[3] = x * .1; o[4] = y * .1 - .55; o[5] = z * .1; o[6] = 1; o[7] = i % 7 ? 1 : 1.5;
+                },
+                // 3 rating: a sunflower disc; 98% of the dots are lit (4.9 out of 5)
+                (i, t, o) => {
+                    const q = i / N, r = Math.sqrt(q) * 1.25, a = i * GA, x = r * Math.cos(a), z = r * Math.sin(a);
+                    const h = .08 + .55 * Math.pow(1 - q, 1.6) * (.6 + .4 * Math.sin(t * 1.2 + r * 5));
+                    o[0] = x; o[1] = -.4 + h; o[2] = z; o[3] = x; o[4] = -.4; o[5] = z; o[6] = q > .98 ? .2 : 1; o[7] = 1;
+                }
+            ];
+            // Camera per scene: zoom (px), pitch, vertical offset (fraction of height), yaw over time
+            const M = [
+                { z: (W, H) => Math.min(W * .4, H * .4),  p: .3,  oy: 0,   yaw: t => t * .25 },
+                { z: (W, H) => Math.min(W * .22, H * .62), p: .36, oy: .08, yaw: t => Math.sin(t * .25) * .12 },
+                { z: (W, H) => Math.min(W * .4, H * .72), p: .42, oy: .05, yaw: t => t * .07 },
+                { z: (W, H) => Math.min(W * .34, H * .62), p: .75, oy: .05, yaw: t => t * .15 }
+            ];
+
+            const fa = new Float32Array(N * 8), fb = new Float32Array(N * 8), o = new Float32Array(8), c = new Float32Array(8);
+            const fill = (arr, sc, t) => { for (let i = 0; i < N; i++) { S[sc](i, t, o); arr.set(o, i * 8); } };
+
+            let W = 0, H = 0, t = 0, m = 1, scene = 1, from = 1, running = false, raf = 0, last = 0;
+            let auto = !reduce, hover = false, idle = 0, px = 0, py = 0, pxT = 0, pyT = 0;
 
             function resize() {
                 const dpr = window.devicePixelRatio || 1;
                 W = cv.clientWidth; H = cv.clientHeight;
                 cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
                 ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-                if (!running) draw();   // keep a static frame correct (e.g. reduced motion / off-screen)
+                if (!running) draw();
             }
 
             function draw() {
-                raf = 0;
                 if (!W || !H) return;
-                cur += (target - cur) * 0.06;          // ease toward the chosen phase
-                t += 0.008;
+                const mixing = m < 1, eg = ease(m);
+                fill(fb, scene, t);
+                if (mixing) fill(fa, from, t);
+                const ma = M[from], mb = M[scene];
+                const zoom = ma.z(W, H) + (mb.z(W, H) - ma.z(W, H)) * eg;
+                const pitch = ma.p + (mb.p - ma.p) * eg + py * .08;
+                const oy = ma.oy + (mb.oy - ma.oy) * eg;
+                const ya = ma.yaw(t), d = (((mb.yaw(t) - ya + Math.PI) % TAU) + TAU) % TAU - Math.PI;
+                const yaw = ya + d * eg + px * .35;
+                const cyw = Math.cos(yaw), syw = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+                const cx = W / 2, cyy = H / 2 + oy * H, P = [0, 0, 0, 0];
+                const pr = (x, y, z) => {
+                    const x1 = x * cyw - z * syw, z1 = x * syw + z * cyw, y2 = y * cp - z1 * sp, z2 = y * sp + z1 * cp, s = D / (D - z2);
+                    P[0] = cx + x1 * s * zoom; P[1] = cyy - y2 * s * zoom; P[2] = z2; P[3] = s;
+                };
+                const lum = .55 + .45 * sun;
                 ctx.clearRect(0, 0, W, H);
                 ctx.lineWidth = 1;
+                ctx.fillStyle = 'rgb(' + tint.map(Math.round).join(',') + ')';
                 for (let i = 0; i < N; i++) {
-                    const u = i / (N - 1);
-                    const x = W * (0.06 + 0.88 * u);
-                    const depth = Math.sin(u * Math.PI * 2 + t) * 0.5 + 0.5;       // 0..1 fake 3D depth
-                    const baseY = H * 0.55 + depth * H * 0.25;
-                    const bell = Math.exp(-Math.pow((u - 0.5) / 0.22, 2));        // generation curve
-                    const h = (bell * cur + 0.04 + 0.02 * Math.sin(u * 20 + t * 3)) * H * 0.5;
-                    const a = 0.25 + 0.6 * depth;
-                    ctx.strokeStyle = 'rgba(255,255,255,' + (a * 0.35) + ')';
-                    ctx.beginPath(); ctx.moveTo(x, baseY); ctx.lineTo(x, baseY - h); ctx.stroke();
-                    ctx.globalAlpha = a; ctx.fillStyle = tint;
-                    ctx.beginPath(); ctx.arc(x, baseY - h, 1.8 + depth * 1.4, 0, Math.PI * 2); ctx.fill();
+                    const k = i * 8, w = mixing ? ease(clamp(m * 1.6 - .6 * i / N)) : 1;   // staggered morph
+                    for (let j = 0; j < 8; j++) c[j] = mixing ? fa[k + j] + (fb[k + j] - fa[k + j]) * w : fb[k + j];
+                    pr(c[0], c[1], c[2]);
+                    const dx = P[0], dy = P[1], dz = P[2], ds = P[3];
+                    pr(c[3], c[4], c[5]);
+                    const depth = clamp((dz + 1.4) / 2.8), a = (.2 + .8 * depth) * lum * c[6];
+                    ctx.strokeStyle = 'rgba(255,255,255,' + (a * .32).toFixed(3) + ')';
+                    ctx.beginPath(); ctx.moveTo(P[0], P[1]); ctx.lineTo(dx, dy); ctx.stroke();
+                    ctx.globalAlpha = a;
+                    ctx.beginPath(); ctx.arc(dx, dy, (.8 + 1.1 * depth) * ds * c[7], 0, TAU); ctx.fill();
                     ctx.globalAlpha = 1;
                 }
-                if (running && !reduce) raf = requestAnimationFrame(draw);
             }
 
-            window.addEventListener('resize', resize);
+            function step(dt) {
+                t += dt;
+                const e = Math.min(1, dt * 3.5);
+                sun += (sunT - sun) * e;
+                const tt = PHASES[phase].tint;
+                for (let k = 0; k < 3; k++) tint[k] += (tt[k] - tint[k]) * e;
+                if (m < 1) m = Math.min(1, m + dt / 1.3);
+                px += (pxT - px) * Math.min(1, dt * 3); py += (pyT - py) * Math.min(1, dt * 3);
+                if (auto && !hover) { idle += dt; if (idle > 6) go((scene + 1) % 4, true); }
+            }
+
+            function loop(now) {
+                raf = 0;
+                step(Math.min((now - (last || now)) / 1000, .05)); last = now;
+                draw();
+                if (running && !reduce) raf = requestAnimationFrame(loop); else last = 0;
+            }
+
+            const tabs = sec.querySelectorAll('.sc-stat');
+            function go(n, byAuto) {
+                if (!byAuto) auto = false;
+                idle = 0;
+                if (n === scene) return;
+                from = scene; scene = n; m = reduce ? 1 : 0;
+                tabs.forEach((b, i) => { b.classList.toggle('is-active', i === n); b.setAttribute('aria-pressed', i === n ? 'true' : 'false'); });
+                if (reduce) draw();
+            }
+            tabs.forEach(b => b.addEventListener('click', () => go(+b.dataset.scene)));
+
+            const timeBtn = document.getElementById('sc-time'), timeIcon = document.getElementById('sc-time-icon'), timeLabel = document.getElementById('sc-time-label');
+            timeBtn.addEventListener('click', () => {
+                phase = ORDER[(ORDER.indexOf(phase) + 1) % ORDER.length];
+                const P = PHASES[phase];
+                sunT = P.sun;
+                sec.querySelectorAll('.sc-bg').forEach(b => b.classList.remove('is-on'));
+                sec.querySelector(P.bg).classList.add('is-on');
+                timeIcon.className = 'fa-solid ' + P.icon;
+                timeLabel.textContent = P.label;
+                timeBtn.setAttribute('aria-label', 'Time of day: ' + P.label + '. Press to change.');
+                if (reduce) { sun = sunT; tint = P.tint.slice(); draw(); }
+            });
+
+            // gentle parallax (mouse only); auto-advance pauses while hovering the stats
+            sec.addEventListener('pointermove', e => {
+                if (e.pointerType !== 'mouse') return;
+                const r = sec.getBoundingClientRect();
+                pxT = Math.max(-1, Math.min(1, ((e.clientX - r.left) / r.width) * 2 - 1));
+                pyT = Math.max(-1, Math.min(1, ((e.clientY - r.top) / r.height) * 2 - 1));
+            });
+            const grp = sec.querySelector('.sc-stats');
+            grp.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') hover = true; });
+            grp.addEventListener('pointerleave', () => { hover = false; });
+            grp.addEventListener('focusin', () => { hover = true; });
+            grp.addEventListener('focusout', () => { hover = false; });
+
+            if ('ResizeObserver' in window) new ResizeObserver(resize).observe(cv); else window.addEventListener('resize', resize);
             resize();
 
-            // animate only while on screen (single rAF loop at a time)
+            // animate only while on screen (one rAF loop at a time)
             new IntersectionObserver(([e]) => {
                 running = e.isIntersecting;
-                if (running && !raf && !reduce) raf = requestAnimationFrame(draw);
+                if (running && !raf && !reduce) { last = 0; raf = requestAnimationFrame(loop); }
             }, { threshold: 0.1 }).observe(sec);
-
-            // phase buttons
-            const bgs = { dawn: '.sc-dawn', noon: '.sc-noon', dusk: '.sc-dusk', night: '.sc-night' };
-            sec.querySelectorAll('.sc-btn').forEach(btn => btn.addEventListener('click', () => {
-                const p = btn.dataset.phase;
-                target = PHASES[p].sun; tint = PHASES[p].tint;
-                sec.querySelectorAll('.sc-bg').forEach(b => b.classList.remove('is-on'));
-                sec.querySelector(bgs[p]).classList.add('is-on');
-                sec.querySelectorAll('.sc-btn').forEach(b => {
-                    const on = b === btn;
-                    b.classList.toggle('is-active', on);
-                    b.setAttribute('aria-pressed', on ? 'true' : 'false');
-                });
-                if (reduce) { cur = target; draw(); }   // no easing under reduced motion: snap to the new phase
-            }));
         })();
 
         // Counter Animation using IntersectionObserver
