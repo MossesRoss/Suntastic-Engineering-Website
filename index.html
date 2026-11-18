@@ -271,6 +271,419 @@
             background-image: radial-gradient(rgba(15, 23, 42, 0.055) 1px, transparent 1px);
             background-size: 24px 24px;
         }
+
+        /* =====================================================
+           HERO HALL OF FAME PANEL (xl and up, right of headline)
+           Sun-ring centerpiece + floating achievement cards
+           ===================================================== */
+        .hof-panel {
+            overflow: hidden;
+            border-radius: 28px;
+            background: linear-gradient(160deg, #111B33 0%, #0B1224 58%, #1B1406 135%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 34px 60px -24px rgba(15, 23, 42, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.10);
+            isolation: isolate;
+        }
+
+        /* Cursor-follow amber glow */
+        .hof-panel::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(280px circle at var(--mx, 50%) var(--my, 50%), rgba(245, 158, 11, 0.14), transparent 62%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .hof-panel:hover::after {
+            opacity: 1;
+        }
+
+        .hof-grid {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+            background-size: 18px 18px;
+            -webkit-mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 78%);
+            mask-image: radial-gradient(ellipse at 50% 40%, #000 30%, transparent 78%);
+        }
+
+        .hof-glow {
+            position: absolute;
+            left: 50%;
+            top: 171px;
+            width: 330px;
+            height: 330px;
+            margin: -165px 0 0 -165px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.34) 0%, rgba(245, 158, 11, 0.10) 42%, transparent 70%);
+            filter: blur(6px);
+            animation: hofGlow 4.5s ease-in-out infinite;
+        }
+
+        .hof-head {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 3;
+        }
+
+        .hof-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #FDE68A;
+            background: rgba(245, 158, 11, 0.14);
+            border: 1px solid rgba(251, 191, 36, 0.35);
+        }
+
+        .hof-title i {
+            color: #FBBF24;
+            font-size: 11px;
+        }
+
+        .hof-live {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #FBBF24;
+            box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+            animation: hofPing 2s ease-out infinite;
+        }
+
+        .hof-region {
+            font-size: 10.5px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: #94A3B8;
+        }
+
+        /* Ring stage */
+        .hof-stage {
+            position: absolute;
+            left: 50%;
+            top: 56px;
+            width: 230px;
+            height: 230px;
+            margin-left: -115px;
+            z-index: 2;
+        }
+
+        .hof-radar {
+            position: absolute;
+            inset: 10px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, rgba(245, 158, 11, 0) 0deg, rgba(245, 158, 11, 0) 240deg, rgba(251, 191, 36, 0.5) 360deg);
+            animation: hofSpin 5s linear infinite;
+        }
+
+        .hof-ring {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hof-ring-a {
+            animation: hofSpin 38s linear infinite;
+            filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.75));
+        }
+
+        .hof-ring-b {
+            animation: hofSpin 26s linear infinite reverse;
+        }
+
+        .hof-core {
+            position: absolute;
+            inset: 35px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at 50% 30%, #17234A 0%, #0A1122 75%);
+            border: 1px solid rgba(245, 158, 11, 0.38);
+            box-shadow: inset 0 0 26px rgba(245, 158, 11, 0.14), 0 0 34px rgba(245, 158, 11, 0.20);
+        }
+
+        .hof-num {
+            font-size: 34px;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            font-variant-numeric: tabular-nums;
+            background: linear-gradient(180deg, #FFFFFF 10%, #FCD34D 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .hof-num-label {
+            margin-top: 7px;
+            font-size: 9.5px;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #CBD5E1;
+        }
+
+        .hof-num-sub {
+            margin-top: 2px;
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #64748B;
+        }
+
+        /* Floating pills beside the ring */
+        .hof-pill {
+            position: absolute;
+            z-index: 3;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(8px);
+            white-space: nowrap;
+        }
+
+        .hof-pill i {
+            color: #FBBF24;
+            font-size: 11px;
+        }
+
+        .hof-pill-l {
+            left: 12px;
+            top: 78px;
+        }
+
+        .hof-pill-r {
+            right: 12px;
+            top: 252px;
+        }
+
+        /* Achievement card stack */
+        .hof-stack {
+            position: absolute;
+            left: 14px;
+            right: 14px;
+            bottom: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 3;
+        }
+
+        .hof-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .hof-card {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+
+        .hof-card:hover {
+            border-color: rgba(251, 191, 36, 0.5);
+            background: rgba(255, 255, 255, 0.09);
+        }
+
+        /* Shine sweep */
+        .hof-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 32%, rgba(255, 255, 255, 0.20) 50%, transparent 68%);
+            transform: translateX(-120%);
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            pointer-events: none;
+        }
+
+        .hof-card:hover::after {
+            transform: translateX(120%);
+        }
+
+        .hof-card-gold {
+            padding: 12px 14px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.30), rgba(217, 119, 6, 0.10));
+            border-color: rgba(251, 191, 36, 0.55);
+            box-shadow: 0 12px 30px -12px rgba(245, 158, 11, 0.6);
+        }
+
+        .hof-card-gold::after {
+            transition: none;
+            animation: hofShine 6s ease-in-out 1.8s infinite;
+        }
+
+        .hof-card-gold:hover::after {
+            transform: none;
+        }
+
+        .hof-ic {
+            flex: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 9px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #FBBF24;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+        }
+
+        .hof-card-gold .hof-ic {
+            width: 36px;
+            height: 36px;
+            border-radius: 11px;
+            font-size: 16px;
+            color: #0F172A;
+            background: linear-gradient(135deg, #FDE68A, #F59E0B 55%, #D97706);
+            border: none;
+            box-shadow: 0 6px 16px -4px rgba(245, 158, 11, 0.7);
+        }
+
+        .hof-txt {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .hof-txt strong {
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .hof-card-gold .hof-txt strong {
+            font-size: 14.5px;
+            font-weight: 700;
+        }
+
+        .hof-txt small {
+            font-size: 10px;
+            line-height: 1.2;
+            color: #94A3B8;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Entrance + float (the float starts after the entrance ends) */
+        .hof-anim {
+            animation: hofRise 0.8s cubic-bezier(0.22, 1, 0.36, 1) both var(--d, 0s),
+                hofFloat 6s ease-in-out infinite alternate calc(var(--d, 0s) + 0.8s);
+        }
+
+        @keyframes hofRise {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes hofFloat {
+            from {
+                transform: translateY(0);
+            }
+
+            to {
+                transform: translateY(-4px);
+            }
+        }
+
+        @keyframes hofSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes hofGlow {
+
+            0%,
+            100% {
+                opacity: 0.75;
+                transform: scale(0.96);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.04);
+            }
+        }
+
+        @keyframes hofPing {
+            0% {
+                box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+            }
+
+            100% {
+                box-shadow: 0 0 0 8px rgba(251, 191, 36, 0);
+            }
+        }
+
+        @keyframes hofShine {
+
+            0%,
+            55% {
+                transform: translateX(-120%);
+            }
+
+            100% {
+                transform: translateX(120%);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .hof-panel *,
+            .hof-panel *::after {
+                animation: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -415,6 +828,95 @@
                         <span>Explore Commercial & Industrial EPC</span>
                         <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
                     </a>
+                </div>
+
+                <!-- Compact achievement chips (below xl, where the panel does not fit) -->
+                <div class="xl:hidden mt-8 flex flex-wrap gap-2.5">
+                    <span
+                        class="inline-flex items-center gap-2 rounded-full bg-slate-900 text-white px-3.5 py-2 text-xs font-semibold shadow-sm">
+                        <i class="fa-solid fa-trophy text-amber-400"></i> No.1 EPC Contractor
+                    </span>
+                    <span
+                        class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white text-slate-700 px-3.5 py-2 text-xs font-semibold shadow-sm">
+                        <i class="fa-solid fa-solar-panel text-amber-500"></i> 25,000+ Installations
+                    </span>
+                    <span
+                        class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white text-slate-700 px-3.5 py-2 text-xs font-semibold shadow-sm">
+                        <i class="fa-solid fa-shield-halved text-amber-500"></i> MES 'S' Class
+                    </span>
+                    <span
+                        class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white text-slate-700 px-3.5 py-2 text-xs font-semibold shadow-sm">
+                        <i class="fa-solid fa-star text-amber-500"></i> 4.9 Google Rating
+                    </span>
+                </div>
+
+                <!-- HALL OF FAME PANEL (xl and up): sits in the empty space right of the headline.
+                     It lives inside the pinned header, so the image curtain slides over it too. -->
+                <div id="hof-panel" role="group" aria-label="Suntastic Engineering achievements"
+                    class="hof-panel hidden xl:block absolute left-full top-[-56px] ml-4 w-[420px] h-[430px]">
+                    <div class="hof-grid" aria-hidden="true"></div>
+                    <div class="hof-glow" aria-hidden="true"></div>
+
+                    <div class="hof-head">
+                        <span class="hof-title"><i class="fa-solid fa-award"></i> Hall of Fame</span>
+                        <span class="hof-region"><span class="hof-live inline-block align-middle mr-1.5"></span>Tamil
+                            Nadu &nbsp;•&nbsp; Kerala</span>
+                    </div>
+
+                    <!-- Sun-ring centerpiece (echoes the dashed rings in the Suntastic logo) -->
+                    <div class="hof-stage">
+                        <div class="hof-radar" aria-hidden="true"></div>
+                        <svg class="hof-ring hof-ring-a" viewBox="0 0 200 200" aria-hidden="true">
+                            <circle cx="100" cy="100" r="94" fill="none" stroke="#F59E0B" stroke-width="1.6"
+                                stroke-dasharray="10 7" stroke-linecap="round" opacity="0.9" />
+                            <circle cx="100" cy="6" r="4.5" fill="#FBBF24" />
+                        </svg>
+                        <svg class="hof-ring hof-ring-b" viewBox="0 0 200 200" aria-hidden="true">
+                            <circle cx="100" cy="100" r="82" fill="none" stroke="rgba(255,255,255,0.30)"
+                                stroke-width="1.2" stroke-dasharray="2 6" stroke-linecap="round" />
+                            <circle cx="18" cy="100" r="3" fill="#FFFFFF" />
+                        </svg>
+                        <div class="hof-core">
+                            <span class="hof-num"><span class="counter" data-target="25000">0</span>+</span>
+                            <span class="hof-num-label">Installations</span>
+                            <span class="hof-num-sub">Completed</span>
+                        </div>
+                    </div>
+
+                    <!-- Floating pills -->
+                    <div class="hof-pill hof-pill-l hof-anim" style="--d:.45s">
+                        <i class="fa-solid fa-star"></i> 4.9 Google Rating
+                    </div>
+                    <div class="hof-pill hof-pill-r hof-anim" style="--d:.6s">
+                        <i class="fa-solid fa-solar-panel"></i> 10+ MWp Installed
+                    </div>
+
+                    <!-- Achievement cards -->
+                    <div class="hof-stack">
+                        <div class="hof-card hof-card-gold hof-anim" style="--d:.75s">
+                            <span class="hof-ic"><i class="fa-solid fa-trophy"></i></span>
+                            <span class="hof-txt">
+                                <strong>No.1 EPC Contractor</strong>
+                                <small>Rooftop &amp; Industrial Solar</small>
+                            </span>
+                        </div>
+                        <div class="hof-row">
+                            <div class="hof-card hof-anim" style="--d:.9s">
+                                <span class="hof-ic"><i class="fa-solid fa-shield-halved"></i></span>
+                                <span class="hof-txt">
+                                    <strong>MES 'S' Class</strong>
+                                    <small>Military Engineer Services</small>
+                                </span>
+                            </div>
+                            <div class="hof-card hof-anim" style="--d:1.05s">
+                                <span class="hof-ic"><i class="fa-solid fa-bolt"></i></span>
+                                <span class="hof-txt">
+                                    <strong>MNRE &bull; TANGEDCO</strong>
+                                    <small>Empanelled Contractor</small>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1475,6 +1977,17 @@
                 const clone = item.cloneNode(true);
                 clone.setAttribute('aria-hidden', 'true');
                 track.appendChild(clone);
+            });
+        })();
+
+        // Hall of Fame panel: cursor-follow glow
+        (function () {
+            const panel = document.getElementById('hof-panel');
+            if (!panel) return;
+            panel.addEventListener('mousemove', e => {
+                const rect = panel.getBoundingClientRect();
+                panel.style.setProperty('--mx', `${e.clientX - rect.left}px`);
+                panel.style.setProperty('--my', `${e.clientY - rect.top}px`);
             });
         })();
 
