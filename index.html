@@ -103,25 +103,90 @@
             display: none;
         }
 
-        /* Auto-Scrolling Client Logo Treadmill (Marquee) */
-        @keyframes clientTreadmill {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
+        /* Client Logo Strip: real scroll container (drag / swipe / wheel) + JS auto-drift */
         .client-marquee-track {
             display: flex;
             width: max-content;
-            animation: clientTreadmill 50s linear infinite;
         }
 
-        .client-marquee-wrapper:hover .client-marquee-track {
-            animation-play-state: paused;
+        .no-scrollbar {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        #client-scroller {
+            overscroll-behavior-x: contain;
+            overflow-y: hidden;
+            touch-action: pan-x pan-y;
+        }
+
+        #client-scroller.is-dragging {
+            cursor: grabbing !important;
+        }
+
+        #client-scroller:focus-visible {
+            outline: 2px solid #F59E0B;
+            outline-offset: 2px;
+        }
+
+        /* Sun-Cycle Showpiece Section */
+        .sc-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+
+        .sc-bg.is-on {
+            opacity: 1;
+        }
+
+        .sc-dawn {
+            background: linear-gradient(180deg, #1e1b4b 0%, #7c3aed 50%, #f59e0b 100%);
+        }
+
+        .sc-noon {
+            background: linear-gradient(180deg, #0f2a5c 0%, #2563eb 55%, #fbbf24 120%);
+        }
+
+        .sc-dusk {
+            background: linear-gradient(180deg, #3b0764 0%, #be185d 50%, #f97316 100%);
+        }
+
+        .sc-night {
+            background: linear-gradient(180deg, #020617 0%, #0f172a 60%, #1e293b 100%);
+        }
+
+        .sc-btn {
+            padding: .55rem 1.1rem;
+            border-radius: 999px;
+            font-size: .8rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, .35);
+            color: #fff;
+            background: rgba(15, 23, 42, .5);
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+            transition: background-color .25s, color .25s, border-color .25s;
+        }
+
+        .sc-btn:hover {
+            background: rgba(15, 23, 42, .7);
+        }
+
+        .sc-btn:focus-visible {
+            outline: 2px solid #fff;
+            outline-offset: 2px;
+        }
+
+        .sc-btn.is-active {
+            background: #fff;
+            border-color: #fff;
+            color: #0F172A;
         }
 
         /* Optical Normalization for Client Logos */
@@ -1150,7 +1215,53 @@
         </div>
     </section>
 
-    <!-- 5. INSTITUTIONAL TRUST & PROOF: Auto-Scrolling Single-Row Client Logo Treadmill -->
+    <!-- 4b. SUN-CYCLE SHOWPIECE: stats + time-of-day toggle + dotted generation ribbon -->
+    <section id="sun-cycle" class="relative overflow-hidden text-white bg-[#0F172A]">
+        <div class="sc-bg sc-dawn" aria-hidden="true"></div>
+        <div class="sc-bg sc-noon is-on" aria-hidden="true"></div>
+        <div class="sc-bg sc-dusk" aria-hidden="true"></div>
+        <div class="sc-bg sc-night" aria-hidden="true"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-24">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[#FBBF24] mb-3">Performance</p>
+            <h2 class="text-3xl sm:text-5xl font-semibold tracking-tight max-w-2xl">Built around the sun. Engineered
+                for every hour of it.</h2>
+
+            <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-8 border-t border-white/20 pt-8">
+                <div>
+                    <div class="text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter"
+                            data-target="25000">0</span>+</div>
+                    <div class="mt-1 text-sm text-white/75">installations completed</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter"
+                            data-target="25">0</span> yrs</div>
+                    <div class="mt-1 text-sm text-white/75">performance warranty</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-semibold tabular-nums">₹<span class="counter"
+                            data-target="100000">0</span></div>
+                    <div class="mt-1 text-sm text-white/75">maximum subsidy</div>
+                </div>
+                <div>
+                    <div class="text-3xl sm:text-4xl font-semibold tabular-nums"><span class="counter"
+                            data-target="4.9" data-decimals="1">0.0</span>★</div>
+                    <div class="mt-1 text-sm text-white/75">Google rating</div>
+                </div>
+            </div>
+
+            <canvas id="sun-canvas" class="w-full h-[260px] sm:h-[380px] mt-6" aria-hidden="true"></canvas>
+
+            <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Time of day">
+                <button type="button" data-phase="dawn" aria-pressed="false" class="sc-btn">Dawn</button>
+                <button type="button" data-phase="noon" aria-pressed="true" class="sc-btn is-active">Noon</button>
+                <button type="button" data-phase="dusk" aria-pressed="false" class="sc-btn">Dusk</button>
+                <button type="button" data-phase="night" aria-pressed="false" class="sc-btn">Night</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. INSTITUTIONAL TRUST & PROOF: Scrollable Single-Row Client Logo Strip (auto-drift, drag / swipe / wheel) -->
     <section id="proof" class="py-20 bg-white border-b border-slate-200 overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="text-center mb-12">
@@ -1163,7 +1274,7 @@
             </div>
         </div>
 
-        <!-- Single-Row Infinite Auto-Scrolling Treadmill (Optically Unified) -->
+        <!-- Single-Row Infinite Strip (Optically Unified): real scroll container, JS-driven drift -->
         <div class="relative client-marquee-wrapper max-w-7xl mx-auto" aria-label="Suntastic Engineering client logos">
 
             <!-- Subtle Left & Right Edge Fade Masks -->
@@ -1174,7 +1285,8 @@
                 class="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-white to-transparent z-10">
             </div>
 
-            <div class="overflow-hidden py-3">
+            <div id="client-scroller" class="overflow-x-auto py-3 no-scrollbar cursor-grab select-none" tabindex="0"
+                role="region" aria-label="Client logos, scrollable">
                 <div id="client-marquee-track" class="client-marquee-track gap-6 px-3"></div>
             </div>
         </div>
@@ -1895,10 +2007,12 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Client Logo Treadmill: build from /images/Clients, then duplicate for seamless loop
+        // Client Logo Strip: build from /images/Clients, 3 copies for a seamless two-way loop,
+        // real scrolling (drag / swipe / wheel / keyboard) with a gentle JS auto-drift
         (function () {
             const track = document.getElementById('client-marquee-track');
-            if (!track) return;
+            const scroller = document.getElementById('client-scroller');
+            if (!track || !scroller) return;
 
             const base = 'images/Clients/';
             const clients = [
@@ -1922,21 +2036,119 @@
                 ['Sri_Lakshmi.jpg', 'Sri Lakshmi']
             ];
 
-            clients.forEach(([file, alt]) => {
+            // Missing logo: hide that card in every copy so the three sets stay identical
+            track.addEventListener('error', e => {
+                const card = e.target.closest && e.target.closest('.client-logo-card');
+                if (!card) return;
+                track.querySelectorAll('[data-i="' + card.dataset.i + '"]').forEach(c => { c.style.display = 'none'; });
+                measure();
+            }, true);
+
+            clients.forEach(([file, alt], i) => {
                 const card = document.createElement('div');
+                card.dataset.i = i;
                 card.className = 'client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-slate-200/90 bg-white shadow-sm';
-                card.innerHTML = `<img src="${base}${file}" alt="${alt} logo" loading="lazy" decoding="async"
-            onerror="this.closest('.client-logo-card').style.display='none'"
+                card.innerHTML = `<img src="${base}${file}" alt="${alt} logo" loading="lazy" decoding="async" draggable="false"
             class="max-h-[72px] w-full max-w-[195px] object-contain">`;
                 track.appendChild(card);
             });
 
-            // Duplicate for the infinite loop
-            Array.from(track.children).forEach(item => {
-                const clone = item.cloneNode(true);
-                clone.setAttribute('aria-hidden', 'true');
-                track.appendChild(clone);
+            // 3 sets (original + 2 clones) so we can loop in both directions
+            const originals = Array.from(track.children);
+            for (let k = 0; k < 2; k++) {
+                originals.forEach(el => {
+                    const c = el.cloneNode(true);
+                    c.setAttribute('aria-hidden', 'true');
+                    track.appendChild(c);
+                });
+            }
+
+            const SPEED = matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 40; // px per second
+            let loop = 0, pos = 0, paused = false, dragging = false, inView = true, resumeTimer, last = 0;
+
+            // Width of one full set of logos (distance between a card and its clone in the next set)
+            function measure() {
+                const first = originals.find(el => el.offsetParent !== null);
+                if (!first) return;
+                const clone = track.children[originals.length + originals.indexOf(first)];
+                const newLoop = clone.offsetLeft - first.offsetLeft;
+                if (newLoop <= 0) return;
+                const frac = loop ? (pos % loop) / loop : 0;   // keep the same visual spot if the width changed
+                loop = newLoop;
+                pos = loop + frac * loop;
+                scroller.scrollLeft = pos;
+            }
+            measure();
+            window.addEventListener('load', measure);              // lazy images / Tailwind CDN styles settled
+            window.addEventListener('resize', measure);
+            if ('ResizeObserver' in window) new ResizeObserver(measure).observe(track);
+
+            // Keep the viewport inside the middle copy; wrapping is invisible because the sets are identical
+            function wrap(v) {
+                if (!loop) return v;
+                if (v < loop) return v + loop;
+                if (v >= loop * 2) return v - loop;
+                return v;
+            }
+
+            function tick(now) {
+                const dt = Math.min((now - (last || now)) / 1000, 0.05);
+                last = now;
+                if (!paused && !dragging && inView && SPEED && loop) {
+                    pos = wrap(pos + SPEED * dt);   // pos stays fractional; scrollLeft may round
+                    scroller.scrollLeft = pos;
+                }
+                requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+
+            // User-driven scrolling (touch, wheel, trackpad, keyboard, drag): wrap and adopt the new position
+            scroller.addEventListener('scroll', () => {
+                if (!paused && !dragging) return;
+                const w = wrap(scroller.scrollLeft);
+                if (w !== scroller.scrollLeft) scroller.scrollLeft = w;
+                pos = w;
             });
+
+            if ('IntersectionObserver' in window) {
+                new IntersectionObserver(([e]) => { inView = e.isIntersecting; }, { threshold: 0 }).observe(scroller);
+            }
+
+            const pause = () => { paused = true; clearTimeout(resumeTimer); };
+            const resume = (ms = 0) => {
+                clearTimeout(resumeTimer);
+                resumeTimer = setTimeout(() => { pos = scroller.scrollLeft; paused = false; }, ms);
+            };
+
+            // Mouse hover only (a tap on touch devices must not leave it paused forever)
+            scroller.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') pause(); });
+            scroller.addEventListener('pointerleave', e => { if (e.pointerType === 'mouse') resume(300); });
+            scroller.addEventListener('touchstart', pause, { passive: true });
+            scroller.addEventListener('touchend', () => resume(2000), { passive: true });
+            scroller.addEventListener('touchcancel', () => resume(2000), { passive: true });
+            scroller.addEventListener('wheel', () => { pause(); resume(2000); }, { passive: true });
+            scroller.addEventListener('focusin', pause);
+            scroller.addEventListener('focusout', () => resume(1000));
+
+            // Click-and-drag for mouse (touch already scrolls natively)
+            let startX = 0, startLeft = 0;
+            scroller.addEventListener('pointerdown', e => {
+                if (e.pointerType !== 'mouse' || e.button !== 0) return;
+                dragging = true;
+                startX = e.clientX;
+                startLeft = scroller.scrollLeft;
+                scroller.setPointerCapture(e.pointerId);
+                scroller.classList.add('is-dragging');
+            });
+            scroller.addEventListener('pointermove', e => {
+                if (dragging) scroller.scrollLeft = startLeft - (e.clientX - startX);
+            });
+            ['pointerup', 'pointercancel'].forEach(ev => scroller.addEventListener(ev, () => {
+                if (!dragging) return;
+                dragging = false;
+                pos = scroller.scrollLeft;
+                scroller.classList.remove('is-dragging');
+            }));
         })();
 
         // Hall of Fame panel: cursor-follow glow
@@ -2337,6 +2549,81 @@
                 form.reset();
             }, 400);
         }
+
+        // Sun-Cycle ribbon: dotted solar-generation curve + time-of-day toggle
+        (function () {
+            const sec = document.getElementById('sun-cycle');
+            const cv = document.getElementById('sun-canvas');
+            if (!sec || !cv) return;
+            const ctx = cv.getContext('2d');
+            const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            const PHASES = {
+                dawn: { sun: 0.25, tint: '#FDBA74' },
+                noon: { sun: 1.00, tint: '#FDE68A' },
+                dusk: { sun: 0.40, tint: '#FDA4AF' },
+                night: { sun: 0.03, tint: '#94A3B8' }
+            };
+            let target = PHASES.noon.sun, cur = target, tint = PHASES.noon.tint;
+            const N = 120;
+            let W = 0, H = 0, t = 0, running = false, raf = 0;
+
+            function resize() {
+                const dpr = window.devicePixelRatio || 1;
+                W = cv.clientWidth; H = cv.clientHeight;
+                cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                if (!running) draw();   // keep a static frame correct (e.g. reduced motion / off-screen)
+            }
+
+            function draw() {
+                raf = 0;
+                if (!W || !H) return;
+                cur += (target - cur) * 0.06;          // ease toward the chosen phase
+                t += 0.008;
+                ctx.clearRect(0, 0, W, H);
+                ctx.lineWidth = 1;
+                for (let i = 0; i < N; i++) {
+                    const u = i / (N - 1);
+                    const x = W * (0.06 + 0.88 * u);
+                    const depth = Math.sin(u * Math.PI * 2 + t) * 0.5 + 0.5;       // 0..1 fake 3D depth
+                    const baseY = H * 0.55 + depth * H * 0.25;
+                    const bell = Math.exp(-Math.pow((u - 0.5) / 0.22, 2));        // generation curve
+                    const h = (bell * cur + 0.04 + 0.02 * Math.sin(u * 20 + t * 3)) * H * 0.5;
+                    const a = 0.25 + 0.6 * depth;
+                    ctx.strokeStyle = 'rgba(255,255,255,' + (a * 0.35) + ')';
+                    ctx.beginPath(); ctx.moveTo(x, baseY); ctx.lineTo(x, baseY - h); ctx.stroke();
+                    ctx.globalAlpha = a; ctx.fillStyle = tint;
+                    ctx.beginPath(); ctx.arc(x, baseY - h, 1.8 + depth * 1.4, 0, Math.PI * 2); ctx.fill();
+                    ctx.globalAlpha = 1;
+                }
+                if (running && !reduce) raf = requestAnimationFrame(draw);
+            }
+
+            window.addEventListener('resize', resize);
+            resize();
+
+            // animate only while on screen (single rAF loop at a time)
+            new IntersectionObserver(([e]) => {
+                running = e.isIntersecting;
+                if (running && !raf && !reduce) raf = requestAnimationFrame(draw);
+            }, { threshold: 0.1 }).observe(sec);
+
+            // phase buttons
+            const bgs = { dawn: '.sc-dawn', noon: '.sc-noon', dusk: '.sc-dusk', night: '.sc-night' };
+            sec.querySelectorAll('.sc-btn').forEach(btn => btn.addEventListener('click', () => {
+                const p = btn.dataset.phase;
+                target = PHASES[p].sun; tint = PHASES[p].tint;
+                sec.querySelectorAll('.sc-bg').forEach(b => b.classList.remove('is-on'));
+                sec.querySelector(bgs[p]).classList.add('is-on');
+                sec.querySelectorAll('.sc-btn').forEach(b => {
+                    const on = b === btn;
+                    b.classList.toggle('is-active', on);
+                    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+                });
+                if (reduce) { cur = target; draw(); }   // no easing under reduced motion: snap to the new phase
+            }));
+        })();
 
         // Counter Animation using IntersectionObserver
         const counters = document.querySelectorAll('.counter');
