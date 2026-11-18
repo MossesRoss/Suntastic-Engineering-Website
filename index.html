@@ -278,10 +278,11 @@
            ===================================================== */
         .hof-panel {
             overflow: hidden;
-            border-radius: 28px;
+            border-radius: 26px;
             background: linear-gradient(160deg, #111B33 0%, #0B1224 58%, #1B1406 135%);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 34px 60px -24px rgba(15, 23, 42, 0.5), 0 0 0 1px rgba(245, 158, 11, 0.10);
+            /* Contained ambient elevation so shadow never bleeds excessively downward */
+            box-shadow: 0 20px 38px -16px rgba(15, 23, 42, 0.35), 0 0 0 1px rgba(245, 158, 11, 0.12);
             isolation: isolate;
         }
 
@@ -313,12 +314,12 @@
         .hof-glow {
             position: absolute;
             left: 50%;
-            top: 171px;
-            width: 330px;
-            height: 330px;
-            margin: -165px 0 0 -165px;
+            top: 150px;
+            width: 300px;
+            height: 300px;
+            margin: -150px 0 0 -150px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.34) 0%, rgba(245, 158, 11, 0.10) 42%, transparent 70%);
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.32) 0%, rgba(245, 158, 11, 0.09) 42%, transparent 70%);
             filter: blur(6px);
             animation: hofGlow 4.5s ease-in-out infinite;
         }
@@ -364,20 +365,28 @@
         }
 
         .hof-region {
-            font-size: 10.5px;
-            font-weight: 500;
-            letter-spacing: 0.08em;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
             color: #94A3B8;
         }
 
-        /* Ring stage */
+        /* Ring stage — proportioned with a balanced 18px breathing gap above the gold card */
         .hof-stage {
             position: absolute;
             left: 50%;
-            top: 56px;
-            width: 230px;
-            height: 230px;
-            margin-left: -115px;
+            top: 54px;
+            width: 196px;
+            height: 196px;
+            margin-left: -98px;
             z-index: 2;
         }
 
@@ -407,7 +416,7 @@
 
         .hof-core {
             position: absolute;
-            inset: 35px;
+            inset: 28px;
             border-radius: 50%;
             display: flex;
             flex-direction: column;
@@ -420,7 +429,7 @@
         }
 
         .hof-num {
-            font-size: 34px;
+            font-size: 30px;
             font-weight: 700;
             line-height: 1;
             letter-spacing: -0.02em;
@@ -448,40 +457,6 @@
             letter-spacing: 0.14em;
             text-transform: uppercase;
             color: #64748B;
-        }
-
-        /* Floating pills beside the ring */
-        .hof-pill {
-            position: absolute;
-            z-index: 3;
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-            padding: 7px 12px;
-            border-radius: 999px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            -webkit-backdrop-filter: blur(8px);
-            backdrop-filter: blur(8px);
-            white-space: nowrap;
-        }
-
-        .hof-pill i {
-            color: #FBBF24;
-            font-size: 11px;
-        }
-
-        .hof-pill-l {
-            left: 12px;
-            top: 78px;
-        }
-
-        .hof-pill-r {
-            right: 12px;
-            top: 252px;
         }
 
         /* Achievement card stack */
@@ -797,12 +772,11 @@
     </header>
 
     <!-- 2. HERO SECTION: Architectural Daylight & Auto-Scrolling Showcase -->
-    <section class="pt-16 pb-12 lg:pt-24 lg:pb-16 bg-white relative architectural-grid-bg">
+    <section class="pt-16 pb-12 lg:pt-24 lg:pb-16 bg-white relative architectural-grid-bg overflow-x-clip">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-            <!-- Editorial Header Block (Pinned while the image slides above on scroll) -->
-            <div id="hero-pinned-header"
-                class="max-w-3xl sticky top-28 lg:top-36 z-0 transition-transform duration-300 will-change-transform">
+            <!-- Editorial Header Block (Pinned while the image slides above on scroll, then smoothly masked) -->
+            <div id="hero-pinned-header" class="max-w-3xl sticky top-28 lg:top-36 z-0 will-change-[transform,opacity]">
                 <p
                     class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-600 mb-4 flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span>
@@ -844,23 +818,16 @@
                         class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white text-slate-700 px-3.5 py-2 text-xs font-semibold shadow-sm">
                         <i class="fa-solid fa-shield-halved text-amber-500"></i> MES 'S' Class
                     </span>
-                    <span
-                        class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white text-slate-700 px-3.5 py-2 text-xs font-semibold shadow-sm">
-                        <i class="fa-solid fa-star text-amber-500"></i> 4.9 Google Rating
-                    </span>
                 </div>
 
-                <!-- HALL OF FAME PANEL (xl and up): sits in the empty space right of the headline.
-                     It lives inside the pinned header, so the image curtain slides over it too. -->
+                <!-- HALL OF FAME PANEL (xl and up): aligned to the right container edge with clean breathing room -->
                 <div id="hof-panel" role="group" aria-label="Suntastic Engineering achievements"
-                    class="hof-panel hidden xl:block absolute left-full top-[-56px] ml-4 w-[420px] h-[430px]">
+                    class="hof-panel hidden xl:block absolute left-full bottom-0 ml-7 w-[420px] h-[404px]">
                     <div class="hof-grid" aria-hidden="true"></div>
                     <div class="hof-glow" aria-hidden="true"></div>
 
                     <div class="hof-head">
                         <span class="hof-title"><i class="fa-solid fa-award"></i> Hall of Fame</span>
-                        <span class="hof-region"><span class="hof-live inline-block align-middle mr-1.5"></span>Tamil
-                            Nadu &nbsp;•&nbsp; Kerala</span>
                     </div>
 
                     <!-- Sun-ring centerpiece (echoes the dashed rings in the Suntastic logo) -->
@@ -881,14 +848,6 @@
                             <span class="hof-num-label">Installations</span>
                             <span class="hof-num-sub">Completed</span>
                         </div>
-                    </div>
-
-                    <!-- Floating pills -->
-                    <div class="hof-pill hof-pill-l hof-anim" style="--d:.45s">
-                        <i class="fa-solid fa-star"></i> 4.9 Google Rating
-                    </div>
-                    <div class="hof-pill hof-pill-r hof-anim" style="--d:.6s">
-                        <i class="fa-solid fa-solar-panel"></i> 10+ MWp Installed
                     </div>
 
                     <!-- Achievement cards -->
@@ -922,7 +881,7 @@
 
             <!-- Slide-Over Curtain Container (Slides up over the hero text on scroll) -->
             <div id="hero-curtain"
-                class="mt-14 relative z-10 bg-white rounded-2xl shadow-[0_-24px_32px_12px_#ffffff] will-change-transform">
+                class="mt-14 relative z-10 bg-white rounded-t-2xl shadow-[0_-24px_32px_12px_#ffffff] will-change-transform">
 
                 <!-- Auto-Scrolling Architectural Visual Frame (3 Slides + Synchronized Dynamic Text) -->
                 <div id="hero-carousel"
@@ -1989,6 +1948,41 @@
                 panel.style.setProperty('--mx', `${e.clientX - rect.left}px`);
                 panel.style.setProperty('--my', `${e.clientY - rect.top}px`);
             });
+        })();
+
+        // Hero Pinned Header & Hall of Fame Curtain Occlusion Fix:
+        // Smoothly fades out #hero-pinned-header (and #hof-panel) as #hero-curtain slides over it,
+        // preventing the sticky header or Hall of Fame drop-shadow from peeking out underneath the Quiet Proof Bar.
+        (function () {
+            const pinnedHeader = document.getElementById('hero-pinned-header');
+            const curtain = document.getElementById('hero-curtain');
+            if (!pinnedHeader || !curtain) return;
+
+            function syncHeroCurtainMask() {
+                const headerRect = pinnedHeader.getBoundingClientRect();
+                const curtainRect = curtain.getBoundingClientRect();
+
+                // Calculate how much of the pinned header is covered by the rising curtain
+                const headerHeight = Math.max(headerRect.height, 1);
+                const overlapPx = headerRect.bottom - curtainRect.top;
+
+                if (overlapPx <= 0) {
+                    pinnedHeader.style.opacity = '1';
+                    pinnedHeader.style.visibility = 'visible';
+                    pinnedHeader.style.pointerEvents = 'auto';
+                } else {
+                    // Fade completely to 0 before the curtain finishes covering the header
+                    const progress = Math.min(1, overlapPx / (headerHeight * 0.82));
+                    const nextOpacity = Math.max(0, 1 - progress);
+                    pinnedHeader.style.opacity = nextOpacity.toFixed(3);
+                    pinnedHeader.style.visibility = nextOpacity <= 0.01 ? 'hidden' : 'visible';
+                    pinnedHeader.style.pointerEvents = nextOpacity < 0.25 ? 'none' : 'auto';
+                }
+            }
+
+            window.addEventListener('scroll', syncHeroCurtainMask, { passive: true });
+            window.addEventListener('resize', syncHeroCurtainMask);
+            syncHeroCurtainMask();
         })();
 
         // Cursor-Tracked Solar Spotlight Effect on Cards
