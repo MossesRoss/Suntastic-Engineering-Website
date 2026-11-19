@@ -712,6 +712,30 @@
         html { scroll-padding-top: 96px; }
         .hero-dot { height: 26px !important; border-top: 10px solid transparent !important; border-bottom: 10px solid transparent !important; background-clip: padding-box; }
         .wa-float { bottom: max(1.5rem, env(safe-area-inset-bottom)) !important; right: max(1.5rem, env(safe-area-inset-right)) !important; }
+
+        /* Large-screen scale-up (>=1700px wide, e.g. 1920 at 100%): everything grows 25% together,
+           so the page fills the screen the way it does at 125-150% browser zoom.
+           rem-based Tailwind sizes (text, spacing, max-w-7xl) follow the root font size;
+           the fixed-pixel items below are scaled by hand to match. */
+        @media (min-width: 1700px) {
+            html { font-size: 20px; scroll-padding-top: 120px; }
+
+            header img[alt="Suntastic Engineering"] { height: 75px !important; }
+            footer img[alt="Suntastic Engineering"] { height: 67px !important; }
+
+            /* Hall of Fame panel: 420x404 -> 525x505, grows up/right from its bottom-left corner */
+            #hof-panel { transform: scale(1.25); transform-origin: left bottom; }
+
+            /* Active Projects slides */
+            .project-slide, .project-slide-peek-clone { height: 400px !important; width: calc(50% - 15px) !important; }
+
+            /* Sun-cycle canvas */
+            #sun-canvas { height: 575px !important; }
+
+            /* Client logo cards */
+            .client-logo-card { width: 269px !important; min-height: 165px !important; }
+            .client-logo-card img { max-height: 90px !important; max-width: 244px !important; }
+        }
     </style>
 </head>
 
@@ -2104,8 +2128,9 @@
             if (!panel) return;
             panel.addEventListener('mousemove', e => {
                 const rect = panel.getBoundingClientRect();
-                panel.style.setProperty('--mx', `${e.clientX - rect.left}px`);
-                panel.style.setProperty('--my', `${e.clientY - rect.top}px`);
+                const k = rect.width / (panel.offsetWidth || rect.width);
+                panel.style.setProperty('--mx', `${(e.clientX - rect.left) / k}px`);
+                panel.style.setProperty('--my', `${(e.clientY - rect.top) / k}px`);
             });
         })();
 
@@ -2694,6 +2719,7 @@
                         if (decimals > 0) {
                             counter.innerText = currentVal.toFixed(decimals);
                         } else {
+                            counter.innerText = Math.floor(currentVal).toLocaleString('en-IN');
                             counter.innerText = Math.floor(currentVal).toLocaleString('en-IN');
                         }
 
