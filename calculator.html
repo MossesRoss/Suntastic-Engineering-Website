@@ -3,11 +3,27 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <title>Solar Savings & Subsidy Calculator | Suntastic Engineering (Tamil Nadu & Kerala)</title>
+    <!-- SEO Metadata -->
+    <title>Solar Savings &amp; Subsidy Calculator | Suntastic Engineering (Tamil Nadu &amp; Kerala)</title>
     <meta name="description"
         content="Calculate your exact rooftop solar system size, PM Surya Ghar + Tamil Nadu State Subsidy (up to ₹1,00,000), and 25-year ROI based on TANGEDCO and KSEB tariff slabs." />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <link rel="canonical" href="https://suntasticsolarsystems.com/calculator.html" />
+    <meta name="theme-color" content="#1E103C" />
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Solar Savings & Subsidy Calculator | Suntastic Engineering" />
+    <meta property="og:description"
+        content="Calculate your rooftop solar system size, combined subsidy up to ₹1,00,000, and 25-year net return for Tamil Nadu and Kerala." />
+    <meta property="og:url" content="https://suntasticsolarsystems.com/calculator.html" />
+    <meta property="og:site_name" content="Suntastic Engineering" />
+    <meta property="og:image" content="https://suntasticsolarsystems.com/images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <meta name="twitter:card" content="summary" />
 
     <!-- Editorial Minimalist Typography: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,12 +44,19 @@
                         sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
                     },
                     colors: {
-                        alabaster: '#F8FAFC',
-                        obsidian: '#0F172A',
+                        alabaster: '#FDF8FC',
+                        obsidian: '#160B2E',
                         amber: {
                             500: '#F59E0B',
                             600: '#D97706',
                             700: '#B45309',
+                        },
+                        magenta: {
+                            50: '#FDF2F8',
+                            100: '#FCE7F3',
+                            500: '#EC4899',
+                            600: '#DB2777',
+                            700: '#BE185D',
                         }
                     }
                 }
@@ -42,21 +65,55 @@
     </script>
 
     <style>
+        /* Native SPA-Grade Multi-Page View Transitions */
         @view-transition {
             navigation: auto;
         }
 
+        /* Tabular Numerals for Zero-Jitter Financial & Telemetry Readouts */
         .tabular-nums {
             font-variant-numeric: tabular-nums;
         }
 
-        /* Dynamic Gradient Range Slider */
+        details>summary {
+            list-style: none;
+        }
+
+        details>summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Subtle Top Solar-Spectrum Accent Bar on Header (Matches index.html) */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #F59E0B 0%, #F97316 25%, #EC4899 55%, #8B5CF6 80%, #0EA5E9 100%);
+            z-index: 60;
+        }
+
+        /* Luminous Daylight Prism Mesh + Subtle Ambient Grid Pattern (Matches index.html) */
+        .architectural-grid-bg {
+            background-color: #FFFFFF;
+            background-image:
+                radial-gradient(at 8% 12%, rgba(245, 158, 11, 0.13) 0px, transparent 42%),
+                radial-gradient(at 90% 10%, rgba(236, 72, 153, 0.14) 0px, transparent 44%),
+                radial-gradient(at 52% 44%, rgba(139, 92, 246, 0.08) 0px, transparent 48%),
+                radial-gradient(at 85% 65%, rgba(14, 165, 233, 0.09) 0px, transparent 40%),
+                radial-gradient(rgba(190, 24, 93, 0.07) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+        }
+
+        /* Dynamic Sunset Gradient Range Slider */
         input[type=range].minimal-slider {
             -webkit-appearance: none;
             appearance: none;
             width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, #0F172A 0%, #F59E0B var(--slider-pct, 16%), #E2E8F0 var(--slider-pct, 16%), #E2E8F0 100%);
+            height: 7px;
+            background: linear-gradient(90deg, #F97316 0%, #EC4899 var(--slider-pct, 16%), #FCE7F3 var(--slider-pct, 16%), #FCE7F3 100%);
             border-radius: 999px;
             outline: none;
             transition: background 0.1s ease;
@@ -68,17 +125,16 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background: #0F172A;
+            background: linear-gradient(135deg, #F97316, #EC4899);
             cursor: grab;
             border: 3px solid #FFFFFF;
-            box-shadow: 0 3px 10px rgba(15, 23, 42, 0.3), 0 0 0 1px rgba(245, 158, 11, 0.35);
-            transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 4px 12px rgba(219, 39, 119, 0.38), 0 0 0 1px rgba(245, 158, 11, 0.35);
+            transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.15s ease;
         }
 
         input[type=range].minimal-slider::-webkit-slider-thumb:hover {
             transform: scale(1.14);
-            background: #D97706;
-            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+            box-shadow: 0 6px 16px rgba(236, 72, 153, 0.5);
         }
 
         input[type=range].minimal-slider::-webkit-slider-thumb:active {
@@ -86,7 +142,17 @@
             transform: scale(1.06);
         }
 
-        /* Cursor-Tracked Solar Spotlight Card */
+        input[type=range].minimal-slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F97316, #EC4899);
+            cursor: grab;
+            border: 3px solid #FFFFFF;
+            box-shadow: 0 4px 12px rgba(219, 39, 119, 0.38);
+        }
+
+        /* Cursor-Tracked Solar Spectrum Spotlight Card */
         .spotlight-card {
             position: relative;
             overflow: hidden;
@@ -97,8 +163,8 @@
             position: absolute;
             inset: 0;
             background: radial-gradient(640px circle at var(--mouse-x, 50%) var(--mouse-y, 20%),
-                    rgba(245, 158, 11, 0.065),
-                    transparent 45%);
+                    rgba(236, 72, 153, 0.08),
+                    transparent 48%);
             opacity: 0;
             transition: opacity 0.35s ease;
             pointer-events: none;
@@ -109,360 +175,408 @@
             opacity: 1;
         }
 
-        details>summary {
-            list-style: none;
+        /* Mobile / Launch Polish & Safe-Area Fixes */
+        html {
+            scroll-padding-top: 96px;
         }
 
-        details>summary::-webkit-details-marker {
-            display: none;
+        .wa-float {
+            bottom: max(1.5rem, env(safe-area-inset-bottom)) !important;
+            right: max(1.5rem, env(safe-area-inset-right)) !important;
         }
 
-        .architectural-grid-bg {
-            background-image: radial-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px);
-            background-size: 24px 24px;
+        /* Large-screen scale-up (>=1700px wide, matches index.html) */
+        @media (min-width: 1700px) {
+            html {
+                font-size: 20px;
+                scroll-padding-top: 120px;
+            }
+
+            header img[alt="Suntastic Engineering"] {
+                height: 75px !important;
+            }
+
+            footer img[alt="Suntastic Engineering"] {
+                height: 67px !important;
+            }
         }
     </style>
 </head>
 
-<body class="bg-alabaster text-slate-900 font-sans antialiased selection:bg-amber-500 selection:text-white architectural-grid-bg">
+<body class="bg-white text-indigo-950 font-sans antialiased selection:bg-pink-600 selection:text-white">
 
-    <!-- 1. HIGH-CONVERSION NAVIGATION BAR -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/80">
+    <!-- 1. HIGH-CONVERSION NAVIGATION BAR (100% Consistent with index.html) -->
+    <header
+        class="sticky top-0 z-50 bg-white/92 backdrop-blur-xl border-b border-pink-100/90 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
 
-            <!-- Brand Logo -->
+            <!-- Official Suntastic Brand Logo -->
             <a href="index.html" class="flex items-center gap-3 shrink-0">
-                <img src="images/logo.png" alt="Suntastic Engineering" class="h-[54px] w-auto object-contain"
+                <img src="images/logo.png" alt="Suntastic Engineering" class="h-[60px] w-auto object-contain"
                     onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('fallback-logo').style.display='flex';}" />
-                <div id="fallback-logo" class="hidden items-center gap-2">
+                <div id="fallback-logo" class="hidden items-center gap-2.5">
                     <svg class="w-11 h-11 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
                         <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4" stroke-dasharray="12 6" />
-                        <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="3" stroke-dasharray="10 5" />
-                        <circle cx="32" cy="32" r="14" stroke="currentColor" stroke-width="2.5"
-                            stroke-dasharray="8 4" />
+                        <circle cx="32" cy="32" r="20" stroke="#EC4899" stroke-width="3" stroke-dasharray="10 5" />
+                        <circle cx="32" cy="32" r="14" stroke="#8B5CF6" stroke-width="2.5" stroke-dasharray="8 4" />
                     </svg>
-                    <span class="font-bold text-lg tracking-[0.18em] text-slate-900">
-                        SUN TASTIC<sup class="text-[9px] font-semibold ml-0.5">TM</sup>
+                    <span class="font-bold text-xl tracking-wider text-indigo-950">
+                        SUN TASTIC<sup class="text-xs font-semibold ml-0.5 text-pink-600">TM</sup>
                     </span>
                 </div>
             </a>
 
             <!-- Center Navigation -->
-            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600">
-                <a href="index.html" class="hover:text-slate-900 transition whitespace-nowrap">Home</a>
-                <a href="index.html#proof" class="hover:text-slate-900 transition whitespace-nowrap">About Us</a>
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
+                <a href="about-us.html" class="hover:text-pink-600 transition whitespace-nowrap">About Us</a>
 
-                <!-- Solutions Dropdown -->
+                <!-- Solutions Dropdown (6 Core Solutions — Consistent with index.html) -->
                 <div class="relative group py-6">
                     <button type="button"
-                        class="flex items-center gap-1.5 hover:text-slate-900 transition whitespace-nowrap">
+                        class="flex items-center gap-1.5 hover:text-pink-600 transition whitespace-nowrap">
                         <span>Solutions</span>
-                        <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 group-hover:rotate-180 transition-transform"></i>
+                        <i
+                            class="fa-solid fa-chevron-down text-xs text-pink-400 group-hover:rotate-180 transition-transform"></i>
                     </button>
                     <div
                         class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
-                        <div class="w-64 bg-white/95 backdrop-blur-xl rounded-xl border border-slate-200/90 shadow-xl p-2 space-y-1">
-                            <a href="residential.html"
-                                class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50/60 transition">
-                                <div class="text-xs font-semibold text-slate-900">Residential Rooftops</div>
-                                <div class="text-[11px] text-slate-500 mt-0.5">Homes, villas & apartments</div>
-                            </a>
-                            <a href="commercial-industrial.html"
-                                class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50/60 transition">
-                                <div class="text-xs font-semibold text-slate-900">Commercial & Industrial EPC</div>
-                                <div class="text-[11px] text-slate-500 mt-0.5">Factories, hospitals & institutions</div>
+                        <div
+                            class="w-72 bg-white/98 backdrop-blur-xl rounded-xl border border-pink-100 shadow-xl shadow-pink-500/10 p-2 space-y-1">
+                            <a href="index.html#hero-carousel"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50 transition">
+                                <div class="text-xs font-semibold text-orange-700">Megawatt Scale</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Utility &amp; industrial solar power plants</div>
                             </a>
                             <a href="on-grid-hybrid.html"
-                                class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50/60 transition">
-                                <div class="text-xs font-semibold text-slate-900">On-Grid & Hybrid Systems</div>
-                                <div class="text-[11px] text-slate-500 mt-0.5">TANGEDCO & KSEB net-metering</div>
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-pink-50 transition">
+                                <div class="text-xs font-semibold text-pink-700">On-Grid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Grid-tied net-metering solar systems</div>
+                            </a>
+                            <a href="on-grid-hybrid.html#architectures"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-violet-50 transition">
+                                <div class="text-xs font-semibold text-violet-700">Off-Grid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Standalone solar + battery power</div>
+                            </a>
+                            <a href="on-grid-hybrid.html#architectures"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-teal-50 transition">
+                                <div class="text-xs font-semibold text-teal-700">Hybrid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Net-metering with seamless backup</div>
+                            </a>
+                            <a href="index.html#hero-carousel"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-sky-50 transition">
+                                <div class="text-xs font-semibold text-sky-700">Substations</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Turnkey AIS &amp; GIS HV substations</div>
+                            </a>
+                            <a href="index.html#hero-carousel"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-fuchsia-50 transition">
+                                <div class="text-xs font-semibold text-fuchsia-700">BESS</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Battery Energy Storage Systems</div>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <a href="index.html#faq" class="hover:text-slate-900 transition whitespace-nowrap">Subsidy Scheme</a>
-                <a href="calculator.html" class="text-slate-900 font-semibold transition whitespace-nowrap">Solar Calculator</a>
-                <a href="index.html#projects" class="hover:text-slate-900 transition whitespace-nowrap">Projects</a>
-                <a href="blog.html" class="hover:text-slate-900 transition whitespace-nowrap">Blog</a>
+                <a href="residential.html" class="hover:text-pink-600 transition whitespace-nowrap">Residential Rooftop</a>
+                <a href="calculator.html" aria-current="page"
+                    class="text-pink-600 font-semibold transition whitespace-nowrap">Solar Calculator</a>
+                <a href="index.html#projects" class="hover:text-pink-600 transition whitespace-nowrap">Projects</a>
+                <a href="blog.html" class="hover:text-pink-600 transition whitespace-nowrap">Blog</a>
             </nav>
 
-            <!-- Right Action -->
+            <!-- Right Action: Direct Helpline + Sunset Magenta-Orange CTA -->
             <div class="hidden md:flex items-center gap-5 shrink-0">
                 <a href="tel:+918148133644"
-                    class="text-sm font-medium text-slate-600 hover:text-slate-900 transition whitespace-nowrap flex items-center gap-2 tabular-nums">
-                    <i class="fa-solid fa-phone text-xs text-amber-600"></i>
+                    class="text-sm font-medium text-indigo-950 hover:text-pink-600 transition whitespace-nowrap flex items-center gap-2 tabular-nums">
+                    <i class="fa-solid fa-phone text-xs text-pink-600"></i>
                     <span>+91 81481 33644</span>
                 </a>
                 <a href="index.html#consultation"
-                    class="px-5 py-2.5 rounded-full bg-[#F59E0B] hover:bg-[#D97706] text-white font-semibold text-sm shadow-sm transition whitespace-nowrap">
+                    class="magnetic-btn px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white font-semibold text-sm shadow-md shadow-pink-500/25 transition whitespace-nowrap">
                     Get Free Quote
                 </a>
             </div>
 
             <!-- Mobile Menu Trigger -->
-            <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-600 hover:text-slate-900" aria-label="Menu">
+            <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu"
+                class="lg:hidden p-2 text-indigo-900 hover:text-pink-600" aria-label="Menu">
                 <i class="fa-solid fa-bars text-lg"></i>
             </button>
         </div>
 
         <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-6 py-6 space-y-4">
-            <a href="index.html" class="block text-base font-medium text-slate-800">Home</a>
-            <a href="index.html#proof" class="block text-base font-medium text-slate-800">About Us</a>
-            <a href="residential.html" class="block text-base font-medium text-slate-800">Residential Solutions</a>
-            <a href="commercial-industrial.html" class="block text-base font-medium text-slate-800">Commercial & Industrial EPC</a>
-            <a href="on-grid-hybrid.html" class="block text-base font-medium text-slate-800">On-Grid & Hybrid Systems</a>
-            <a href="index.html#faq" class="block text-base font-medium text-slate-800">Subsidy Scheme</a>
-            <a href="calculator.html" class="block text-base font-semibold text-slate-900">Solar Calculator</a>
-            <a href="index.html#projects" class="block text-base font-medium text-slate-800">Projects</a>
-            <a href="blog.html" class="block text-base font-medium text-slate-800">Blog</a>
-            <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
-                <a href="tel:+918148133644" class="text-sm font-medium text-slate-600 tabular-nums">Call +91 81481 33644</a>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-pink-100 px-6 py-6 space-y-4">
+            <a href="about-us.html" class="block text-base font-medium text-indigo-950 hover:text-pink-600">About Us</a>
+            <div class="space-y-2.5 pt-1 pb-1 border-y border-pink-100/80">
+                <div class="text-xs font-semibold uppercase tracking-wider text-pink-600">Solutions</div>
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="index.html#hero-carousel" class="block text-sm font-medium text-indigo-950 hover:text-orange-600">Megawatt Scale</a>
+                    <a href="on-grid-hybrid.html" class="block text-sm font-medium text-indigo-950 hover:text-pink-600">On-Grid</a>
+                    <a href="on-grid-hybrid.html#architectures" class="block text-sm font-medium text-indigo-950 hover:text-violet-600">Off-Grid</a>
+                    <a href="on-grid-hybrid.html#architectures" class="block text-sm font-medium text-indigo-950 hover:text-teal-600">Hybrid</a>
+                    <a href="index.html#hero-carousel" class="block text-sm font-medium text-indigo-950 hover:text-sky-600">Substations</a>
+                    <a href="index.html#hero-carousel" class="block text-sm font-medium text-indigo-950 hover:text-fuchsia-600">BESS</a>
+                </div>
+            </div>
+            <a href="residential.html" class="block text-base font-medium text-indigo-950 hover:text-pink-600">Residential Rooftop</a>
+            <a href="calculator.html" class="block text-base font-semibold text-pink-600">Solar Calculator</a>
+            <a href="index.html#projects" class="block text-base font-medium text-indigo-950 hover:text-pink-600">Projects</a>
+            <a href="blog.html" class="block text-base font-medium text-indigo-950 hover:text-violet-600">Blog</a>
+            <div class="pt-4 border-t border-pink-100 flex flex-col gap-3">
+                <a href="tel:+918148133644" class="text-sm font-medium text-pink-700 tabular-nums">Call +91 81481 33644</a>
                 <a href="index.html#consultation"
-                    class="w-full py-3 rounded-full bg-[#F59E0B] text-white text-center text-sm font-semibold">
+                    class="w-full py-3 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-center text-sm font-semibold shadow-md shadow-pink-500/20">
                     Get Free Quote
                 </a>
             </div>
         </div>
     </header>
 
-    <!-- 2. STANDALONE INTERACTIVE SAVINGS & SUBSIDY CALCULATOR -->
-    <section id="calculator" class="py-16 lg:py-24">
-        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+    <main>
+        <!-- 2. STANDALONE INTERACTIVE SAVINGS & SUBSIDY CALCULATOR -->
+        <section id="calculator" class="py-16 lg:py-24 architectural-grid-bg border-b border-pink-100">
+            <div class="max-w-5xl mx-auto px-6 lg:px-8">
 
-            <!-- Section Header -->
-            <div class="max-w-2xl">
-                <p class="text-xs font-semibold uppercase tracking-[0.18em] text-amber-600 mb-3 flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
-                    <span>TANGEDCO & KSEB Slab-Calibrated Engine</span>
-                </p>
-                <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight text-slate-900">
-                    Solar Savings & Subsidy Calculator
-                </h1>
-                <p class="mt-4 text-base text-slate-600 leading-relaxed">
-                    Enter your bi-monthly electricity bill to calculate your ideal rooftop system size, combined
-                    PM Surya Ghar + Tamil Nadu State Subsidy, and 25-year net return.
-                </p>
-            </div>
-
-            <!-- Calculator Card -->
-            <div id="calc-card" class="spotlight-card mt-10 bg-white rounded-2xl border border-slate-200/90 p-8 sm:p-12 shadow-sm">
-                <div class="relative z-10">
-
-                    <!-- Location -->
-                    <div class="pb-8 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold">Location</span>
-                        <div class="inline-flex p-1 rounded-full bg-slate-100 self-start" role="group" aria-label="Location">
-                            <button type="button" data-region="tn"
-                                class="calc-region px-6 py-2 rounded-full text-sm font-medium transition bg-white text-slate-900 shadow-sm">Tamil
-                                Nadu</button>
-                            <button type="button" data-region="kerala"
-                                class="calc-region px-6 py-2 rounded-full text-sm font-medium transition text-slate-500">Kerala</button>
-                        </div>
+                <!-- Section Header -->
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-50 border border-pink-200/80 text-xs font-semibold tracking-[0.16em] uppercase text-pink-600 mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+                        <span>TANGEDCO &amp; KSEB Slab-Calibrated Engine</span>
                     </div>
+                    <h1 class="text-4xl sm:text-5xl font-semibold tracking-tight text-indigo-950 leading-[1.08]">
+                        Solar Savings &amp;<br />
+                        <span class="bg-gradient-to-r from-orange-500 via-pink-600 to-violet-600 bg-clip-text text-transparent font-medium">Subsidy Calculator</span>
+                    </h1>
+                    <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+                        Enter your bi-monthly electricity bill to calculate your ideal rooftop system size, combined
+                        PM Surya Ghar + Tamil Nadu State Subsidy, and 25-year net return.
+                    </p>
+                </div>
 
-                    <!-- Bill (primary input) -->
-                    <div class="pt-8">
-                        <label for="calc-bill-input" class="text-xs uppercase tracking-wider text-slate-400 font-semibold block">
-                            Your electricity bill · 2 months
-                        </label>
-                        <div class="mt-2 flex items-baseline gap-2">
-                            <span class="text-4xl sm:text-5xl font-semibold tracking-tight text-slate-400">₹</span>
-                            <input id="calc-bill-input" type="number" min="100" max="100000" step="100" value="3600"
-                                inputmode="numeric"
-                                class="w-40 sm:w-56 text-4xl sm:text-5xl font-semibold tracking-tight text-slate-900 bg-transparent outline-none border-b border-dashed border-slate-300 focus:border-amber-500 tabular-nums transition-colors" />
-                            <span class="text-base text-slate-500 font-normal">per 2 months</span>
-                        </div>
-                        <p id="calc-units-est" class="mt-2 text-xs text-slate-400 tabular-nums"></p>
-                    </div>
+                <!-- Calculator Card -->
+                <div id="calc-card"
+                    class="spotlight-card mt-10 bg-white rounded-2xl border border-pink-200/80 p-7 sm:p-12 shadow-xl shadow-pink-950/5">
+                    <div class="relative z-10">
 
-                    <div class="pt-6 pb-8">
-                        <input type="range" id="bill-slider" min="500" max="20000" step="100" value="3600" class="minimal-slider"
-                            aria-label="2-month bill amount" />
-                        <div class="flex flex-wrap items-center gap-2 mt-5">
-                            <span class="text-xs text-slate-400 mr-1">Quick pick:</span>
-                            <button type="button" data-bill="1500"
-                                class="calc-chip px-3 py-1.5 rounded-full border border-slate-200 text-xs font-medium text-slate-500 hover:border-slate-900 hover:text-slate-900 transition tabular-nums">₹1,500</button>
-                            <button type="button" data-bill="3000"
-                                class="calc-chip px-3 py-1.5 rounded-full border border-slate-200 text-xs font-medium text-slate-500 hover:border-slate-900 hover:text-slate-900 transition tabular-nums">₹3,000</button>
-                            <button type="button" data-bill="5000"
-                                class="calc-chip px-3 py-1.5 rounded-full border border-slate-200 text-xs font-medium text-slate-500 hover:border-slate-900 hover:text-slate-900 transition tabular-nums">₹5,000</button>
-                            <button type="button" data-bill="8000"
-                                class="calc-chip px-3 py-1.5 rounded-full border border-slate-200 text-xs font-medium text-slate-500 hover:border-slate-900 hover:text-slate-900 transition tabular-nums">₹8,000</button>
-                            <button type="button" data-bill="12000"
-                                class="calc-chip px-3 py-1.5 rounded-full border border-slate-200 text-xs font-medium text-slate-500 hover:border-slate-900 hover:text-slate-900 transition tabular-nums">₹12,000</button>
-                        </div>
-                    </div>
-
-                    <!-- System size -->
-                    <div class="py-8 border-y border-slate-100 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-                        <div>
-                            <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold block">System size</span>
-                            <div class="mt-3 flex items-center gap-4">
-                                <button id="calc-size-minus" type="button" aria-label="Decrease system size"
-                                    class="w-10 h-10 rounded-full border border-slate-200 hover:border-slate-900 hover:bg-slate-900 hover:text-white text-lg leading-none text-slate-700 transition">−</button>
-                                <span id="calc-size"
-                                    class="text-3xl font-semibold tracking-tight text-slate-900 min-w-[5.5rem] text-center tabular-nums">—</span>
-                                <button id="calc-size-plus" type="button" aria-label="Increase system size"
-                                    class="w-10 h-10 rounded-full border border-slate-200 hover:border-slate-900 hover:bg-slate-900 hover:text-white text-lg leading-none text-slate-700 transition">+</button>
-                                <span id="calc-badge"
-                                    class="text-xs font-semibold px-3 py-1 rounded-full bg-amber-500/10 text-amber-700 whitespace-nowrap">Best
-                                    value</span>
+                        <!-- Location Toggle -->
+                        <div class="pb-8 border-b border-pink-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <span class="text-xs uppercase tracking-wider text-pink-600 font-semibold">Location</span>
+                            <div class="inline-flex p-1 rounded-full bg-pink-50 border border-pink-100 self-start" role="group" aria-label="Location">
+                                <button type="button" data-region="tn"
+                                    class="calc-region px-6 py-2 rounded-full text-sm font-semibold transition bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 text-white shadow-sm">
+                                    Tamil Nadu
+                                </button>
+                                <button type="button" data-region="kerala"
+                                    class="calc-region px-6 py-2 rounded-full text-sm font-medium transition text-slate-600 hover:text-indigo-950">
+                                    Kerala
+                                </button>
                             </div>
                         </div>
-                        <div class="flex flex-wrap gap-3 text-xs font-medium">
-                            <button id="calc-btn-rec" type="button"
-                                class="px-4 py-2 rounded-full border border-slate-200 hover:border-slate-900 text-slate-700 transition tabular-nums">Best
-                                value</button>
-                            <button id="calc-btn-zero" type="button"
-                                class="px-4 py-2 rounded-full border border-slate-200 hover:border-slate-900 text-slate-700 transition tabular-nums">₹0-bill
-                                size</button>
-                        </div>
-                    </div>
 
-                    <!-- Results: savings -->
-                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-8 pb-8">
-                        <div>
-                            <span class="text-xs text-slate-400 uppercase tracking-wider font-medium block">Bill after solar</span>
-                            <span id="out-bill-after" class="text-2xl sm:text-3xl font-semibold text-slate-900 mt-2 block tabular-nums">—</span>
-                            <span id="out-bill-after-sub" class="text-xs text-slate-400 mt-1 block tabular-nums"></span>
-                        </div>
-                        <div class="lg:border-l lg:border-slate-100 lg:pl-8">
-                            <span class="text-xs text-slate-400 uppercase tracking-wider font-medium block">Saving per 2
-                                months</span>
-                            <span id="out-saving" class="text-2xl sm:text-3xl font-semibold text-slate-900 mt-2 block tabular-nums">—</span>
-                            <span id="out-saving-sub" class="text-xs text-slate-400 mt-1 block tabular-nums"></span>
-                        </div>
-                        <div class="lg:border-l lg:border-slate-100 lg:pl-8">
-                            <span class="text-xs text-slate-400 uppercase tracking-wider font-medium block">Solar generation</span>
-                            <span id="out-gen" class="text-2xl sm:text-3xl font-semibold text-slate-900 mt-2 block tabular-nums">—</span>
-                            <span id="out-gen-sub" class="text-xs text-slate-400 mt-1 block tabular-nums"></span>
-                        </div>
-                        <div class="lg:border-l lg:border-slate-100 lg:pl-8">
-                            <span class="text-xs text-slate-400 uppercase tracking-wider font-medium block">Roof area needed</span>
-                            <span id="out-area" class="text-2xl sm:text-3xl font-semibold text-slate-900 mt-2 block tabular-nums">—</span>
-                            <span class="text-xs text-slate-400 mt-1 block">shadow-free, incl. spacing</span>
-                        </div>
-                    </div>
-
-                    <!-- Results: investment -->
-                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 py-8 border-t border-slate-100">
-                        <div>
-                            <span class="text-xs text-slate-400 uppercase tracking-wider font-medium block">Govt. subsidy</span>
-                            <span id="out-subsidy" class="text-2xl sm:text-3xl font-semibold text-amber-600 mt-2 block tabular-nums">—</span>
-                            <span id="out-subsidy-sub" class="text-xs text-slate-400 mt-1 block tabular-nums"></span>
-                        </div>
-                        <div class="lg:border-l lg:border-slate-100 lg:pl-8">
-                            <span class="text-xs text-slate-400 uppercase tracking-wider font-medium block">Net cost after
-                                subsidy</span>
-                            <span id="out-net" class="text-2xl sm:text-3xl font-semibold text-slate-900 mt-2 block tabular-nums">—</span>
-                            <span id="out-net-sub" class="text-xs text-slate-400 mt-1 block tabular-nums"></span>
-                        </div>
-                        <div class="lg:border-l lg:border-slate-100 lg:pl-8">
-                            <span class="text-xs text-slate-400 uppercase tracking-wider font-medium block">Payback</span>
-                            <span id="out-roi" class="text-2xl sm:text-3xl font-semibold text-slate-900 mt-2 block tabular-nums">—</span>
-                            <span class="text-xs text-slate-400 mt-1 block">after running costs</span>
-                        </div>
-                        <div class="lg:border-l lg:border-slate-100 lg:pl-8">
-                            <span class="text-xs text-slate-400 uppercase tracking-wider font-medium block">25-year net gain</span>
-                            <span id="out-gain" class="text-2xl sm:text-3xl font-semibold text-slate-900 mt-2 block tabular-nums">—</span>
-                            <span class="text-xs text-slate-400 mt-1 block">after all costs, flat tariffs</span>
-                        </div>
-                    </div>
-
-                    <!-- Live 25-Year Cumulative Cashflow & Breakeven SVG Telemetry Visualizer -->
-                    <div class="my-4 p-5 sm:p-6 rounded-2xl bg-slate-50/90 border border-slate-200/70">
-                        <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
-                            <div class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
-                                <span class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">25-Year Cumulative Cashflow Trajectory</span>
+                        <!-- Bill (Primary Input) -->
+                        <div class="pt-8">
+                            <label for="calc-bill-input" class="text-xs uppercase tracking-wider text-pink-600 font-semibold block">
+                                Your electricity bill · 2 months
+                            </label>
+                            <div class="mt-2 flex flex-wrap items-baseline gap-2">
+                                <span class="text-4xl sm:text-5xl font-semibold tracking-tight text-pink-400">₹</span>
+                                <input id="calc-bill-input" type="number" min="100" max="100000" step="100" value="3600"
+                                    inputmode="numeric"
+                                    class="w-40 sm:w-56 text-4xl sm:text-5xl font-semibold tracking-tight text-indigo-950 bg-transparent outline-none border-b-2 border-dashed border-pink-200 focus:border-pink-600 tabular-nums transition-colors" />
+                                <span class="text-base text-slate-500 font-normal">per 2 months</span>
                             </div>
-                            <span id="chart-hover-readout" class="text-xs font-medium text-slate-600 tabular-nums"></span>
+                            <p id="calc-units-est" class="mt-2 text-xs text-slate-500 tabular-nums"></p>
                         </div>
-                        <div class="relative w-full h-36 sm:h-44">
-                            <svg id="roi-cashflow-svg" class="w-full h-full overflow-visible" viewBox="0 0 640 150" preserveAspectRatio="none" aria-hidden="true"></svg>
+
+                        <div class="pt-6 pb-8">
+                            <input type="range" id="bill-slider" min="500" max="20000" step="100" value="3600" class="minimal-slider"
+                                aria-label="2-month bill amount" />
+                            <div class="flex flex-wrap items-center gap-2 mt-5">
+                                <span class="text-xs text-slate-400 mr-1">Quick pick:</span>
+                                <button type="button" data-bill="1500"
+                                    class="calc-chip px-3.5 py-1.5 rounded-full border border-pink-200 text-xs font-medium text-slate-600 hover:border-pink-500 hover:text-pink-600 transition tabular-nums">₹1,500</button>
+                                <button type="button" data-bill="3000"
+                                    class="calc-chip px-3.5 py-1.5 rounded-full border border-pink-200 text-xs font-medium text-slate-600 hover:border-pink-500 hover:text-pink-600 transition tabular-nums">₹3,000</button>
+                                <button type="button" data-bill="5000"
+                                    class="calc-chip px-3.5 py-1.5 rounded-full border border-pink-200 text-xs font-medium text-slate-600 hover:border-pink-500 hover:text-pink-600 transition tabular-nums">₹5,000</button>
+                                <button type="button" data-bill="8000"
+                                    class="calc-chip px-3.5 py-1.5 rounded-full border border-pink-200 text-xs font-medium text-slate-600 hover:border-pink-500 hover:text-pink-600 transition tabular-nums">₹8,000</button>
+                                <button type="button" data-bill="12000"
+                                    class="calc-chip px-3.5 py-1.5 rounded-full border border-pink-200 text-xs font-medium text-slate-600 hover:border-pink-500 hover:text-pink-600 transition tabular-nums">₹12,000</button>
+                            </div>
                         </div>
-                        <div class="flex items-center justify-between text-[10px] font-medium text-slate-400 mt-2 tabular-nums">
-                            <span>Year 0 (Commissioning)</span>
-                            <span>Year 12 (Inverter Refurb)</span>
-                            <span>Year 25</span>
+
+                        <!-- System Size Stepper -->
+                        <div class="py-8 border-y border-pink-100 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-violet-600 font-semibold block">System size</span>
+                                <div class="mt-3 flex flex-wrap items-center gap-4">
+                                    <button id="calc-size-minus" type="button" aria-label="Decrease system size"
+                                        class="w-10 h-10 rounded-full border border-pink-200 hover:border-transparent hover:bg-gradient-to-r hover:from-orange-500 hover:to-pink-600 hover:text-white text-lg leading-none text-indigo-950 transition">−</button>
+                                    <span id="calc-size"
+                                        class="text-3xl font-semibold tracking-tight text-indigo-950 min-w-[5.5rem] text-center tabular-nums">—</span>
+                                    <button id="calc-size-plus" type="button" aria-label="Increase system size"
+                                        class="w-10 h-10 rounded-full border border-pink-200 hover:border-transparent hover:bg-gradient-to-r hover:from-orange-500 hover:to-pink-600 hover:text-white text-lg leading-none text-indigo-950 transition">+</button>
+                                    <span id="calc-badge"
+                                        class="text-xs font-semibold px-3 py-1 rounded-full bg-gradient-to-r from-amber-50 to-pink-50 border border-pink-200/80 text-pink-700 whitespace-nowrap">
+                                        Best value
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-3 text-xs font-medium">
+                                <button id="calc-btn-rec" type="button"
+                                    class="px-4 py-2 rounded-full border border-pink-200 bg-white hover:border-pink-500 hover:text-pink-600 text-indigo-950 transition tabular-nums">
+                                    Best value
+                                </button>
+                                <button id="calc-btn-zero" type="button"
+                                    class="px-4 py-2 rounded-full border border-violet-200 bg-white hover:border-violet-500 hover:text-violet-600 text-indigo-950 transition tabular-nums">
+                                    ₹0-bill size
+                                </button>
+                            </div>
                         </div>
+
+                        <!-- Results: Savings -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-8 pb-8">
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Bill after solar</span>
+                                <span id="out-bill-after" class="text-2xl sm:text-3xl font-semibold text-indigo-950 mt-2 block tabular-nums">—</span>
+                                <span id="out-bill-after-sub" class="text-xs text-slate-500 mt-1 block tabular-nums"></span>
+                            </div>
+                            <div class="lg:border-l lg:border-pink-100 lg:pl-8">
+                                <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Saving per 2 months</span>
+                                <span id="out-saving" class="text-2xl sm:text-3xl font-semibold text-teal-600 mt-2 block tabular-nums">—</span>
+                                <span id="out-saving-sub" class="text-xs text-slate-500 mt-1 block tabular-nums"></span>
+                            </div>
+                            <div class="lg:border-l lg:border-pink-100 lg:pl-8">
+                                <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Solar generation</span>
+                                <span id="out-gen" class="text-2xl sm:text-3xl font-semibold text-indigo-950 mt-2 block tabular-nums">—</span>
+                                <span id="out-gen-sub" class="text-xs text-slate-500 mt-1 block tabular-nums"></span>
+                            </div>
+                            <div class="lg:border-l lg:border-pink-100 lg:pl-8">
+                                <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Roof area needed</span>
+                                <span id="out-area" class="text-2xl sm:text-3xl font-semibold text-indigo-950 mt-2 block tabular-nums">—</span>
+                                <span class="text-xs text-slate-500 mt-1 block">shadow-free, incl. spacing</span>
+                            </div>
+                        </div>
+
+                        <!-- Results: Investment -->
+                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 py-8 border-t border-pink-100">
+                            <div>
+                                <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Govt. subsidy</span>
+                                <span id="out-subsidy" class="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-orange-500 to-pink-600 bg-clip-text text-transparent mt-2 block tabular-nums">—</span>
+                                <span id="out-subsidy-sub" class="text-xs text-slate-500 mt-1 block tabular-nums"></span>
+                            </div>
+                            <div class="lg:border-l lg:border-pink-100 lg:pl-8">
+                                <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Net cost after subsidy</span>
+                                <span id="out-net" class="text-2xl sm:text-3xl font-semibold text-indigo-950 mt-2 block tabular-nums">—</span>
+                                <span id="out-net-sub" class="text-xs text-slate-500 mt-1 block tabular-nums"></span>
+                            </div>
+                            <div class="lg:border-l lg:border-pink-100 lg:pl-8">
+                                <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block">Payback</span>
+                                <span id="out-roi" class="text-2xl sm:text-3xl font-semibold text-indigo-950 mt-2 block tabular-nums">—</span>
+                                <span class="text-xs text-slate-500 mt-1 block">after running costs</span>
+                            </div>
+                            <div class="lg:border-l lg:border-pink-100 lg:pl-8">
+                                <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block">25-year net gain</span>
+                                <span id="out-gain" class="text-2xl sm:text-3xl font-semibold text-violet-700 mt-2 block tabular-nums">—</span>
+                                <span class="text-xs text-slate-500 mt-1 block">after all costs, flat tariffs</span>
+                            </div>
+                        </div>
+
+                        <!-- Live 25-Year Cumulative Cashflow & Breakeven SVG Telemetry Visualizer -->
+                        <div class="my-4 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-rose-50/70 via-amber-50/40 to-violet-50/70 border border-pink-200/70">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-gradient-to-r from-orange-500 to-pink-600"></span>
+                                    <span class="text-xs font-semibold uppercase tracking-wider text-pink-700">25-Year Cumulative Cashflow Trajectory</span>
+                                </div>
+                                <span id="chart-hover-readout" class="text-xs font-semibold text-indigo-950 tabular-nums"></span>
+                            </div>
+                            <div class="relative w-full h-36 sm:h-44">
+                                <svg id="roi-cashflow-svg" class="w-full h-full overflow-visible" viewBox="0 0 640 150" preserveAspectRatio="none" aria-hidden="true"></svg>
+                            </div>
+                            <div class="flex items-center justify-between text-[11px] font-medium text-slate-500 mt-2 tabular-nums">
+                                <span>Year 0 (Commissioning)</span>
+                                <span>Year 12 (Inverter Refurb)</span>
+                                <span>Year 25</span>
+                            </div>
+                        </div>
+
+                        <!-- Explanation + Warnings -->
+                        <div class="pb-6 pt-2 space-y-3">
+                            <p id="calc-insight" class="text-sm text-slate-700 leading-relaxed"></p>
+                            <p id="calc-warning"
+                                class="hidden text-sm text-orange-900 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 leading-relaxed">
+                            </p>
+                        </div>
+
+                        <div class="pt-6 border-t border-pink-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                            <p id="calc-subsidy-note" class="text-xs text-slate-500 leading-relaxed max-w-xl"></p>
+                            <button type="button" onclick="selectSystemAndScroll()"
+                                class="magnetic-btn px-7 py-3.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-sm font-semibold transition shrink-0 shadow-md shadow-pink-500/25">
+                                Request This System →
+                            </button>
+                        </div>
+
+                        <details class="mt-8 border-t border-pink-100 pt-6 group">
+                            <summary class="cursor-pointer inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-pink-600 hover:text-indigo-950 transition">
+                                <span>How this is calculated</span>
+                                <i class="fa-solid fa-chevron-down text-[10px] group-open:rotate-180 transition-transform"></i>
+                            </summary>
+                            <ul class="mt-4 space-y-2 text-xs text-slate-600 leading-relaxed list-disc pl-5">
+                                <li><strong class="text-indigo-950">Tariff:</strong> Tamil Nadu domestic slabs on a 2-month basis. The
+                                    first 200 units are free if you use 500 or fewer units, otherwise the first 100 are free. Then
+                                    ₹4.70, ₹6.30, ₹8.40, ₹9.45, ₹10.50 and ₹11.55 per unit in rising slabs. Kerala uses the KSERC
+                                    December 2024 slabs, with flat (non-telescopic) billing above 250 units a month. Your bill amount is
+                                    converted to units using these slabs. Energy charges only; fixed charges, electricity duty and fuel
+                                    surcharge stay on your bill after solar.</li>
+                                <li><strong class="text-indigo-950">Net metering:</strong> you pay for imported minus exported units.
+                                    Surplus units are given no value, so oversizing adds cost without adding savings. A network charge
+                                    on Tamil Nadu generation (about ₹0.32 per unit generated) is deducted.</li>
+                                <li><strong class="text-indigo-950">Solar yield:</strong> 1,350 to 1,450 units per kW per year depending
+                                    on region, after soiling, temperature and inverter losses, with 0.5% yearly degradation.</li>
+                                <li><strong class="text-indigo-950">Subsidy:</strong> PM Surya Ghar pays ₹30,000 per kW for the first 2
+                                    kW and ₹18,000 for the 3rd kW, capped at ₹78,000. The Tamil Nadu top-up is ₹5,000, ₹10,000 or
+                                    ₹22,000 for systems up to 1 kW, up to 2 kW, and 3 kW and above, for residential portal registrations
+                                    on or after 5 Aug 2026. Kerala state subsidy is not included.</li>
+                                <li><strong class="text-indigo-950">Cost and returns:</strong> indicative turnkey price before site
+                                    survey. Tariffs are held flat, running costs are ₹600 per kW per year, and the inverter is replaced
+                                    in year 12. Your formal quote after a site survey will replace these estimates.</li>
+                                <li><strong class="text-indigo-950">Roof area:</strong> 80 to 100 sq.ft per kW including row spacing and
+                                    walkways.</li>
+                            </ul>
+                        </details>
+
                     </div>
-
-                    <!-- Explanation + warnings -->
-                    <div class="pb-6 pt-2 space-y-3">
-                        <p id="calc-insight" class="text-sm text-slate-700 leading-relaxed"></p>
-                        <p id="calc-warning"
-                            class="hidden text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3 leading-relaxed">
-                        </p>
-                    </div>
-
-                    <div class="pt-6 border-t border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                        <p id="calc-subsidy-note" class="text-xs text-slate-500 leading-relaxed max-w-xl"></p>
-                        <button type="button" onclick="selectSystemAndScroll()"
-                            class="px-6 py-3.5 rounded-full bg-slate-900 hover:bg-amber-600 text-white text-sm font-medium transition shrink-0 shadow-sm">
-                            Request This System →
-                        </button>
-                    </div>
-
-                    <details class="mt-8 border-t border-slate-100 pt-6">
-                        <summary class="cursor-pointer text-xs font-semibold uppercase tracking-wider text-slate-500 hover:text-slate-900 transition">How this is
-                            calculated</summary>
-                        <ul class="mt-4 space-y-2 text-xs text-slate-500 leading-relaxed list-disc pl-5">
-                            <li><strong class="text-slate-700">Tariff:</strong> Tamil Nadu domestic slabs on a 2-month basis. The
-                                first 200 units are free if you use 500 or fewer units, otherwise the first 100 are free. Then
-                                ₹4.70, ₹6.30, ₹8.40, ₹9.45, ₹10.50 and ₹11.55 per unit in rising slabs. Kerala uses the KSERC
-                                December 2024 slabs, with flat (non-telescopic) billing above 250 units a month. Your bill amount is
-                                converted to units using these slabs. Energy charges only; fixed charges, electricity duty and fuel
-                                surcharge stay on your bill after solar.</li>
-                            <li><strong class="text-slate-700">Net metering:</strong> you pay for imported minus exported units.
-                                Surplus units are given no value, so oversizing adds cost without adding savings. A network charge
-                                on Tamil Nadu generation (about ₹0.32 per unit generated) is deducted.</li>
-                            <li><strong class="text-slate-700">Solar yield:</strong> 1,350 to 1,450 units per kW per year depending
-                                on region, after soiling, temperature and inverter losses, with 0.5% yearly degradation.</li>
-                            <li><strong class="text-slate-700">Subsidy:</strong> PM Surya Ghar pays ₹30,000 per kW for the first 2
-                                kW and ₹18,000 for the 3rd kW, capped at ₹78,000. The Tamil Nadu top-up is ₹5,000, ₹10,000 or
-                                ₹22,000 for systems up to 1 kW, up to 2 kW, and 3 kW and above, for residential portal registrations
-                                on or after 5 Aug 2026. Kerala state subsidy is not included.</li>
-                            <li><strong class="text-slate-700">Cost and returns:</strong> indicative turnkey price before site
-                                survey. Tariffs are held flat, running costs are ₹600 per kW per year, and the inverter is replaced
-                                in year 12. Your formal quote after a site audit will replace these estimates.</li>
-                            <li><strong class="text-slate-700">Roof area:</strong> 80 to 100 sq.ft per kW including row spacing and
-                                walkways.</li>
-                        </ul>
-                    </details>
-
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- 3. TWO-TIER ENTERPRISE FOOTER -->
-    <footer class="bg-[#05070B] text-slate-400 relative mt-28">
+    <!-- 3. TWO-TIER ENTERPRISE FOOTER (100% Consistent with index.html) -->
+    <footer class="bg-gradient-to-b from-[#1A0B36] via-[#130829] to-[#0B051A] text-purple-200/80 relative mt-28">
 
         <!-- Top Overlapping CTA Banner -->
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div
-                class="-translate-y-1/2 rounded-2xl bg-gradient-to-r from-[#F59E0B] to-[#D97706] px-8 py-10 sm:px-14 sm:py-12 shadow-2xl flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                class="-translate-y-1/2 rounded-2xl bg-gradient-to-r from-[#F97316] via-[#EC4899] to-[#7C3AED] px-8 py-10 sm:px-14 sm:py-12 shadow-2xl shadow-pink-600/30 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
                 <div>
                     <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
                         Get in touch with our team of experts
                     </h2>
-                    <p class="mt-2 text-sm text-white/90">
-                        MNRE & TANGEDCO Empanelled Solar EPC • Serving Tamil Nadu & Kerala
+                    <p class="mt-2 text-sm text-white/95">
+                        MNRE &amp; TANGEDCO Empanelled Solar EPC • Serving Tamil Nadu &amp; Kerala
                     </p>
                 </div>
 
                 <div class="flex flex-wrap items-center gap-6">
                     <a href="index.html#consultation"
-                        class="px-7 py-3.5 rounded-lg bg-white hover:bg-slate-100 text-slate-900 text-sm font-semibold shadow-sm transition">
+                        class="magnetic-btn px-7 py-3.5 rounded-lg bg-white hover:bg-pink-50 text-pink-700 text-sm font-semibold shadow-sm transition">
                         Contact us
                     </a>
 
                     <a href="tel:+918148133644" class="flex items-center gap-3.5 group">
                         <span
-                            class="w-12 h-12 rounded-full bg-white text-[#D97706] flex items-center justify-center shadow-sm group-hover:scale-105 transition">
+                            class="w-12 h-12 rounded-full bg-white text-pink-600 flex items-center justify-center shadow-sm group-hover:scale-105 transition">
                             <i class="fa-solid fa-phone-volume text-lg"></i>
                         </span>
                         <div>
@@ -476,41 +590,40 @@
 
         <!-- Main Dark Footer Content -->
         <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-14">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-slate-800/80">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-fuchsia-900/50">
 
                 <!-- Brand & Socials (5 Cols) -->
                 <div class="lg:col-span-5 space-y-5">
                     <a href="index.html" class="inline-flex items-center gap-3">
                         <img src="images/logo.png" alt="Suntastic Engineering"
-                            class="h-[50px] w-auto object-contain bg-white px-3 py-1.5 rounded-lg"
+                            class="h-[54px] w-auto object-contain bg-white px-3 py-1.5 rounded-lg"
                             onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('footer-fallback-logo').style.display='flex';}" />
                         <div id="footer-fallback-logo" class="hidden items-center gap-2.5">
                             <svg class="w-10 h-10 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
-                                <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4"
-                                    stroke-dasharray="12 6" />
-                                <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="3"
-                                    stroke-dasharray="10 5" />
+                                <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4" stroke-dasharray="12 6" />
+                                <circle cx="32" cy="32" r="20" stroke="#EC4899" stroke-width="3" stroke-dasharray="10 5" />
                             </svg>
-                            <span class="font-bold text-lg tracking-[0.18em] text-white">
-                                SUN TASTIC<sup class="text-[9px] font-semibold ml-0.5 text-amber-400">TM</sup>
+                            <span class="font-bold text-xl tracking-wider text-white">
+                                SUN TASTIC<sup class="text-xs font-semibold ml-0.5 text-pink-400">TM</sup>
                             </span>
                         </div>
                     </a>
-                    <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
+                    <p class="text-sm text-purple-200/75 leading-relaxed max-w-sm">
                         Providing innovative solar solutions for homes, industries, and government infrastructure.
                         Committed to a sustainable future across South India.
                     </p>
-                    <div class="flex items-center gap-5 pt-2 text-slate-400">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"
-                            class="hover:text-amber-400 transition text-lg"><i class="fa-brands fa-facebook-f"></i></a>
+                    <address class="not-italic text-xs text-purple-300/65 leading-relaxed max-w-sm space-y-2">
+                        <p><span class="text-pink-300">Registered office:</span> No. 69/27A, First Pillaiyar Koil Street, Lakshmipuram, Chrompet, Chennai – 600 044</p>
+                        <p><span class="text-pink-300">Coimbatore branch:</span> No.185, Kovai Auto Mobile Nagar, Madukkarai, Coimbatore, Tamil Nadu 641105</p>
+                        <p>Also at Palakkad and Thiruvananthapuram</p>
+                    </address>
+                    <div class="flex items-center gap-5 pt-2 text-purple-300">
+                        <a href="https://www.facebook.com/profile.php?id=61586789438858" target="_blank" rel="noopener" aria-label="Facebook"
+                            class="hover:text-sky-400 transition text-lg"><i class="fa-brands fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/suntastic_engineering" target="_blank" rel="noopener"
-                            aria-label="Instagram" class="hover:text-amber-400 transition text-lg"><i
-                                class="fa-brands fa-instagram"></i></a>
+                            aria-label="Instagram" class="hover:text-pink-400 transition text-lg"><i class="fa-brands fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/company/suntastic-engineering-pvt-ltd/" target="_blank"
-                            rel="noopener" aria-label="LinkedIn" class="hover:text-amber-400 transition text-lg"><i
-                                class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"
-                            class="hover:text-amber-400 transition text-lg"><i class="fa-brands fa-youtube"></i></a>
+                            rel="noopener" aria-label="LinkedIn" class="hover:text-amber-400 transition text-lg"><i class="fa-brands fa-linkedin-in"></i></a>
                     </div>
                 </div>
 
@@ -518,9 +631,8 @@
                 <div class="lg:col-span-2 space-y-3.5 text-sm">
                     <div class="text-white font-semibold tracking-tight mb-4">Legal</div>
                     <ul class="space-y-3">
-                        <li><a href="privacy-policy.html" class="hover:text-white transition">Privacy Policy</a></li>
-                        <li><a href="index.html#consultation" class="hover:text-white transition">Terms</a></li>
-                        <li><a href="index.html#proof" class="hover:text-white transition">Empanelments</a></li>
+                        <li><a href="privacy-policy.html" class="hover:text-pink-300 transition">Privacy Policy</a></li>
+                        <li><a href="about-us.html#empanelments" class="hover:text-pink-300 transition">Empanelments</a></li>
                     </ul>
                 </div>
 
@@ -528,12 +640,12 @@
                 <div class="lg:col-span-3 space-y-3.5 text-sm">
                     <div class="text-white font-semibold tracking-tight mb-4">Company</div>
                     <ul class="space-y-3">
-                        <li><a href="index.html#proof" class="hover:text-white transition">About</a></li>
-                        <li><a href="residential.html" class="hover:text-white transition">Residential Rooftops</a></li>
-                        <li><a href="commercial-industrial.html" class="hover:text-white transition">Commercial & Industrial EPC</a></li>
-                        <li><a href="on-grid-hybrid.html" class="hover:text-white transition">On-Grid & Hybrid Systems</a></li>
-                        <li><a href="index.html#projects" class="hover:text-white transition">Projects</a></li>
-                        <li><a href="career.html" class="hover:text-white transition">Career</a></li>
+                        <li><a href="about-us.html" class="hover:text-pink-300 transition">About</a></li>
+                        <li><a href="residential.html" class="hover:text-amber-300 transition">Residential Rooftops</a></li>
+                        <li><a href="commercial-industrial.html" class="hover:text-pink-300 transition">Commercial &amp; Industrial EPC</a></li>
+                        <li><a href="on-grid-hybrid.html" class="hover:text-teal-300 transition">On-Grid &amp; Hybrid Systems</a></li>
+                        <li><a href="index.html#projects" class="hover:text-pink-300 transition">Projects</a></li>
+                        <li><a href="career.html" class="hover:text-pink-300 transition">Career</a></li>
                     </ul>
                 </div>
 
@@ -541,41 +653,44 @@
                 <div class="lg:col-span-2 space-y-3.5 text-sm">
                     <div class="text-white font-semibold tracking-tight mb-4">Resources</div>
                     <ul class="space-y-3">
-                        <li><a href="calculator.html" class="text-amber-400 hover:text-amber-300 font-medium transition">Solar Calculator</a></li>
-                        <li><a href="index.html#faq" class="hover:text-white transition">Subsidy Guide</a></li>
-                        <li><a href="on-grid-hybrid.html" class="hover:text-white transition">Net-Metering Guide</a></li>
-                        <li><a href="blog.html" class="hover:text-white transition">Blog</a></li>
+                        <li><a href="calculator.html" class="text-amber-400 hover:text-pink-400 font-medium transition">Solar Calculator</a></li>
+                        <li><a href="index.html#faq" class="hover:text-pink-300 transition">Subsidy Guide</a></li>
+                        <li><a href="on-grid-hybrid.html" class="hover:text-teal-300 transition">Net-Metering Guide</a></li>
+                        <li><a href="blog.html" class="hover:text-pink-300 transition">Blog</a></li>
                     </ul>
                 </div>
-
             </div>
 
             <!-- Bottom Copyright Bar -->
-            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-purple-300/60">
                 <div>© 2026 Suntastic Engineering Private Limited. All rights reserved.</div>
-                <div>Chennai (Chrompet) &nbsp;•&nbsp; Coimbatore (Madukkarai) &nbsp;•&nbsp; Kerala</div>
             </div>
         </div>
     </footer>
 
-    <!-- WHATSAPP BUTTON -->
+    <!-- WHATSAPP BUTTON (Consistent with index.html) -->
     <a href="https://api.whatsapp.com/send?phone=918148133644&text=Hi%20Suntastic%20Engineering,%20I%20would%20like%20to%20discuss%20a%20solar%20installation."
-        target="_blank" rel="noopener" aria-label="Chat on WhatsApp"
-        class="fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-slate-900 hover:bg-[#F59E0B] text-white shadow-xl flex items-center justify-center transition-all duration-300 hover:scale-105">
-        <span class="absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full bg-amber-500 border-2 border-white"></span>
+        target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat with us"
+        class="fixed bottom-6 right-6 z-40 wa-float px-4 h-12 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-pink-600 hover:to-orange-500 text-white shadow-xl shadow-emerald-500/30 flex items-center gap-2.5 transition-all duration-300 hover:scale-105 group">
         <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="text-xs font-semibold tracking-wide pr-0.5">Chat with us</span>
     </a>
 
     <!-- CALCULATOR ENGINE & UI SCRIPT -->
     <script>
-        // Mobile Menu Toggle
+        // Mobile Menu Toggle (closes on link tap, Escape, or desktop resize)
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            mobileBtn.setAttribute('aria-expanded', String(open));
+        }
+        mobileBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+        window.matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
-        // Spotlight Card Mouse Tracker
+        // Spotlight Card & Magnetic CTA Buttons
         const calcCard = document.getElementById('calc-card');
         if (calcCard) {
             calcCard.addEventListener('mousemove', e => {
@@ -584,6 +699,17 @@
                 calcCard.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
             });
         }
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = (e.clientX - rect.left - rect.width / 2) * 0.14;
+                const y = (e.clientY - rect.top - rect.height / 2) * 0.18;
+                btn.style.transform = `translate(${x}px, ${y}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0px, 0px)';
+            });
+        });
 
         (function () {
             'use strict';
@@ -621,6 +747,7 @@
                 const b = monthlyUnits * 2;
                 return telescopic(b, b <= 500 ? TN_LE_500 : TN_GT_500) / 2;
             }
+
             function ksebMonthlyBill(u) {
                 if (u <= 250) return telescopic(u, KL_TELESCOPIC);
                 for (const [limit, rate] of KL_FLAT) if (u <= limit) return u * rate;
@@ -643,6 +770,7 @@
             function centralSubsidy(kw) {
                 return 30000 * Math.min(kw, 2) + 18000 * Math.min(Math.max(kw - 2, 0), 1);
             }
+
             function stateSubsidy(kw, region) {
                 if (region === 'kerala') return 0;
                 if (kw >= 3) return 22000;
@@ -747,21 +875,24 @@
                 svg.innerHTML = `
                     <defs>
                         <linearGradient id="cashflowGrad" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stop-color="#F59E0B" stop-opacity="0.32"/>
-                            <stop offset="100%" stop-color="#F59E0B" stop-opacity="0.0"/>
+                            <stop offset="0%" stop-color="#EC4899" stop-opacity="0.30"/>
+                            <stop offset="55%" stop-color="#F59E0B" stop-opacity="0.14"/>
+                            <stop offset="100%" stop-color="#EC4899" stop-opacity="0.0"/>
+                        </linearGradient>
+                        <linearGradient id="cashflowStroke" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#F97316"/>
+                            <stop offset="55%" stop-color="#EC4899"/>
+                            <stop offset="100%" stop-color="#7C3AED"/>
                         </linearGradient>
                     </defs>
-                    <!-- Zero Breakeven Reference Line -->
-                    <line x1="0" y1="${zeroY.toFixed(1)}" x2="${W}" y2="${zeroY.toFixed(1)}" stroke="#CBD5E1" stroke-width="1" stroke-dasharray="4 4"/>
-                    <!-- Area Fill -->
+                    <line x1="0" y1="${zeroY.toFixed(1)}" x2="${W}" y2="${zeroY.toFixed(1)}" stroke="#F472B6" stroke-opacity="0.45" stroke-width="1" stroke-dasharray="4 4"/>
                     <path d="${areaPath}" fill="url(#cashflowGrad)"/>
-                    <!-- Cumulative Trajectory Curve -->
-                    <path d="${linePath}" fill="none" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="${linePath}" fill="none" stroke="url(#cashflowStroke)" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round"/>
                     ${pbX !== null ? `
                         <line x1="${pbX.toFixed(1)}" y1="8" x2="${pbX.toFixed(1)}" y2="${H - 8}" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="3 3"/>
-                        <circle cx="${pbX.toFixed(1)}" cy="${zeroY.toFixed(1)}" r="5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="2"/>
+                        <circle cx="${pbX.toFixed(1)}" cy="${zeroY.toFixed(1)}" r="5.5" fill="#F59E0B" stroke="#FFFFFF" stroke-width="2"/>
                     ` : ''}
-                    <circle cx="${W}" cy="${yOf(sel.gain25).toFixed(1)}" r="4.5" fill="#0F172A" stroke="#FFFFFF" stroke-width="2"/>
+                    <circle cx="${W}" cy="${yOf(sel.gain25).toFixed(1)}" r="5" fill="#7C3AED" stroke="#FFFFFF" stroke-width="2"/>
                 `;
             }
 
@@ -853,12 +984,16 @@
 
                 document.querySelectorAll('.calc-chip').forEach(function (c) {
                     const on = Number(c.dataset.bill) === state.bill;
-                    ['border-slate-900', 'text-slate-900', 'bg-slate-50'].forEach(function (cls) { c.classList.toggle(cls, on); });
+                    ['border-pink-600', 'text-pink-700', 'bg-pink-50', 'font-semibold'].forEach(cls => c.classList.toggle(cls, on));
+                    ['border-pink-200', 'text-slate-600'].forEach(cls => c.classList.toggle(cls, !on));
                 });
+
+                const regOn = ['bg-gradient-to-r', 'from-orange-500', 'via-pink-600', 'to-fuchsia-600', 'text-white', 'shadow-sm', 'font-semibold'];
+                const regOff = ['text-slate-600', 'hover:text-indigo-950', 'font-medium'];
                 document.querySelectorAll('.calc-region').forEach(function (b) {
                     const on = b.dataset.region === state.region;
-                    ['bg-white', 'text-slate-900', 'shadow-sm'].forEach(function (cls) { b.classList.toggle(cls, on); });
-                    b.classList.toggle('text-slate-500', !on);
+                    regOn.forEach(cls => b.classList.toggle(cls, on));
+                    regOff.forEach(cls => b.classList.toggle(cls, !on));
                 });
             }
 
