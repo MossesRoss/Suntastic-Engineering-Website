@@ -12,7 +12,7 @@
     <meta name="keywords"
         content="Suntastic Engineering, rooftop solar Chennai, solar company Coimbatore, PM Surya Ghar subsidy Tamil Nadu, industrial solar EPC, TANGEDCO net metering, KSEB ANERT solar" />
     <meta name="robots" content="index, follow" />
-    <link rel="icon" href="images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <link rel="icon" href="images/logo.png" />
     <link rel="canonical" href="https://suntasticsolarsystems.com/" />
     <meta name="theme-color" content="#1E103C" />
 
@@ -24,11 +24,11 @@
         content="25,000+ solar installations across homes, factories, hospitals, and government infrastructure in South India." />
     <meta property="og:url" content="https://suntasticsolarsystems.com/" />
     <meta property="og:site_name" content="Suntastic Engineering" />
-    <meta property="og:image" content="https://suntasticsolarsystems.com/images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <meta property="og:image" content="https://suntasticsolarsystems.com/images/logo.png" />
     <meta property="og:image:alt" content="Suntastic Engineering logo" />
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Suntastic Engineering" />
-    <meta name="twitter:image" content="https://suntasticsolarsystems.com/images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <meta name="twitter:image" content="https://suntasticsolarsystems.com/images/logo.png" />
 
     <!-- Structured Data (Centralized Number + Updated Coimbatore Address) -->
     <script type="application/ld+json">
@@ -41,6 +41,7 @@
       "email": "info@suntasticsolarsystems.com",
       "address": [
         {
+          "@context": "https://schema.org",
           "@type": "PostalAddress",
           "streetAddress": "No.69 / 27A, First Pillaiyar Koil Street, Lakshmipuram, Chrompet",
           "addressLocality": "Chennai",
@@ -235,6 +236,31 @@
 
         .hero-slide.is-active img {
             transform: scale(1);
+        }
+
+        /* Smart Aspect-Ratio Adaptation for Portrait or Mismatched-Ratio Photos */
+        .smart-fit-backdrop {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            filter: blur(22px) brightness(0.55) saturate(1.15);
+            transform: scale(1.14);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 0;
+            transition: opacity 0.35s ease;
+        }
+
+        .is-contained .smart-fit-backdrop {
+            opacity: 1;
+        }
+
+        .is-contained > img {
+            position: relative;
+            z-index: 1;
+            object-fit: contain !important;
+            transform: none !important;
         }
 
         @keyframes pillProgress {
@@ -768,13 +794,13 @@
 
     <!-- 1. HIGH-CONVERSION NAVIGATION BAR -->
     <header
-        class="sticky top-0 z-50 bg-white/92 backdrop-blur-xl border-b border-pink-100/90 transition-all duration-300">
+        class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-pink-100/90 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
 
             <!-- Official Suntastic Brand Logo -->
             <a href="index.html" class="flex items-center gap-3 shrink-0">
                 <img src="images/logo.png" alt="Suntastic Engineering" class="h-[60px] w-auto object-contain"
-                    onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('fallback-logo').style.display='flex';}" />
+                    onerror="this.style.display='none';document.getElementById('fallback-logo').style.display='flex';" />
                 <div id="fallback-logo" class="hidden items-center gap-2.5">
                     <svg class="w-11 h-11 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
                         <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4" stroke-dasharray="12 6" />
@@ -792,7 +818,7 @@
             <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
                 <a href="about-us.html" class="hover:text-pink-600 transition whitespace-nowrap">About Us</a>
 
-                <!-- Solutions Dropdown (6 Core Solutions) -->
+                <!-- Solutions Dropdown (6 Core Solutions — Solid Crisp Surface to Prevent Nested Backdrop-Filter Glitch) -->
                 <div class="relative group py-6">
                     <button type="button"
                         class="flex items-center gap-1.5 hover:text-pink-600 transition whitespace-nowrap">
@@ -801,36 +827,36 @@
                             class="fa-solid fa-chevron-down text-xs text-pink-400 group-hover:rotate-180 transition-transform"></i>
                     </button>
                     <div
-                        class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                        class="absolute left-0 top-full pt-1 opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-all duration-150 z-50">
                         <div
-                            class="w-72 bg-white/98 backdrop-blur-xl rounded-xl border border-pink-100 shadow-xl shadow-pink-500/10 p-2 space-y-1">
-                            <a href="#hero-carousel" data-solution-slide="0"
-                                class="solution-nav-link block px-3.5 py-2.5 rounded-lg hover:bg-amber-50 transition">
+                            class="w-72 bg-white rounded-xl border border-pink-100 shadow-xl shadow-pink-500/10 p-2 space-y-1">
+                            <a href="solutions/megawatt-scale.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50 transition">
                                 <div class="text-xs font-semibold text-orange-700">Megawatt Scale</div>
                                 <div class="text-xs text-slate-500 mt-0.5">Utility &amp; industrial solar power plants</div>
                             </a>
-                            <a href="#hero-carousel" data-solution-slide="1"
-                                class="solution-nav-link block px-3.5 py-2.5 rounded-lg hover:bg-pink-50 transition">
+                            <a href="solutions/on-grid.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-pink-50 transition">
                                 <div class="text-xs font-semibold text-pink-700">On-Grid</div>
                                 <div class="text-xs text-slate-500 mt-0.5">Grid-tied net-metering solar systems</div>
                             </a>
-                            <a href="#hero-carousel" data-solution-slide="2"
-                                class="solution-nav-link block px-3.5 py-2.5 rounded-lg hover:bg-violet-50 transition">
+                            <a href="solutions/off-grid.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-violet-50 transition">
                                 <div class="text-xs font-semibold text-violet-700">Off-Grid</div>
                                 <div class="text-xs text-slate-500 mt-0.5">Standalone solar + battery power</div>
                             </a>
-                            <a href="#hero-carousel" data-solution-slide="3"
-                                class="solution-nav-link block px-3.5 py-2.5 rounded-lg hover:bg-teal-50 transition">
+                            <a href="solutions/hybrid.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-teal-50 transition">
                                 <div class="text-xs font-semibold text-teal-700">Hybrid</div>
                                 <div class="text-xs text-slate-500 mt-0.5">Net-metering with seamless backup</div>
                             </a>
-                            <a href="#hero-carousel" data-solution-slide="4"
-                                class="solution-nav-link block px-3.5 py-2.5 rounded-lg hover:bg-sky-50 transition">
+                            <a href="solutions/substations.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-sky-50 transition">
                                 <div class="text-xs font-semibold text-sky-700">Substations</div>
                                 <div class="text-xs text-slate-500 mt-0.5">Turnkey AIS &amp; GIS HV substations</div>
                             </a>
-                            <a href="#hero-carousel" data-solution-slide="5"
-                                class="solution-nav-link block px-3.5 py-2.5 rounded-lg hover:bg-fuchsia-50 transition">
+                            <a href="solutions/bess.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-fuchsia-50 transition">
                                 <div class="text-xs font-semibold text-fuchsia-700">BESS</div>
                                 <div class="text-xs text-slate-500 mt-0.5">Battery Energy Storage Systems</div>
                             </a>
@@ -869,12 +895,12 @@
             <div class="space-y-2.5 pt-1 pb-1 border-y border-pink-100/80">
                 <div class="text-xs font-semibold uppercase tracking-wider text-pink-600">Solutions</div>
                 <div class="grid grid-cols-2 gap-2">
-                    <a href="#hero-carousel" data-solution-slide="0" class="solution-nav-link block text-sm font-medium text-indigo-950 hover:text-orange-600">Megawatt Scale</a>
-                    <a href="#hero-carousel" data-solution-slide="1" class="solution-nav-link block text-sm font-medium text-indigo-950 hover:text-pink-600">On-Grid</a>
-                    <a href="#hero-carousel" data-solution-slide="2" class="solution-nav-link block text-sm font-medium text-indigo-950 hover:text-violet-600">Off-Grid</a>
-                    <a href="#hero-carousel" data-solution-slide="3" class="solution-nav-link block text-sm font-medium text-indigo-950 hover:text-teal-600">Hybrid</a>
-                    <a href="#hero-carousel" data-solution-slide="4" class="solution-nav-link block text-sm font-medium text-indigo-950 hover:text-sky-600">Substations</a>
-                    <a href="#hero-carousel" data-solution-slide="5" class="solution-nav-link block text-sm font-medium text-indigo-950 hover:text-fuchsia-600">BESS</a>
+                    <a href="solutions/megawatt-scale.html" class="block text-sm font-medium text-indigo-950 hover:text-orange-600">Megawatt Scale</a>
+                    <a href="solutions/on-grid.html" class="block text-sm font-medium text-indigo-950 hover:text-pink-600">On-Grid</a>
+                    <a href="solutions/off-grid.html" class="block text-sm font-medium text-indigo-950 hover:text-violet-600">Off-Grid</a>
+                    <a href="solutions/hybrid.html" class="block text-sm font-medium text-indigo-950 hover:text-teal-600">Hybrid</a>
+                    <a href="solutions/substations.html" class="block text-sm font-medium text-indigo-950 hover:text-sky-600">Substations</a>
+                    <a href="solutions/bess.html" class="block text-sm font-medium text-indigo-950 hover:text-fuchsia-600">BESS</a>
                 </div>
             </div>
             <a href="residential.html" class="block text-base font-medium text-indigo-950 hover:text-pink-600">Residential Rooftop</a>
@@ -981,44 +1007,48 @@
 
                     <!-- Slide 1: Megawatt Scale -->
                     <div class="hero-slide is-active absolute inset-0 transition-opacity duration-700 opacity-100 z-10">
-                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85"
+                        <img src="images/Solutions/megawatt.png" data-smart-fit="true"
+                            onerror="if(!this.dataset.triedLower){this.dataset.triedLower='1';this.src='images/solutions/megawatt.png';}else{this.onerror=null;this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85';}"
                             alt="Megawatt Scale utility solar power plant"
                             class="w-full h-full object-cover object-center" />
                     </div>
 
                     <!-- Slide 2: On-Grid -->
                     <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 z-0">
-                        <img src="Sunlit Rooftop Solar Array.png"
-                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=2000&q=85';"
+                        <img src="images/Solutions/ongrid.png" data-smart-fit="true"
+                            onerror="if(!this.dataset.triedAlt){this.dataset.triedAlt='1';this.src='images/Sunlit Rooftop Solar Array.png';}else{this.onerror=null;this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=2000&q=85';}"
                             alt="On-Grid rooftop solar panel array with net metering"
                             class="w-full h-full object-cover object-center" />
                     </div>
 
                     <!-- Slide 3: Off-Grid -->
                     <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 z-0">
-                        <img src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=2000&q=85"
+                        <img src="images/Solutions/offgrid.png" data-smart-fit="true"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=2000&q=85';"
                             alt="Off-Grid standalone solar power installation"
                             class="w-full h-full object-cover object-center" />
                     </div>
 
                     <!-- Slide 4: Hybrid -->
                     <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 z-0">
-                        <img src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=2000&q=85"
+                        <img src="images/Solutions/hybrid.png" data-smart-fit="true"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=2000&q=85';"
                             alt="Hybrid solar and energy storage system"
                             class="w-full h-full object-cover object-center" />
                     </div>
 
                     <!-- Slide 5: Substations -->
                     <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 z-0">
-                        <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2000&q=85"
+                        <img src="images/Solutions/substation.png" data-smart-fit="true"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2000&q=85';"
                             alt="High-voltage AIS and GIS electrical substation"
                             class="w-full h-full object-cover object-center" />
                     </div>
 
                     <!-- Slide 6: BESS -->
                     <div class="hero-slide absolute inset-0 transition-opacity duration-700 opacity-0 z-0">
-                        <img src="https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=2000&q=85"
-                            onerror="this.onerror=null; this.src='images/bess.png';"
+                        <img src="images/Solutions/bess.png" data-smart-fit="true"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=2000&q=85';"
                             alt="Utility-scale Battery Energy Storage System (BESS)"
                             class="w-full h-full object-cover object-center" />
                     </div>
@@ -1048,18 +1078,24 @@
                         </div>
                     </div>
 
-                    <!-- Synchronized Product Name, Description & 6-Slide Progress Bar -->
+                    <!-- Synchronized Product Name, Description & 6-Slide Progress Bar (Links to Dedicated Solution Page) -->
                     <div
                         class="absolute bottom-4 sm:bottom-6 left-5 sm:left-6 right-5 sm:right-6 z-30 flex flex-col lg:flex-row lg:items-end justify-between gap-4 text-white">
-                        <div id="hero-solution-copy"
-                            class="max-w-2xl bg-indigo-950/55 backdrop-blur-md px-4 py-3 sm:px-5 sm:py-4 rounded-xl border border-pink-300/25 transition-opacity duration-300">
-                            <h2 id="hero-caption-title" class="text-lg sm:text-2xl font-semibold tracking-tight text-white">
-                                Megawatt Scale
-                            </h2>
+                        <a id="hero-solution-copy" href="solutions/megawatt-scale.html"
+                            class="group/hero-link block max-w-2xl bg-indigo-950/55 hover:bg-indigo-950/75 backdrop-blur-md px-4 py-3 sm:px-5 sm:py-4 rounded-xl border border-pink-300/25 hover:border-amber-300/60 transition-all duration-300">
+                            <div class="flex items-center justify-between gap-3">
+                                <h2 id="hero-caption-title" class="text-lg sm:text-2xl font-semibold tracking-tight text-white group-hover/hero-link:text-amber-200 transition-colors">
+                                    Megawatt Scale
+                                </h2>
+                                <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-amber-300 shrink-0">
+                                    <span>Explore</span>
+                                    <i class="fa-solid fa-arrow-right text-[11px] group-hover/hero-link:translate-x-1 transition-transform"></i>
+                                </span>
+                            </div>
                             <p id="hero-caption-desc" class="mt-1 text-xs sm:text-sm text-purple-100/90 leading-relaxed">
                                 Utility-scale ground-mounted and industrial solar power plants engineered for high-tension grid evacuation, optimal CUF, and 25-year bankable generation.
                             </p>
-                        </div>
+                        </a>
 
                         <div
                             class="flex items-center gap-3 self-start lg:self-end bg-indigo-950/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-pink-300/25">
@@ -1176,14 +1212,14 @@
                         <!-- Project Slide 1: DIU 7.47 Megawatt -->
                         <div data-slide-idx="0"
                             class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-indigo-950 border border-pink-200/70 shadow-md shadow-pink-950/5 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] cursor-pointer group">
-                            <img src="images/diu.png"
+                            <img src="images/Diu/diu.png" data-smart-fit="true"
                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=85';"
                                 alt="DIU 7.47 Megawatt Solar Power Project"
                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
+                                class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
                             </div>
-                            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                            <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2">
                                 <span
                                     class="px-3 py-1 rounded-full bg-indigo-950/75 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/15">
                                     Utility Solar • Diu
@@ -1198,14 +1234,14 @@
                         <!-- Project Slide 2: BESS 10 MWh (2x5 MWh) at Malala, Diu -->
                         <div data-slide-idx="1"
                             class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-indigo-950 border border-violet-200/70 shadow-md shadow-violet-950/5 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer group">
-                            <img src="images/bess.png"
+                            <img src="images/Solutions/bess.png" data-smart-fit="true"
                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=1600&q=85';"
                                 alt="BESS 10 MWh (2x5 MWh) at Malala, Diu"
                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
+                                class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
                             </div>
-                            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                            <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2">
                                 <span
                                     class="px-3 py-1 rounded-full bg-indigo-950/75 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/15">
                                     BESS • Malala, Diu
@@ -1220,14 +1256,14 @@
                         <!-- Project Slide 3: SCADA Installation -->
                         <div data-slide-idx="2"
                             class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-indigo-950 border border-teal-200/70 shadow-md shadow-teal-950/5 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer group">
-                            <img src="images/scada.png"
+                            <img src="images/Active Projects/scada.png" data-smart-fit="true"
                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1600&q=85';"
                                 alt="SCADA Installation"
                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
+                                class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
                             </div>
-                            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                            <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2">
                                 <span
                                     class="px-3 py-1 rounded-full bg-indigo-950/75 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/15">
                                     Grid Automation
@@ -1242,14 +1278,14 @@
                         <!-- Project Slide 4: 2x20 MVA, 66/11 kV GIS at Kilwani, Silvassa, Daman -->
                         <div data-slide-idx="3"
                             class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-indigo-950 border border-sky-200/70 shadow-md shadow-sky-950/5 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer group">
-                            <img src="images/kvgis.png"
+                            <img src="images/Solutions/substation.png" data-smart-fit="true"
                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1600&q=85';"
                                 alt="2x20 MVA, 66/11 kV GIS at Kilwani, Silvassa, Daman"
                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
+                                class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
                             </div>
-                            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                            <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2">
                                 <span
                                     class="px-3 py-1 rounded-full bg-indigo-950/75 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/15">
                                     GIS Substation • Silvassa, Daman
@@ -1264,14 +1300,14 @@
                         <!-- Project Slide 5: 10 Megawatt at Perambalur & Aruppukkottai -->
                         <div data-slide-idx="4"
                             class="project-slide w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-indigo-950 border border-amber-200/70 shadow-md shadow-amber-950/5 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer group">
-                            <img src="images/peramalur.png"
+                            <img src="images/peramalur.png" data-smart-fit="true"
                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1600&q=85';"
                                 alt="10 Megawatt Solar Power Project at Perambalur and Aruppukkottai"
                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
+                                class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
                             </div>
-                            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                            <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2">
                                 <span
                                     class="px-3 py-1 rounded-full bg-indigo-950/75 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/15">
                                     Perambalur &amp; Aruppukkottai, TN
@@ -1286,14 +1322,14 @@
                         <!-- Trailing Peek Clone of Slide 1 -->
                         <div data-slide-idx="0" aria-hidden="true"
                             class="project-slide-peek-clone w-full sm:w-[calc(50%-12px)] shrink-0 h-[240px] sm:h-[290px] lg:h-[320px] relative rounded-2xl overflow-hidden bg-indigo-950 border border-pink-200/70 shadow-md shadow-pink-950/5 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] opacity-60 scale-[0.97] cursor-pointer group">
-                            <img src="images/diu.png"
+                            <img src="images/Diu/diu.png" data-smart-fit="true"
                                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=85';"
                                 alt="DIU 7.47 Megawatt Solar Power Project"
                                 class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" />
                             <div
-                                class="absolute inset-0 bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
+                                class="absolute inset-0 z-10 pointer-events-none bg-gradient-to-t from-indigo-950/45 via-transparent to-transparent">
                             </div>
-                            <div class="absolute top-4 left-4 flex flex-wrap items-center gap-2">
+                            <div class="absolute top-4 left-4 z-20 flex flex-wrap items-center gap-2">
                                 <span
                                     class="px-3 py-1 rounded-full bg-indigo-950/75 backdrop-blur-md text-white text-xs font-semibold tracking-wide border border-white/15">
                                     Utility Solar • Diu
@@ -1659,7 +1695,7 @@
                         class="spotlight-card group flex flex-col justify-between rounded-2xl border border-pink-100 bg-white overflow-hidden hover:border-pink-300 hover:shadow-xl hover:shadow-pink-500/10 transition-all duration-300">
                         <div class="relative z-10">
                             <a href="blog.html" class="block relative aspect-[16/10] overflow-hidden bg-indigo-950">
-                                <img src="Sunlit Rooftop Solar Array.png"
+                                <img src="images/Sunlit Rooftop Solar Array.png"
                                     onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1200&q=80';"
                                     alt="PM Surya Ghar and Tamil Nadu State Rooftop Solar Subsidy Guide"
                                     class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500" />
@@ -2011,7 +2047,7 @@
                     <a href="index.html" class="inline-flex items-center gap-3">
                         <img src="images/logo.png" alt="Suntastic Engineering"
                             class="h-[54px] w-auto object-contain bg-white px-3 py-1.5 rounded-lg"
-                            onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('footer-fallback-logo').style.display='flex';}" />
+                            onerror="this.style.display='none';document.getElementById('footer-fallback-logo').style.display='flex';" />
                         <div id="footer-fallback-logo" class="hidden items-center gap-2.5">
                             <svg class="w-10 h-10 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
                                 <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4"
@@ -2080,6 +2116,7 @@
                         <li><a href="on-grid-hybrid.html" class="hover:text-teal-300 transition">Net-Metering Guide</a>
                         </li>
                         <li><a href="blog.html" class="hover:text-pink-300 transition">Blog</a></li>
+                        <li><a href="gallary.html" class="hover:text-pink-300 transition">Photo Gallery</a></li>
                     </ul>
                 </div>
             </div>
@@ -2112,6 +2149,53 @@
         mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
         document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
         window.matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+        // Smart Aspect-Ratio Handler for Hero & Active Project Images
+        // Preserves full-bleed object-cover for matching landscape photos; switches to object-contain
+        // over a softly blurred backdrop when a photo's aspect ratio differs significantly from its frame.
+        (function () {
+            const imgs = Array.from(document.querySelectorAll('img[data-smart-fit="true"]'));
+            if (!imgs.length) return;
+
+            function evaluateImageFit(img) {
+                const container = img.parentElement;
+                if (!container || !img.naturalWidth || !img.naturalHeight) return;
+
+                const boxW = container.clientWidth;
+                const boxH = container.clientHeight;
+                if (!boxW || !boxH) return;
+
+                const imgRatio = img.naturalWidth / img.naturalHeight;
+                const boxRatio = boxW / boxH;
+                const mismatch = Math.max(imgRatio / boxRatio, boxRatio / imgRatio);
+                const needsContain = imgRatio < 1 || mismatch > 1.75;
+
+                let backdrop = container.querySelector(':scope > .smart-fit-backdrop');
+                if (needsContain) {
+                    if (!backdrop) {
+                        backdrop = document.createElement('div');
+                        backdrop.className = 'smart-fit-backdrop';
+                        backdrop.setAttribute('aria-hidden', 'true');
+                        container.insertBefore(backdrop, container.firstChild);
+                    }
+                    backdrop.style.backgroundImage = `url("${img.currentSrc || img.src}")`;
+                    container.classList.add('is-contained');
+                } else {
+                    container.classList.remove('is-contained');
+                }
+            }
+
+            imgs.forEach(img => {
+                img.addEventListener('load', () => evaluateImageFit(img));
+                if (img.complete && img.naturalWidth) {
+                    evaluateImageFit(img);
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                imgs.forEach(evaluateImageFit);
+            });
+        })();
 
         // Reusable Seamless Infinite Conveyor-Belt Strip Engine (drag / swipe / wheel / keyboard + JS auto-drift)
         function initConveyorStrip(scroller, track, speedPxPerSec) {
@@ -2212,16 +2296,16 @@
             return { measure };
         }
 
-        // Conveyor Belt 1: Client Logo Strip (Includes DNH and DD Power Corporation)
+        // Conveyor Belt 1: Client Logo Strip (Reuses images/Empanelments/dnh.png for DNH and DD Power Corporation)
         (function () {
             const track = document.getElementById('client-marquee-track');
             const scroller = document.getElementById('client-scroller');
             if (!track || !scroller) return;
 
             const base = 'images/Clients/';
-            // [filename, label, keepTextFallbackIfMissing]
+            // [pathOrFilename, label, keepTextFallbackIfMissing]
             const clients = [
-                ['DNH_DD_Power.png', 'DNH and DD Power Corporation', true],
+                ['images/Empanelments/dnh.png', 'DNH and DD Power Corporation', true],
                 ['India_Post.jpg', 'India Post', false],
                 ['Rail_Vikas.jpg', 'Rail Vikas Nigam Limited', false],
                 ['Keltron.jpg', 'KELTRON, Government of Kerala Undertaking', false],
@@ -2243,12 +2327,13 @@
             ];
 
             clients.forEach(([file, alt, textFallback], i) => {
+                const src = file.includes('/') ? file : `${base}${file}`;
                 const card = document.createElement('div');
                 card.dataset.i = i;
                 card.dataset.fallback = textFallback ? '1' : '0';
                 card.dataset.label = alt;
                 card.className = 'client-logo-card w-[215px] min-h-[132px] shrink-0 flex items-center justify-center p-5 rounded-xl border border-pink-100 bg-white shadow-sm';
-                card.innerHTML = `<img src="${base}${file}" alt="${alt} logo" loading="lazy" decoding="async" draggable="false"
+                card.innerHTML = `<img src="${src}" alt="${alt} logo" loading="lazy" decoding="async" draggable="false"
             class="max-h-[72px] w-full max-w-[195px] object-contain">`;
                 track.appendChild(card);
             });
@@ -2277,38 +2362,47 @@
             }, true);
         })();
 
-        // Conveyor Belt 2: Empanelments, Contractor Classes & Government Registrations
+        // Conveyor Belt 2: Empanelments, Contractor Classes & Government Registrations (with normalized logos from images/Empanelments/)
         (function () {
             const track = document.getElementById('empanelment-marquee-track');
             const scroller = document.getElementById('empanelment-scroller');
             if (!track || !scroller) return;
 
+            const logoBase = 'images/Empanelments/';
             const empanelments = [
-                { name: "MES 'S' Class", sub: "Military Engineer Services", icon: "fa-shield-halved", accent: "text-sky-600 bg-sky-50 border-sky-200/80" },
-                { name: "MNRE", sub: "Ministry of New & Renewable Energy", icon: "fa-sun", accent: "text-amber-600 bg-amber-50 border-amber-200/80" },
-                { name: "TANGEDCO", sub: "Empanelled Solar Contractor", icon: "fa-bolt", accent: "text-pink-600 bg-pink-50 border-pink-200/80" },
-                { name: "TEDA", sub: "Tamil Nadu Energy Development Agency", icon: "fa-leaf", accent: "text-emerald-600 bg-emerald-50 border-emerald-200/80" },
-                { name: "TNHB", sub: "Tamil Nadu Housing Board", icon: "fa-building", accent: "text-violet-600 bg-violet-50 border-violet-200/80" },
-                { name: "DNH", sub: "Dadra & Nagar Haveli", icon: "fa-landmark", accent: "text-indigo-600 bg-indigo-50 border-indigo-200/80" },
-                { name: "Southern Railways", sub: "Indian Railways", icon: "fa-train", accent: "text-rose-600 bg-rose-50 border-rose-200/80" },
-                { name: "IREPS", sub: "Indian Railways E-Procurement", icon: "fa-file-contract", accent: "text-orange-600 bg-orange-50 border-orange-200/80" },
-                { name: "PWD", sub: "Public Works Department", icon: "fa-helmet-safety", accent: "text-amber-700 bg-amber-50 border-amber-200/80" },
-                { name: "Highway Department", sub: "Highways & Infrastructure", icon: "fa-road", accent: "text-slate-700 bg-slate-100 border-slate-200" },
-                { name: "Tanjore Corporation", sub: "Municipal Corporation", icon: "fa-city", accent: "text-fuchsia-600 bg-fuchsia-50 border-fuchsia-200/80" },
-                { name: "Smart City Ltd", sub: "Smart Cities Mission", icon: "fa-tower-broadcast", accent: "text-cyan-600 bg-cyan-50 border-cyan-200/80" },
-                { name: "ANERT", sub: "Kerala Renewable Energy Agency", icon: "fa-solar-panel", accent: "text-teal-600 bg-teal-50 border-teal-200/80" },
-                { name: "KSEB", sub: "Kerala State Electricity Board", icon: "fa-plug-circle-bolt", accent: "text-blue-600 bg-blue-50 border-blue-200/80" },
-                { name: "PM Surya Ghar", sub: "Muft Bijli Yojana", icon: "fa-house-signal", accent: "text-orange-600 bg-orange-50 border-orange-200/80" },
-                { name: "PM-KUSUM", sub: "Solar Agriculture Scheme", icon: "fa-seedling", accent: "text-emerald-600 bg-emerald-50 border-emerald-200/80" }
+                { name: "MES 'S' Class", sub: "Military Engineer Services", logo: "mes-s-class.png", icon: "fa-shield-halved", accent: "text-sky-600 bg-sky-50 border-sky-200/80" },
+                { name: "MNRE", sub: "Ministry of New & Renewable Energy", logo: "mnre.svg", icon: "fa-sun", accent: "text-amber-600 bg-amber-50 border-amber-200/80" },
+                { name: "TANGEDCO", sub: "Empanelled Solar Contractor", logo: "tangedco.png", icon: "fa-bolt", accent: "text-pink-600 bg-pink-50 border-pink-200/80" },
+                { name: "TEDA", sub: "Tamil Nadu Energy Development Agency", logo: null, icon: "fa-leaf", accent: "text-emerald-600 bg-emerald-50 border-emerald-200/80" },
+                { name: "TNHB", sub: "Tamil Nadu Housing Board", logo: "tnhb.png", icon: "fa-building", accent: "text-violet-600 bg-violet-50 border-violet-200/80" },
+                { name: "DNH", sub: "Dadra & Nagar Haveli", logo: "dnh.png", icon: "fa-landmark", accent: "text-indigo-600 bg-indigo-50 border-indigo-200/80" },
+                { name: "Southern Railways", sub: "Indian Railways", logo: "indian-railways.png", icon: "fa-train", accent: "text-rose-600 bg-rose-50 border-rose-200/80" },
+                { name: "IREPS", sub: "Indian Railways E-Procurement", logo: "ireps.png", icon: "fa-file-contract", accent: "text-orange-600 bg-orange-50 border-orange-200/80" },
+                { name: "PWD", sub: "Public Works Department", logo: "pwd.png", icon: "fa-helmet-safety", accent: "text-amber-700 bg-amber-50 border-amber-200/80" },
+                { name: "Highway Department", sub: "Highways & Infrastructure", logo: "highway-department.svg", icon: "fa-road", accent: "text-slate-700 bg-slate-100 border-slate-200" },
+                { name: "Tanjore Corporation", sub: "Municipal Corporation", logo: null, icon: "fa-city", accent: "text-fuchsia-600 bg-fuchsia-50 border-fuchsia-200/80" },
+                { name: "Smart City Ltd", sub: "Smart Cities Mission", logo: null, icon: "fa-tower-broadcast", accent: "text-cyan-600 bg-cyan-50 border-cyan-200/80" },
+                { name: "ANERT", sub: "Kerala Renewable Energy Agency", logo: null, icon: "fa-solar-panel", accent: "text-teal-600 bg-teal-50 border-teal-200/80" },
+                { name: "KSEB", sub: "Kerala State Electricity Board", logo: "KSEB.png", icon: "fa-plug-circle-bolt", accent: "text-blue-600 bg-blue-50 border-blue-200/80" },
+                { name: "PM Surya Ghar", sub: "Muft Bijli Yojana", logo: "pm-surya-ghar.png", icon: "fa-house-signal", accent: "text-orange-600 bg-orange-50 border-orange-200/80" },
+                { name: "PM-KUSUM", sub: "Solar Agriculture Scheme", logo: "pm-kusum.png", icon: "fa-seedling", accent: "text-emerald-600 bg-emerald-50 border-emerald-200/80" }
             ];
 
-            empanelments.forEach(item => {
+            empanelments.forEach((item, idx) => {
                 const card = document.createElement('div');
+                card.dataset.empIdx = idx;
                 card.className = 'empanelment-badge-card w-[235px] min-h-[82px] shrink-0 flex items-center gap-3.5 px-4 py-3.5 rounded-xl border border-pink-100 bg-white shadow-sm';
+
+                const badgeMedia = item.logo
+                    ? `<span class="emp-media w-12 h-12 shrink-0 rounded-lg border border-pink-100/90 bg-white p-1.5 flex items-center justify-center overflow-hidden">
+                           <img src="${logoBase}${item.logo}" alt="${item.name} logo" loading="lazy" decoding="async" draggable="false" class="w-full h-full object-contain" />
+                       </span>`
+                    : `<span class="emp-media w-12 h-12 shrink-0 rounded-lg border flex items-center justify-center ${item.accent}">
+                           <i class="fa-solid ${item.icon} text-sm" aria-hidden="true"></i>
+                       </span>`;
+
                 card.innerHTML = `
-                    <span class="w-10 h-10 shrink-0 rounded-lg border flex items-center justify-center ${item.accent}">
-                        <i class="fa-solid ${item.icon} text-sm" aria-hidden="true"></i>
-                    </span>
+                    ${badgeMedia}
                     <div class="min-w-0">
                         <div class="text-xs sm:text-sm font-semibold text-indigo-950 truncate">${item.name}</div>
                         <div class="text-[11px] text-slate-500 truncate mt-0.5">${item.sub}</div>
@@ -2316,6 +2410,19 @@
                 `;
                 track.appendChild(card);
             });
+
+            // Graceful fallback to icon badge across all cloned copies if a logo asset ever fails to load
+            track.addEventListener('error', e => {
+                const card = e.target.closest && e.target.closest('.empanelment-badge-card');
+                if (!card) return;
+                const idx = Number(card.dataset.empIdx);
+                const item = empanelments[idx];
+                if (!item) return;
+                track.querySelectorAll(`[data-emp-idx="${idx}"] .emp-media`).forEach(media => {
+                    media.className = `emp-media w-12 h-12 shrink-0 rounded-lg border flex items-center justify-center ${item.accent}`;
+                    media.innerHTML = `<i class="fa-solid ${item.icon} text-sm" aria-hidden="true"></i>`;
+                });
+            }, true);
 
             initConveyorStrip(scroller, track, 34);
         })();
@@ -2455,12 +2562,13 @@
             });
         })();
 
-        // Hero Auto-Scrolling Solutions Product Carousel (6 Products: Megawatt Scale, On-Grid, Off-Grid, Hybrid, Substations, BESS)
+        // Hero Auto-Scrolling Solutions Product Carousel (6 Products linked to dedicated pages)
         (function () {
             const carousel = document.getElementById('hero-carousel');
             const slides = document.querySelectorAll('.hero-slide');
             const dots = document.querySelectorAll('.hero-dot');
             const badgeEl = document.getElementById('hero-solution-badge');
+            const copyLinkEl = document.getElementById('hero-solution-copy');
             const titleEl = document.getElementById('hero-caption-title');
             const descEl = document.getElementById('hero-caption-desc');
             const rightCaption = document.getElementById('hero-caption-right');
@@ -2471,32 +2579,38 @@
                 {
                     title: 'Megawatt Scale',
                     desc: 'Utility-scale ground-mounted and industrial solar power plants engineered for high-tension grid evacuation, optimal CUF, and 25-year bankable generation.',
-                    tag: 'Utility & Industrial EPC'
+                    tag: 'Utility & Industrial EPC',
+                    href: 'solutions/megawatt-scale.html'
                 },
                 {
                     title: 'On-Grid',
                     desc: 'Grid-tied solar power systems integrated with bi-directional net-metering to offset daytime loads, export surplus units, and slash monthly electricity bills.',
-                    tag: 'Net-Metered Solar Systems'
+                    tag: 'Net-Metered Solar Systems',
+                    href: 'solutions/on-grid.html'
                 },
                 {
                     title: 'Off-Grid',
                     desc: 'Independent solar-plus-battery power plants designed for remote facilities, campuses, and critical sites requiring dependable electricity without grid reliance.',
-                    tag: 'Standalone Solar Power'
+                    tag: 'Standalone Solar Power',
+                    href: 'solutions/off-grid.html'
                 },
                 {
                     title: 'Hybrid',
                     desc: 'Dual-mode solar architecture uniting utility net-metering with intelligent battery storage for instant outage backup and peak-tariff optimization.',
-                    tag: 'Solar + Storage Backup'
+                    tag: 'Solar + Storage Backup',
+                    href: 'solutions/hybrid.html'
                 },
                 {
                     title: 'Substations',
                     desc: 'Turnkey AIS and GIS high-voltage substations, power transformers, and protection switchgear built for utility power evacuation and industrial loads.',
-                    tag: 'Turnkey HV AIS / GIS'
+                    tag: 'Turnkey HV AIS / GIS',
+                    href: 'solutions/substations.html'
                 },
                 {
                     title: 'BESS',
                     desc: 'Containerized Battery Energy Storage Systems engineered for grid stabilization, renewable energy firming, peak shaving, and dispatchable power delivery.',
-                    tag: 'Battery Energy Storage'
+                    tag: 'Battery Energy Storage',
+                    href: 'solutions/bess.html'
                 }
             ];
 
@@ -2528,6 +2642,7 @@
                 if (badgeEl) {
                     badgeEl.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span> Our Solutions &nbsp;•&nbsp; 0${currentIndex + 1} / 0${slides.length}`;
                 }
+                if (copyLinkEl) copyLinkEl.href = meta.href;
                 if (titleEl) titleEl.textContent = meta.title;
                 if (descEl) descEl.textContent = meta.desc;
                 if (rightCaption) rightCaption.textContent = meta.tag;
@@ -2564,17 +2679,6 @@
                     startAutoScroll();
                 });
             }
-
-            // Connect Navbar & Mobile Solutions dropdown links directly to the corresponding product slide
-            document.querySelectorAll('.solution-nav-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    const targetSlide = Number(link.dataset.solutionSlide);
-                    if (!Number.isNaN(targetSlide)) {
-                        showSlide(targetSlide);
-                        startAutoScroll();
-                    }
-                });
-            });
 
             if (carousel) {
                 carousel.addEventListener('mouseenter', stopAutoScroll);
@@ -2623,9 +2727,9 @@
                     tagline: 'Turnkey execution of a 2x20 MVA, 66/11 kV Gas Insulated Switchgear (GIS) substation engineered for high-reliability power transformation and evacuation.'
                 },
                 {
-                    badge: 'Megawatt Solar EPC • Perambalur & Aruppukkottai, TN',
-                    title: '10 Megawatt Solar Project at Perambalur & Aruppukkottai',
-                    tagline: 'Large-scale 10 MW solar power plant across Perambalur and Aruppukkottai, Tamil Nadu, delivering high-yield clean energy with full HT grid integration.'
+                    badge: 'Megawatt Solar EPC • Aruppukkottai, TN',
+                    title: '10 Megawatt Solar Project at Aruppukkottai',
+                    tagline: 'Large-scale 10 MW solar power plant in Aruppukkottai, Tamil Nadu, delivering high-yield clean energy with full HT grid integration.'
                 }
             ];
 

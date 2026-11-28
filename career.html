@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- SEO Metadata -->
+    <title>Careers | Join Suntastic Engineering — Solar EPC, Substations &amp; BESS</title>
+    <meta name="description"
+        content="Build your career in renewable energy with Suntastic Engineering Pvt Ltd. Explore open roles in solar electrical design, MW site execution, substations, BESS, SCADA, and business development." />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <link rel="canonical" href="https://suntasticsolarsystems.com/career.html" />
+    <meta name="theme-color" content="#1E103C" />
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Careers | Suntastic Engineering" />
+    <meta property="og:description"
+        content="Join our engineering and EPC execution teams across Chennai, Coimbatore, Kerala, and utility project sites." />
+    <meta property="og:url" content="https://suntasticsolarsystems.com/career.html" />
+    <meta property="og:site_name" content="Suntastic Engineering" />
+    <meta property="og:image" content="https://suntasticsolarsystems.com/images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Editorial Minimalist Typography: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    },
+                    colors: {
+                        alabaster: '#FDF8FC',
+                        obsidian: '#160B2E',
+                        amber: {
+                            500: '#F59E0B',
+                            600: '#D97706',
+                            700: '#B45309',
+                        },
+                        magenta: {
+                            50: '#FDF2F8',
+                            100: '#FCE7F3',
+                            500: '#EC4899',
+                            600: '#DB2777',
+                            700: '#BE185D',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Native SPA-Grade Multi-Page View Transitions */
+        @view-transition {
+            navigation: auto;
+        }
+
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Subtle Top Solar-Spectrum Accent Bar on Header */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #F59E0B 0%, #F97316 25%, #EC4899 55%, #8B5CF6 80%, #0EA5E9 100%);
+            z-index: 60;
+        }
+
+        /* Luminous Daylight Prism Mesh + Subtle Ambient Grid Pattern */
+        .architectural-grid-bg {
+            background-color: #FFFFFF;
+            background-image:
+                radial-gradient(at 8% 12%, rgba(245, 158, 11, 0.13) 0px, transparent 42%),
+                radial-gradient(at 90% 10%, rgba(236, 72, 153, 0.14) 0px, transparent 44%),
+                radial-gradient(at 52% 44%, rgba(139, 92, 246, 0.08) 0px, transparent 48%),
+                radial-gradient(at 85% 65%, rgba(14, 165, 233, 0.09) 0px, transparent 40%),
+                radial-gradient(rgba(190, 24, 93, 0.07) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+        }
+
+        /* Cursor-Tracked Solar Spectrum Spotlight Cards */
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+        }
+
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                    var(--spot-color, rgba(236, 72, 153, 0.11)),
+                    transparent 48%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Mobile / Launch Polish & Safe-Area Fixes */
+        html {
+            scroll-padding-top: 96px;
+        }
+
+        .wa-float {
+            bottom: max(1.5rem, env(safe-area-inset-bottom)) !important;
+            right: max(1.5rem, env(safe-area-inset-right)) !important;
+        }
+
+        /* Large-screen scale-up (>=1700px wide, matches index.html) */
+        @media (min-width: 1700px) {
+            html {
+                font-size: 20px;
+                scroll-padding-top: 120px;
+            }
+
+            header img[alt="Suntastic Engineering"] {
+                height: 75px !important;
+            }
+
+            footer img[alt="Suntastic Engineering"] {
+                height: 67px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-indigo-950 font-sans antialiased selection:bg-pink-600 selection:text-white">
+
+    <!-- 1. HIGH-CONVERSION NAVIGATION BAR (100% Consistent with index.html) -->
+    <header
+        class="sticky top-0 z-50 bg-white/92 backdrop-blur-xl border-b border-pink-100/90 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- Official Suntastic Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 shrink-0">
+                <img src="images/logo.png" alt="Suntastic Engineering" class="h-[60px] w-auto object-contain"
+                    onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('fallback-logo').style.display='flex';}" />
+                <div id="fallback-logo" class="hidden items-center gap-2.5">
+                    <svg class="w-11 h-11 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4" stroke-dasharray="12 6" />
+                        <circle cx="32" cy="32" r="20" stroke="#EC4899" stroke-width="3" stroke-dasharray="10 5" />
+                        <circle cx="32" cy="32" r="14" stroke="#8B5CF6" stroke-width="2.5" stroke-dasharray="8 4" />
+                    </svg>
+                    <span class="font-bold text-xl tracking-wider text-indigo-950">
+                        SUN TASTIC<sup class="text-xs font-semibold ml-0.5 text-pink-600">TM</sup>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Center Navigation -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
+                <a href="about-us.html" class="hover:text-pink-600 transition whitespace-nowrap">About Us</a>
+
+                <!-- Solutions Dropdown (6 Core Solutions — Consistent with index.html) -->
+                <div class="relative group py-6">
+                    <button type="button"
+                        class="flex items-center gap-1.5 hover:text-pink-600 transition whitespace-nowrap">
+                        <span>Solutions</span>
+                        <i
+                            class="fa-solid fa-chevron-down text-xs text-pink-400 group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div
+                        class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                        <div
+                            class="w-72 bg-white/98 backdrop-blur-xl rounded-xl border border-pink-100 shadow-xl shadow-pink-500/10 p-2 space-y-1">
+                            <a href="index.html#hero-carousel"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50 transition">
+                                <div class="text-xs font-semibold text-orange-700">Megawatt Scale</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Utility &amp; industrial solar power plants</div>
+                            </a>
+                            <a href="on-grid-hybrid.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-pink-50 transition">
+                                <div class="text-xs font-semibold text-pink-700">On-Grid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Grid-tied net-metering solar systems</div>
+                            </a>
+                            <a href="on-grid-hybrid.html#architectures"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-violet-50 transition">
+                                <div class="text-xs font-semibold text-violet-700">Off-Grid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Standalone solar + battery power</div>
+                            </a>
+                            <a href="on-grid-hybrid.html#architectures"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-teal-50 transition">
+                                <div class="text-xs font-semibold text-teal-700">Hybrid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Net-metering with seamless backup</div>
+                            </a>
+                            <a href="index.html#hero-carousel"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-sky-50 transition">
+                                <div class="text-xs font-semibold text-sky-700">Substations</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Turnkey AIS &amp; GIS HV substations</div>
+                            </a>
+                            <a href="index.html#hero-carousel"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-fuchsia-50 transition">
+                                <div class="text-xs font-semibold text-fuchsia-700">BESS</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Battery Energy Storage Systems</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="residential.html" class="hover:text-pink-600 transition whitespace-nowrap">Residential Rooftop</a>
+                <a href="calculator.html" class="hover:text-pink-600 transition whitespace-nowrap">Solar Calculator</a>
+                <a href="index.html#projects" class="hover:text-pink-600 transition whitespace-nowrap">Projects</a>
+                <a href="blog.html" class="hover:text-pink-600 transition whitespace-nowrap">Blog</a>
+            </nav>
+
+            <!-- Right Action: Direct Helpline + Sunset Magenta-Orange CTA -->
+            <div class="hidden md:flex items-center gap-5 shrink-0">
+                <a href="tel:+918148133644"
+                    class="text-sm font-medium text-indigo-950 hover:text-pink-600 transition whitespace-nowrap flex items-center gap-2 tabular-nums">
+                    <i class="fa-solid fa-phone text-xs text-pink-600"></i>
+                    <span>+91 81481 33644</span>
+                </a>
+                <a href="index.html#consultation"
+                    class="magnetic-btn px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white font-semibold text-sm shadow-md shadow-pink-500/25 transition whitespace-nowrap">
+                    Get Free Quote
+                </a>
+            </div>
+
+            <!-- Mobile Menu Trigger -->
+            <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu"
+                class="lg:hidden p-2 text-indigo-900 hover:text-pink-600" aria-label="Menu">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-pink-100 px-6 py-6 space-y-4">
+            <a href="about-us.html" class="block text-base font-medium text-indigo-950 hover:text-pink-600">About Us</a>
+            <div class="space-y-2.5 pt-1 pb-1 border-y border-pink-100/80">
+                <div class="text-xs font-semibold uppercase tracking-wider text-pink-600">Solutions</div>
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="index.html#hero-carousel" class="block text-sm font-medium text-indigo-950 hover:text-orange-600">Megawatt Scale</a>
+                    <a href="on-grid-hybrid.html" class="block text-sm font-medium text-indigo-950 hover:text-pink-600">On-Grid</a>
+                    <a href="on-grid-hybrid.html#architectures" class="block text-sm font-medium text-indigo-950 hover:text-violet-600">Off-Grid</a>
+                    <a href="on-grid-hybrid.html#architectures" class="block text-sm font-medium text-indigo-950 hover:text-teal-600">Hybrid</a>
+                    <a href="index.html#hero-carousel" class="block text-sm font-medium text-indigo-950 hover:text-sky-600">Substations</a>
+                    <a href="index.html#hero-carousel" class="block text-sm font-medium text-indigo-950 hover:text-fuchsia-600">BESS</a>
+                </div>
+            </div>
+            <a href="residential.html" class="block text-base font-medium text-indigo-950 hover:text-pink-600">Residential Rooftop</a>
+            <a href="calculator.html" class="block text-base font-medium text-indigo-950 hover:text-violet-600">Solar Calculator</a>
+            <a href="index.html#projects" class="block text-base font-medium text-indigo-950 hover:text-pink-600">Projects</a>
+            <a href="blog.html" class="block text-base font-medium text-indigo-950 hover:text-violet-600">Blog</a>
+            <div class="pt-4 border-t border-pink-100 flex flex-col gap-3">
+                <a href="tel:+918148133644" class="text-sm font-medium text-pink-700 tabular-nums">Call +91 81481 33644</a>
+                <a href="index.html#consultation"
+                    class="w-full py-3 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-center text-sm font-semibold shadow-md shadow-pink-500/20">
+                    Get Free Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. HERO SECTION: Architectural Daylight Prism Mesh -->
+        <section class="relative architectural-grid-bg border-b border-pink-100 overflow-x-clip">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-50 border border-pink-200/80 text-xs font-semibold tracking-[0.18em] uppercase text-pink-600">
+                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+                        <span>Careers at Suntastic Engineering</span>
+                    </div>
+                    <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-indigo-950 leading-[1.08]">
+                        Build India’s next generation of<br />
+                        <span class="bg-gradient-to-r from-orange-500 via-pink-600 to-violet-600 bg-clip-text text-transparent font-medium">clean power infrastructure.</span>
+                    </h1>
+                    <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl">
+                        Work hands-on across Megawatt solar plants, 66/11 kV GIS substations, 10 MWh BESS projects,
+                        SCADA deployments, and residential rooftops with our teams in Chennai, Coimbatore, Kerala, and
+                        utility project sites.
+                    </p>
+
+                    <div class="mt-9 flex flex-wrap items-center gap-4">
+                        <a href="#open-roles"
+                            class="magnetic-btn px-7 py-3.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-sm font-semibold transition shadow-lg shadow-pink-500/25">
+                            Explore Open Roles
+                        </a>
+                        <a href="#apply"
+                            class="px-7 py-3.5 rounded-full border border-pink-200 bg-white hover:border-pink-400 text-indigo-950 text-sm font-semibold transition shadow-xs">
+                            Send General Application
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. WHY BUILD YOUR CAREER HERE -->
+        <section class="py-16 bg-gradient-to-r from-rose-50/75 via-amber-50/45 to-violet-50/75 border-b border-pink-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="rounded-2xl bg-white/95 border border-amber-100 p-6 shadow-xs">
+                    <span class="w-10 h-10 rounded-xl bg-amber-50 border border-amber-200 text-orange-600 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-bolt text-sm" aria-hidden="true"></i>
+                    </span>
+                    <h2 class="text-base font-semibold text-indigo-950">Utility-Scale Exposure</h2>
+                    <p class="mt-1.5 text-sm text-slate-600 leading-relaxed">
+                        Gain real engineering experience on MW solar plants, MWh BESS, and 66 kV GIS substations.
+                    </p>
+                </div>
+
+                <div class="rounded-2xl bg-white/95 border border-pink-100 p-6 shadow-xs">
+                    <span class="w-10 h-10 rounded-xl bg-pink-50 border border-pink-200 text-pink-600 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-compass-drafting text-sm" aria-hidden="true"></i>
+                    </span>
+                    <h2 class="text-base font-semibold text-indigo-950">End-to-End Ownership</h2>
+                    <p class="mt-1.5 text-sm text-slate-600 leading-relaxed">
+                        Collaborate directly from site survey and CAD design through testing and final handover.
+                    </p>
+                </div>
+
+                <div class="rounded-2xl bg-white/95 border border-violet-100 p-6 shadow-xs">
+                    <span class="w-10 h-10 rounded-xl bg-violet-50 border border-violet-200 text-violet-600 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-map-location-dot text-sm" aria-hidden="true"></i>
+                    </span>
+                    <h2 class="text-base font-semibold text-indigo-950">Multi-State Footprint</h2>
+                    <p class="mt-1.5 text-sm text-slate-600 leading-relaxed">
+                        Regional hubs in Chennai and Coimbatore with active project execution across TN, Kerala, Diu &amp; Daman.
+                    </p>
+                </div>
+
+                <div class="rounded-2xl bg-white/95 border border-teal-100 p-6 shadow-xs">
+                    <span class="w-10 h-10 rounded-xl bg-teal-50 border border-teal-200 text-teal-600 flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-helmet-safety text-sm" aria-hidden="true"></i>
+                    </span>
+                    <h2 class="text-base font-semibold text-indigo-950">Safety &amp; Standards First</h2>
+                    <p class="mt-1.5 text-sm text-slate-600 leading-relaxed">
+                        Work with disciplined MES, DISCOM, and CEIG engineering standards on every project site.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. OPEN POSITIONS WITH DEPARTMENT FILTER -->
+        <section id="open-roles" class="max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-24">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-8 border-b border-pink-100">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-pink-600 mb-3">
+                        Open Opportunities
+                    </p>
+                    <h2 class="text-3xl font-semibold tracking-tight text-indigo-950">
+                        Current roles across our offices &amp; sites.
+                    </h2>
+                </div>
+
+                <!-- Department Filter Chips -->
+                <div class="flex flex-wrap gap-2" role="group" aria-label="Filter roles by department">
+                    <button type="button" data-dept="All" aria-pressed="true"
+                        class="dept-chip px-4 py-2 rounded-full border text-xs sm:text-sm font-semibold transition shadow-sm bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 text-white border-transparent shadow-pink-500/20">
+                        All Roles
+                    </button>
+                    <button type="button" data-dept="Engineering" aria-pressed="false"
+                        class="dept-chip px-4 py-2 rounded-full border text-xs sm:text-sm font-medium transition bg-white border-pink-200 text-slate-700 hover:border-pink-400 hover:text-pink-600">
+                        Engineering
+                    </button>
+                    <button type="button" data-dept="Execution" aria-pressed="false"
+                        class="dept-chip px-4 py-2 rounded-full border text-xs sm:text-sm font-medium transition bg-white border-pink-200 text-slate-700 hover:border-pink-400 hover:text-pink-600">
+                        Site Execution
+                    </button>
+                    <button type="button" data-dept="Sales" aria-pressed="false"
+                        class="dept-chip px-4 py-2 rounded-full border text-xs sm:text-sm font-medium transition bg-white border-pink-200 text-slate-700 hover:border-pink-400 hover:text-pink-600">
+                        Sales &amp; Proposals
+                    </button>
+                </div>
+            </div>
+
+            <!-- Role Cards List -->
+            <div id="roles-list" class="mt-8 space-y-5">
+
+                <!-- Role 1 -->
+                <article data-dept="Engineering" style="--spot-color: rgba(245, 158, 11, 0.10);"
+                    class="spotlight-card rounded-2xl border border-pink-100 bg-white p-6 sm:p-8 hover:border-pink-300 hover:shadow-lg hover:shadow-pink-500/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="relative z-10 max-w-2xl">
+                        <div class="flex flex-wrap items-center gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-amber-50 border border-amber-200/80 text-orange-700 font-semibold">Engineering</span>
+                            <span class="text-slate-500">• Chennai / Coimbatore</span>
+                            <span class="text-slate-500">• Full-Time (2–5 yrs)</span>
+                        </div>
+                        <h3 class="mt-3 text-xl font-semibold text-indigo-950">Solar Electrical Design Engineer</h3>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                            Prepare PVsyst generation simulations, AutoCAD SLDs, string sizing, BOQs, and HT/LT
+                            protection layouts for residential, industrial, and MW-scale solar projects.
+                        </p>
+                    </div>
+                    <div class="relative z-10 shrink-0">
+                        <a href="#apply" onclick="selectJobRole('Solar Electrical Design Engineer')"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-sm font-semibold shadow-sm transition">
+                            <span>Apply Now</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Role 2 -->
+                <article data-dept="Execution" style="--spot-color: rgba(236, 72, 153, 0.10);"
+                    class="spotlight-card rounded-2xl border border-pink-100 bg-white p-6 sm:p-8 hover:border-pink-300 hover:shadow-lg hover:shadow-pink-500/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="relative z-10 max-w-2xl">
+                        <div class="flex flex-wrap items-center gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-pink-50 border border-pink-200/80 text-pink-700 font-semibold">Site Execution</span>
+                            <span class="text-slate-500">• Tamil Nadu / Diu &amp; Daman Sites</span>
+                            <span class="text-slate-500">• Full-Time (3–7 yrs)</span>
+                        </div>
+                        <h3 class="mt-3 text-xl font-semibold text-indigo-950">Site Project Engineer — MW Solar &amp; Substations</h3>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                            Lead on-site civil, mechanical, and electrical execution for utility solar plants and
+                            66/11 kV GIS/AIS substations, coordinating safety compliance, testing, and utility handover.
+                        </p>
+                    </div>
+                    <div class="relative z-10 shrink-0">
+                        <a href="#apply" onclick="selectJobRole('Site Project Engineer — MW Solar & Substations')"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-sm font-semibold shadow-sm transition">
+                            <span>Apply Now</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Role 3 -->
+                <article data-dept="Engineering" style="--spot-color: rgba(20, 184, 166, 0.10);"
+                    class="spotlight-card rounded-2xl border border-pink-100 bg-white p-6 sm:p-8 hover:border-pink-300 hover:shadow-lg hover:shadow-pink-500/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="relative z-10 max-w-2xl">
+                        <div class="flex flex-wrap items-center gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-teal-50 border border-teal-200/80 text-teal-700 font-semibold">Engineering</span>
+                            <span class="text-slate-500">• Coimbatore / Site Travel</span>
+                            <span class="text-slate-500">• Full-Time (2–6 yrs)</span>
+                        </div>
+                        <h3 class="mt-3 text-xl font-semibold text-indigo-950">SCADA &amp; BESS Commissioning Engineer</h3>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                            Configure, test, and commission SCADA telemetry, inverter communication protocols, and
+                            MWh-scale Battery Energy Storage Systems across utility installations.
+                        </p>
+                    </div>
+                    <div class="relative z-10 shrink-0">
+                        <a href="#apply" onclick="selectJobRole('SCADA & BESS Commissioning Engineer')"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-sm font-semibold shadow-sm transition">
+                            <span>Apply Now</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Role 4 -->
+                <article data-dept="Sales" style="--spot-color: rgba(139, 92, 246, 0.10);"
+                    class="spotlight-card rounded-2xl border border-pink-100 bg-white p-6 sm:p-8 hover:border-pink-300 hover:shadow-lg hover:shadow-pink-500/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="relative z-10 max-w-2xl">
+                        <div class="flex flex-wrap items-center gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-violet-50 border border-violet-200/80 text-violet-700 font-semibold">Sales &amp; Proposals</span>
+                            <span class="text-slate-500">• Chennai / Coimbatore / Kerala</span>
+                            <span class="text-slate-500">• Full-Time (1–4 yrs)</span>
+                        </div>
+                        <h3 class="mt-3 text-xl font-semibold text-indigo-950">Solar Business Development &amp; Estimation Executive</h3>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                            Conduct residential and industrial site visits, guide clients on PM Surya Ghar subsidies and
+                            C&amp;I ROI proposals, and coordinate smooth project onboarding.
+                        </p>
+                    </div>
+                    <div class="relative z-10 shrink-0">
+                        <a href="#apply" onclick="selectJobRole('Solar Business Development & Estimation Executive')"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-sm font-semibold shadow-sm transition">
+                            <span>Apply Now</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Role 5 -->
+                <article data-dept="Execution" style="--spot-color: rgba(14, 165, 233, 0.10);"
+                    class="spotlight-card rounded-2xl border border-pink-100 bg-white p-6 sm:p-8 hover:border-pink-300 hover:shadow-lg hover:shadow-pink-500/10 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div class="relative z-10 max-w-2xl">
+                        <div class="flex flex-wrap items-center gap-2 text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-sky-50 border border-sky-200/80 text-sky-700 font-semibold">Site Execution</span>
+                            <span class="text-slate-500">• Chennai / Coimbatore / Palakkad</span>
+                            <span class="text-slate-500">• Full-Time (1–4 yrs)</span>
+                        </div>
+                        <h3 class="mt-3 text-xl font-semibold text-indigo-950">Solar Installation &amp; O&amp;M Technician</h3>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                            Execute rooftop module mounting, DC/AC wiring, inverter installation, earthing, and
+                            scheduled preventive maintenance with strict electrical safety standards.
+                        </p>
+                    </div>
+                    <div class="relative z-10 shrink-0">
+                        <a href="#apply" onclick="selectJobRole('Solar Installation & O&M Technician')"
+                            class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-sm font-semibold shadow-sm transition">
+                            <span>Apply Now</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- 5. APPLICATION FORM SECTION -->
+        <section id="apply" class="py-24 bg-gradient-to-br from-fuchsia-50/80 via-orange-50/50 to-sky-50/80 border-t border-pink-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+                    <div class="lg:col-span-5 space-y-8">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-pink-600 mb-3">
+                                Join Our Team
+                            </p>
+                            <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-indigo-950">
+                                Apply for a position
+                            </h2>
+                            <p class="mt-4 text-base text-slate-600 leading-relaxed">
+                                Submit your details below or send your updated resume directly to our recruitment desk.
+                                Even if your exact role is not listed, we are always keen to meet strong solar and
+                                electrical engineers.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-4 border-t border-pink-200/70 text-sm">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-violet-500 font-semibold block">Recruitment Email</span>
+                                <a href="mailto:info@suntasticsolarsystems.com?subject=Career%20Application%20-%20Suntastic%20Engineering"
+                                    class="text-base font-semibold text-indigo-950 hover:text-pink-600 transition mt-1 inline-block">
+                                    info@suntasticsolarsystems.com
+                                </a>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-pink-500 font-semibold block">Office Helpline</span>
+                                <a href="tel:+918148133644"
+                                    class="text-lg font-semibold text-indigo-950 hover:text-pink-600 transition mt-1 inline-block tabular-nums">
+                                    +91 81481 33644
+                                </a>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 pt-2 text-xs text-slate-600 leading-relaxed">
+                                <div>
+                                    <strong class="text-indigo-950 block mb-0.5">Chennai Office</strong>
+                                    No.69/27A, First Pillaiyar Koil St, Chrompet, Chennai – 44
+                                </div>
+                                <div>
+                                    <strong class="text-indigo-950 block mb-0.5">Coimbatore Hub</strong>
+                                    No.185, Kovai Auto Mobile Nagar, Madukkarai, Coimbatore, Tamil Nadu 641105
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spotlight-card lg:col-span-7 bg-white rounded-2xl border border-pink-200/80 p-8 sm:p-10 shadow-lg shadow-pink-500/5">
+                        <form id="career-form" onsubmit="submitApplication(event)" class="relative z-10 space-y-6">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+
+                            <div>
+                                <label for="c-role" class="block text-xs font-medium text-slate-600 mb-1.5">Role Applying For *</label>
+                                <select id="c-role" name="role" required
+                                    class="w-full px-4 py-3 rounded-xl border border-pink-100 bg-white text-base sm:text-sm text-indigo-950 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition">
+                                    <option value="Solar Electrical Design Engineer">Solar Electrical Design Engineer</option>
+                                    <option value="Site Project Engineer — MW Solar & Substations">Site Project Engineer — MW Solar &amp; Substations</option>
+                                    <option value="SCADA & BESS Commissioning Engineer">SCADA &amp; BESS Commissioning Engineer</option>
+                                    <option value="Solar Business Development & Estimation Executive">Solar Business Development &amp; Estimation Executive</option>
+                                    <option value="Solar Installation & O&M Technician">Solar Installation &amp; O&amp;M Technician</option>
+                                    <option value="General / Other Engineering Role">General / Other Engineering Role</option>
+                                </select>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="c-name" class="block text-xs font-medium text-slate-600 mb-1.5">Full Name *</label>
+                                    <input type="text" name="fname" id="c-name" autocomplete="name" required placeholder="Your full name"
+                                        class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition" />
+                                </div>
+                                <div>
+                                    <label for="c-phone" class="block text-xs font-medium text-slate-600 mb-1.5">Mobile Number *</label>
+                                    <input type="tel" name="number" id="c-phone" inputmode="numeric" autocomplete="tel-national" maxlength="10" required pattern="[0-9]{10}"
+                                        placeholder="10-digit mobile number"
+                                        class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm tabular-nums focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition" />
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="c-email" class="block text-xs font-medium text-slate-600 mb-1.5">Email Address *</label>
+                                    <input type="email" name="email" id="c-email" autocomplete="email" required placeholder="you@example.com"
+                                        class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition" />
+                                </div>
+                                <div>
+                                    <label for="c-exp" class="block text-xs font-medium text-slate-600 mb-1.5">Years of Experience *</label>
+                                    <input type="text" name="experience" id="c-exp" required placeholder="e.g. 3 years / Fresher"
+                                        class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition" />
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="c-loc" class="block text-xs font-medium text-slate-600 mb-1.5">Preferred Location *</label>
+                                    <select id="c-loc" name="location" required
+                                        class="w-full px-4 py-3 rounded-xl border border-pink-100 bg-white text-base sm:text-sm text-indigo-950 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition">
+                                        <option value="Chennai">Chennai</option>
+                                        <option value="Coimbatore">Coimbatore</option>
+                                        <option value="Kerala (Palakkad / Trivandrum)">Kerala (Palakkad / Trivandrum)</option>
+                                        <option value="Project Site (Open to Relocation)">Project Site (Open to Relocation)</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="c-link" class="block text-xs font-medium text-slate-600 mb-1.5">Resume / LinkedIn Link (Optional)</label>
+                                    <input type="url" name="profile" id="c-link" placeholder="https://linkedin.com/in/..."
+                                        class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition" />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="c-note" class="block text-xs font-medium text-slate-600 mb-1.5">Brief Summary of Relevant Experience</label>
+                                <textarea id="c-note" name="note" rows="3" placeholder="Highlight your solar, electrical, substation, or sales experience..."
+                                    class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition"></textarea>
+                            </div>
+
+                            <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-end gap-4">
+                                <button type="submit" id="apply-btn"
+                                    class="magnetic-btn px-8 py-3.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-sm font-semibold transition shadow-md shadow-pink-500/25">
+                                    Submit Application
+                                </button>
+                            </div>
+                            <p id="apply-status" class="text-xs text-pink-700 min-h-[1rem]" role="status" aria-live="polite"></p>
+                            <p class="text-xs text-slate-400">By applying, you agree to our <a href="privacy-policy.html" class="underline hover:text-pink-600">Privacy Policy</a>.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. TWO-TIER ENTERPRISE FOOTER (100% Consistent with index.html) -->
+    <footer class="bg-gradient-to-b from-[#1A0B36] via-[#130829] to-[#0B051A] text-purple-200/80 relative mt-28">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="-translate-y-1/2 rounded-2xl bg-gradient-to-r from-[#F97316] via-[#EC4899] to-[#7C3AED] px-8 py-10 sm:px-14 sm:py-12 shadow-2xl shadow-pink-600/30 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                <div>
+                    <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+                        Get in touch with our team of experts
+                    </h2>
+                    <p class="mt-2 text-sm text-white/95">
+                        MNRE &amp; TANGEDCO Empanelled Solar EPC • Serving Tamil Nadu &amp; Kerala
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-6">
+                    <a href="index.html#consultation"
+                        class="magnetic-btn px-7 py-3.5 rounded-lg bg-white hover:bg-pink-50 text-pink-700 text-sm font-semibold shadow-sm transition">
+                        Contact us
+                    </a>
+
+                    <a href="tel:+918148133644" class="flex items-center gap-3.5 group">
+                        <span
+                            class="w-12 h-12 rounded-full bg-white text-pink-600 flex items-center justify-center shadow-sm group-hover:scale-105 transition">
+                            <i class="fa-solid fa-phone-volume text-lg"></i>
+                        </span>
+                        <div>
+                            <span class="block text-xs text-white/90 font-medium">Need any help</span>
+                            <span class="block text-base sm:text-lg font-bold text-white tracking-tight tabular-nums">+91 81481 33644</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-14">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-fuchsia-900/50">
+                <div class="lg:col-span-5 space-y-5">
+                    <a href="index.html" class="inline-flex items-center gap-3">
+                        <img src="images/logo.png" alt="Suntastic Engineering"
+                            class="h-[54px] w-auto object-contain bg-white px-3 py-1.5 rounded-lg"
+                            onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('footer-fallback-logo').style.display='flex';}" />
+                        <div id="footer-fallback-logo" class="hidden items-center gap-2.5">
+                            <svg class="w-10 h-10 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4" stroke-dasharray="12 6" />
+                                <circle cx="32" cy="32" r="20" stroke="#EC4899" stroke-width="3" stroke-dasharray="10 5" />
+                            </svg>
+                            <span class="font-bold text-xl tracking-wider text-white">
+                                SUN TASTIC<sup class="text-xs font-semibold ml-0.5 text-pink-400">TM</sup>
+                            </span>
+                        </div>
+                    </a>
+                    <p class="text-sm text-purple-200/75 leading-relaxed max-w-sm">
+                        Providing innovative solar solutions for homes, industries, and government infrastructure.
+                        Committed to a sustainable future across South India.
+                    </p>
+                    <address class="not-italic text-xs text-purple-300/65 leading-relaxed max-w-sm space-y-2">
+                        <p><span class="text-pink-300">Registered office:</span> No. 69/27A, First Pillaiyar Koil Street, Lakshmipuram, Chrompet, Chennai – 600 044</p>
+                        <p><span class="text-pink-300">Coimbatore branch:</span> No.185, Kovai Auto Mobile Nagar, Madukkarai, Coimbatore, Tamil Nadu 641105</p>
+                        <p>Also at Palakkad and Thiruvananthapuram</p>
+                    </address>
+                    <div class="flex items-center gap-5 pt-2 text-purple-300">
+                        <a href="https://www.facebook.com/profile.php?id=61586789438858" target="_blank" rel="noopener" aria-label="Facebook"
+                            class="hover:text-sky-400 transition text-lg"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/suntastic_engineering" target="_blank" rel="noopener"
+                            aria-label="Instagram" class="hover:text-pink-400 transition text-lg"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/suntastic-engineering-pvt-ltd/" target="_blank"
+                            rel="noopener" aria-label="LinkedIn" class="hover:text-amber-400 transition text-lg"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-3.5 text-sm">
+                    <div class="text-white font-semibold tracking-tight mb-4">Legal</div>
+                    <ul class="space-y-3">
+                        <li><a href="privacy-policy.html" class="hover:text-pink-300 transition">Privacy Policy</a></li>
+                        <li><a href="about-us.html#empanelments" class="hover:text-pink-300 transition">Empanelments</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-3 space-y-3.5 text-sm">
+                    <div class="text-white font-semibold tracking-tight mb-4">Company</div>
+                    <ul class="space-y-3">
+                        <li><a href="about-us.html" class="hover:text-pink-300 transition">About</a></li>
+                        <li><a href="residential.html" class="hover:text-amber-300 transition">Residential Rooftops</a></li>
+                        <li><a href="commercial-industrial.html" class="hover:text-pink-300 transition">Commercial &amp; Industrial EPC</a></li>
+                        <li><a href="on-grid-hybrid.html" class="hover:text-teal-300 transition">On-Grid &amp; Hybrid Systems</a></li>
+                        <li><a href="index.html#projects" class="hover:text-pink-300 transition">Projects</a></li>
+                        <li><a href="career.html" class="text-white font-medium hover:text-pink-300 transition">Career</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2 space-y-3.5 text-sm">
+                    <div class="text-white font-semibold tracking-tight mb-4">Resources</div>
+                    <ul class="space-y-3">
+                        <li><a href="calculator.html" class="text-amber-400 hover:text-pink-400 font-medium transition">Solar Calculator</a></li>
+                        <li><a href="index.html#faq" class="hover:text-pink-300 transition">Subsidy Guide</a></li>
+                        <li><a href="on-grid-hybrid.html" class="hover:text-teal-300 transition">Net-Metering Guide</a></li>
+                        <li><a href="blog.html" class="hover:text-pink-300 transition">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-purple-300/60">
+                <div>© 2026 Suntastic Engineering Private Limited. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON (Consistent with index.html) -->
+    <a href="https://api.whatsapp.com/send?phone=918148133644&text=Hi%20Suntastic%20Engineering,%20I%20would%20like%20to%20enquire%20about%20career%20opportunities."
+        target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat with us"
+        class="fixed bottom-6 right-6 z-40 wa-float px-4 h-12 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-pink-600 hover:to-orange-500 text-white shadow-xl shadow-emerald-500/30 flex items-center gap-2.5 transition-all duration-300 hover:scale-105 group">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="text-xs font-semibold tracking-wide pr-0.5">Chat with us</span>
+    </a>
+
+    <!-- INTERACTIVE SCRIPTS -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            mobileBtn.setAttribute('aria-expanded', String(open));
+        }
+        mobileBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+        window.matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+        // Spotlight Cards & Magnetic CTA Buttons
+        document.querySelectorAll('.spotlight-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+            });
+        });
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = (e.clientX - rect.left - rect.width / 2) * 0.14;
+                const y = (e.clientY - rect.top - rect.height / 2) * 0.18;
+                btn.style.transform = `translate(${x}px, ${y}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0px, 0px)';
+            });
+        });
+
+        // Department Filter Chips
+        (function () {
+            const chips = document.querySelectorAll('.dept-chip');
+            const roles = document.querySelectorAll('#roles-list article');
+            const activeCls = ['bg-gradient-to-r', 'from-orange-500', 'via-pink-600', 'to-fuchsia-600', 'text-white', 'border-transparent', 'shadow-sm', 'shadow-pink-500/20', 'font-semibold'];
+            const inactiveCls = ['bg-white', 'border-pink-200', 'text-slate-700', 'hover:border-pink-400', 'hover:text-pink-600', 'font-medium'];
+
+            chips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    const dept = chip.dataset.dept;
+                    chips.forEach(btn => {
+                        const on = btn === chip;
+                        btn.setAttribute('aria-pressed', String(on));
+                        activeCls.forEach(c => btn.classList.toggle(c, on));
+                        inactiveCls.forEach(c => btn.classList.toggle(c, !on));
+                    });
+                    roles.forEach(card => {
+                        card.classList.toggle('hidden', dept !== 'All' && card.dataset.dept !== dept);
+                    });
+                });
+            });
+        })();
+
+        // Pre-select Job Role in Application Dropdown
+        function selectJobRole(roleName) {
+            const sel = document.getElementById('c-role');
+            if (!sel) return;
+            for (const opt of sel.options) {
+                if (opt.value === roleName) {
+                    sel.value = roleName;
+                    break;
+                }
+            }
+        }
+
+        // Submit Career Application via WhatsApp
+        const WA_NUMBER = '918148133644';
+        function submitApplication(e) {
+            e.preventDefault();
+            const form = e.target;
+            if (form.website && form.website.value) return;
+
+            const role = form.role.value;
+            const name = form.fname.value.trim();
+            const phone = form.number.value.trim();
+            const email = form.email.value.trim();
+            const exp = form.experience.value.trim();
+            const loc = form.location.value;
+            const profile = form.profile.value.trim();
+            const note = form.note.value.trim();
+
+            const msg = encodeURIComponent(
+                `Hello Suntastic Engineering Recruitment Team,\n\nJob Application:\n• Role: ${role}\n• Name: ${name}\n• Mobile: ${phone}\n• Email: ${email}\n• Experience: ${exp}\n• Preferred Location: ${loc}`
+                + (profile ? `\n• Resume/Profile: ${profile}` : '')
+                + (note ? `\n• Summary: ${note}` : '')
+            );
+
+            const url = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${msg}`;
+            const w = window.open(url, '_blank');
+            if (w) { w.opener = null; } else { window.location.href = url; }
+
+            const btn = document.getElementById('apply-btn');
+            const status = document.getElementById('apply-status');
+            btn.textContent = 'Opening WhatsApp…';
+            if (status) status.textContent = 'Last step: tap Send in WhatsApp and attach your PDF resume if ready.';
+            setTimeout(() => { btn.textContent = 'Submit Application'; form.reset(); }, 2500);
+        }
+    </script>
+</body>
+
+</html>

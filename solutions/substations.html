@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- SEO Metadata -->
+    <title>AIS &amp; GIS Substations EPC | 11 kV to 110 kV Turnkey Substations — Suntastic Engineering</title>
+    <meta name="description"
+        content="Turnkey design, supply, erection, testing, and commissioning of 11 kV, 33 kV, 66 kV, and 110 kV Air-Insulated (AIS) and Gas-Insulated (GIS) substations, power transformers, and IEC 61850 SCADA automation." />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <link rel="canonical" href="https://suntasticsolarsystems.com/substations.html" />
+    <meta name="theme-color" content="#1E103C" />
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AIS & GIS Substations EPC | Suntastic Engineering" />
+    <meta property="og:description"
+        content="Turnkey HV AIS and GIS substations engineered for utility distribution, renewable power evacuation, and industrial high-tension infrastructure." />
+    <meta property="og:url" content="https://suntasticsolarsystems.com/substations.html" />
+    <meta property="og:site_name" content="Suntastic Engineering" />
+    <meta property="og:image" content="https://suntasticsolarsystems.com/images/5b55c9a5e03751532348837Suntastic-Logo.png" />
+    <meta name="twitter:card" content="summary" />
+
+    <!-- Editorial Minimalist Typography: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    },
+                    colors: {
+                        alabaster: '#FDF8FC',
+                        obsidian: '#160B2E',
+                        amber: {
+                            500: '#F59E0B',
+                            600: '#D97706',
+                            700: '#B45309',
+                        },
+                        magenta: {
+                            50: '#FDF2F8',
+                            100: '#FCE7F3',
+                            500: '#EC4899',
+                            600: '#DB2777',
+                            700: '#BE185D',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @view-transition {
+            navigation: auto;
+        }
+
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #F59E0B 0%, #F97316 25%, #EC4899 55%, #8B5CF6 80%, #0EA5E9 100%);
+            z-index: 60;
+        }
+
+        .architectural-grid-bg {
+            background-color: #FFFFFF;
+            background-image:
+                radial-gradient(at 8% 12%, rgba(245, 158, 11, 0.13) 0px, transparent 42%),
+                radial-gradient(at 90% 10%, rgba(236, 72, 153, 0.14) 0px, transparent 44%),
+                radial-gradient(at 52% 44%, rgba(139, 92, 246, 0.08) 0px, transparent 48%),
+                radial-gradient(at 85% 65%, rgba(14, 165, 233, 0.09) 0px, transparent 40%),
+                radial-gradient(rgba(190, 24, 93, 0.07) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+        }
+
+        .spotlight-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+        }
+
+        .spotlight-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(520px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+                    var(--spot-color, rgba(14, 165, 233, 0.12)),
+                    transparent 48%);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .spotlight-card:hover::before {
+            opacity: 1;
+        }
+
+        @keyframes hvPulse {
+            to {
+                stroke-dashoffset: -24;
+            }
+        }
+
+        .hv-stream {
+            stroke-dasharray: 6 6;
+            animation: hvPulse 0.85s linear infinite;
+        }
+
+        html {
+            scroll-padding-top: 96px;
+        }
+
+        .wa-float {
+            bottom: max(1.5rem, env(safe-area-inset-bottom)) !important;
+            right: max(1.5rem, env(safe-area-inset-right)) !important;
+        }
+
+        @media (min-width: 1700px) {
+            html {
+                font-size: 20px;
+                scroll-padding-top: 120px;
+            }
+
+            header img[alt="Suntastic Engineering"] {
+                height: 75px !important;
+            }
+
+            footer img[alt="Suntastic Engineering"] {
+                height: 67px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-indigo-950 font-sans antialiased selection:bg-pink-600 selection:text-white">
+
+    <!-- 1. HIGH-CONVERSION NAVIGATION BAR (Unified across all pages) -->
+    <header
+        class="sticky top-0 z-50 bg-white/92 backdrop-blur-xl border-b border-pink-100/90 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <a href="index.html" class="flex items-center gap-3 shrink-0">
+                <img src="images/logo.png" alt="Suntastic Engineering" class="h-[60px] w-auto object-contain"
+                    onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('fallback-logo').style.display='flex';}" />
+                <div id="fallback-logo" class="hidden items-center gap-2.5">
+                    <svg class="w-11 h-11 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4" stroke-dasharray="12 6" />
+                        <circle cx="32" cy="32" r="20" stroke="#EC4899" stroke-width="3" stroke-dasharray="10 5" />
+                        <circle cx="32" cy="32" r="14" stroke="#8B5CF6" stroke-width="2.5" stroke-dasharray="8 4" />
+                    </svg>
+                    <span class="font-bold text-xl tracking-wider text-indigo-950">
+                        SUN TASTIC<sup class="text-xs font-semibold ml-0.5 text-pink-600">TM</sup>
+                    </span>
+                </div>
+            </a>
+
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
+                <a href="about-us.html" class="hover:text-pink-600 transition whitespace-nowrap">About Us</a>
+
+                <div class="relative group py-6">
+                    <button type="button" aria-current="page"
+                        class="flex items-center gap-1.5 text-pink-600 font-semibold transition whitespace-nowrap">
+                        <span>Solutions</span>
+                        <i class="fa-solid fa-chevron-down text-xs text-pink-500 group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div
+                        class="absolute left-0 top-full pt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50">
+                        <div
+                            class="w-72 bg-white/98 backdrop-blur-xl rounded-xl border border-pink-100 shadow-xl shadow-pink-500/10 p-2 space-y-1">
+                            <a href="megawatt-scale.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50 transition">
+                                <div class="text-xs font-semibold text-orange-700">Megawatt Scale</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Utility &amp; industrial solar power plants</div>
+                            </a>
+                            <a href="on-grid.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-pink-50 transition">
+                                <div class="text-xs font-semibold text-pink-700">On-Grid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Grid-tied net-metering solar systems</div>
+                            </a>
+                            <a href="off-grid.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-violet-50 transition">
+                                <div class="text-xs font-semibold text-violet-700">Off-Grid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Standalone solar + battery power</div>
+                            </a>
+                            <a href="hybrid.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-teal-50 transition">
+                                <div class="text-xs font-semibold text-teal-700">Hybrid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Net-metering with seamless backup</div>
+                            </a>
+                            <a href="substations.html"
+                                class="block px-3.5 py-2.5 rounded-lg bg-sky-50/90 transition">
+                                <div class="text-xs font-semibold text-sky-700">Substations</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Turnkey AIS &amp; GIS HV substations</div>
+                            </a>
+                            <a href="bess.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-fuchsia-50 transition">
+                                <div class="text-xs font-semibold text-fuchsia-700">BESS</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Battery Energy Storage Systems</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="residential.html" class="hover:text-pink-600 transition whitespace-nowrap">Residential Rooftop</a>
+                <a href="calculator.html" class="hover:text-pink-600 transition whitespace-nowrap">Solar Calculator</a>
+                <a href="index.html#projects" class="hover:text-pink-600 transition whitespace-nowrap">Projects</a>
+                <a href="blog.html" class="hover:text-pink-600 transition whitespace-nowrap">Blog</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-5 shrink-0">
+                <a href="tel:+918148133644"
+                    class="text-sm font-medium text-indigo-950 hover:text-pink-600 transition whitespace-nowrap flex items-center gap-2 tabular-nums">
+                    <i class="fa-solid fa-phone text-xs text-pink-600"></i>
+                    <span>+91 81481 33644</span>
+                </a>
+                <a href="#consultation"
+                    class="magnetic-btn px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white font-semibold text-sm shadow-md shadow-pink-500/25 transition whitespace-nowrap">
+                    Get Free Quote
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu"
+                class="lg:hidden p-2 text-indigo-900 hover:text-pink-600" aria-label="Menu">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-pink-100 px-6 py-6 space-y-4">
+            <a href="about-us.html" class="block text-base font-medium text-indigo-950 hover:text-pink-600">About Us</a>
+            <div class="space-y-2.5 pt-1 pb-1 border-y border-pink-100/80">
+                <div class="text-xs font-semibold uppercase tracking-wider text-pink-600">Solutions</div>
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="megawatt-scale.html" class="block text-sm font-medium text-indigo-950 hover:text-orange-600">Megawatt Scale</a>
+                    <a href="on-grid.html" class="block text-sm font-medium text-indigo-950 hover:text-pink-600">On-Grid</a>
+                    <a href="off-grid.html" class="block text-sm font-medium text-indigo-950 hover:text-violet-600">Off-Grid</a>
+                    <a href="hybrid.html" class="block text-sm font-medium text-indigo-950 hover:text-teal-600">Hybrid</a>
+                    <a href="substations.html" class="block text-sm font-semibold text-sky-600">Substations</a>
+                    <a href="bess.html" class="block text-sm font-medium text-indigo-950 hover:text-fuchsia-600">BESS</a>
+                </div>
+            </div>
+            <a href="residential.html" class="block text-base font-medium text-indigo-950 hover:text-pink-600">Residential Rooftop</a>
+            <a href="calculator.html" class="block text-base font-medium text-indigo-950 hover:text-violet-600">Solar Calculator</a>
+            <a href="index.html#projects" class="block text-base font-medium text-indigo-950 hover:text-pink-600">Projects</a>
+            <a href="blog.html" class="block text-base font-medium text-indigo-950 hover:text-violet-600">Blog</a>
+            <div class="pt-4 border-t border-pink-100 flex flex-col gap-3">
+                <a href="tel:+918148133644" class="text-sm font-medium text-pink-700 tabular-nums">Call +91 81481 33644</a>
+                <a href="#consultation"
+                    class="w-full py-3 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-center text-sm font-semibold shadow-md shadow-pink-500/20">
+                    Get Free Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 2. HERO SECTION -->
+        <section class="relative architectural-grid-bg border-b border-pink-100 overflow-x-clip">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16 lg:py-24">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+                    <div class="lg:col-span-7">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-50 border border-sky-200/80 text-xs font-semibold tracking-[0.16em] uppercase text-sky-700">
+                            <span class="w-1.5 h-1.5 rounded-full bg-sky-500 animate-pulse"></span>
+                            <span>Solutions &nbsp;•&nbsp; High-Voltage Transmission &amp; Distribution EPC</span>
+                        </div>
+                        <h1 class="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-indigo-950 leading-[1.08]">
+                            AIS &amp; GIS Substations<br />
+                            <span class="bg-gradient-to-r from-orange-500 via-pink-600 to-violet-600 bg-clip-text text-transparent font-medium">Engineered up to 110 kV.</span>
+                        </h1>
+                        <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-2xl">
+                            Complete turnkey execution of Air-Insulated (AIS) and Gas-Insulated (GIS) substations,
+                            EHV/HV power transformers, bay extensions, protection relays, and IEC 61850 SCADA control
+                            rooms for power utilities, renewable pooling stations, and heavy industries.
+                        </p>
+
+                        <div class="mt-9 flex flex-wrap items-center gap-4">
+                            <a href="#consultation"
+                                class="magnetic-btn px-7 py-3.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-sm font-semibold transition shadow-lg shadow-pink-500/25">
+                                Request Site Visit
+                            </a>
+                            <a href="#comparison"
+                                class="magnetic-btn group px-7 py-3.5 rounded-full bg-gradient-to-r from-indigo-950 via-purple-900 to-fuchsia-900 hover:from-indigo-900 hover:to-fuchsia-800 text-white text-sm font-semibold transition shadow-md shadow-indigo-950/20 inline-flex items-center gap-2.5">
+                                <span>Compare GIS vs. AIS</span>
+                                <i class="fa-solid fa-arrow-right text-xs text-amber-400 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5">
+                        <div class="rounded-3xl bg-gradient-to-br from-[#1E103C] via-[#340C52] to-[#5B0F47] border border-pink-400/30 p-7 sm:p-9 text-white shadow-2xl shadow-pink-950/25">
+                            <div class="flex items-center justify-between gap-2 mb-6">
+                                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 border border-sky-300/35 text-xs font-semibold text-amber-300">
+                                    <i class="fa-solid fa-bolt text-[11px]" aria-hidden="true"></i>
+                                    Turnkey HV Substation EPC
+                                </span>
+                                <span class="text-xs font-semibold text-purple-200/80">MES 'S' Class</span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3.5">
+                                <div class="rounded-2xl bg-white/8 border border-white/15 p-4">
+                                    <div class="text-2xl sm:text-3xl font-bold tabular-nums text-sky-300">11–110 kV</div>
+                                    <div class="mt-1 text-xs font-semibold text-white">Voltage Classes</div>
+                                    <div class="text-[11px] text-purple-200/75 mt-0.5">33/11, 66/11 &amp; 110/33 kV</div>
+                                </div>
+                                <div class="rounded-2xl bg-white/8 border border-white/15 p-4">
+                                    <div class="text-2xl sm:text-3xl font-bold tabular-nums text-amber-300">Up to 100 MVA</div>
+                                    <div class="mt-1 text-xs font-semibold text-white">Transformer Bays</div>
+                                    <div class="text-[11px] text-purple-200/75 mt-0.5">ONAN / ONAF with OLTC</div>
+                                </div>
+                                <div class="rounded-2xl bg-white/8 border border-white/15 p-4">
+                                    <div class="text-2xl sm:text-3xl font-bold tabular-nums text-pink-300">IEC 61850</div>
+                                    <div class="mt-1 text-xs font-semibold text-white">Substation SCADA</div>
+                                    <div class="text-[11px] text-purple-200/75 mt-0.5">Numerical relay integration</div>
+                                </div>
+                                <div class="rounded-2xl bg-white/8 border border-white/15 p-4">
+                                    <div class="text-2xl sm:text-3xl font-bold tabular-nums text-teal-300">70% Less</div>
+                                    <div class="mt-1 text-xs font-semibold text-white">GIS Footprint</div>
+                                    <div class="text-[11px] text-purple-200/75 mt-0.5">Compact indoor SF6 bays</div>
+                                </div>
+                            </div>
+
+                            <div class="mt-5 pt-5 border-t border-white/15 text-xs text-purple-200/85 flex items-center justify-between gap-2">
+                                <span>CEIG, CEA &amp; DISCOM Statutory Approvals</span>
+                                <span class="text-amber-300 font-semibold">Zero-Defect Testing</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. INTERACTIVE SINGLE-LINE SUBSTATION ARCHITECTURE SCHEMATIC -->
+        <section class="py-20 bg-gradient-to-br from-rose-50/70 via-amber-50/40 to-violet-50/70 border-b border-pink-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+                    <div class="max-w-2xl">
+                        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700 mb-3">
+                            Substation Topologies
+                        </p>
+                        <h2 class="text-3xl font-semibold tracking-tight text-indigo-950">
+                            Engineered for urban compactness or open-yard scalability.
+                        </h2>
+                    </div>
+
+                    <div class="inline-flex p-1 rounded-full bg-white border border-pink-200/80 shadow-xs self-start" role="group" aria-label="Substation topology">
+                        <button type="button" data-sub="gis" class="sub-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 text-white shadow-sm transition">
+                            01 · GIS (Gas-Insulated)
+                        </button>
+                        <button type="button" data-sub="ais" class="sub-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:text-indigo-950 transition">
+                            02 · AIS (Air-Insulated)
+                        </button>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl bg-gradient-to-br from-[#1E103C] via-[#2B0C49] to-[#4A0D43] text-white p-6 sm:p-9 border border-pink-400/25 shadow-xl shadow-indigo-950/20">
+                    <div class="grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-4 space-y-3">
+                            <span id="sub-badge" class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 border border-sky-300/35 text-amber-300 text-xs font-semibold">
+                                66/11 kV &amp; 33/11 kV Indoor GIS
+                            </span>
+                            <h3 id="sub-title" class="text-xl font-semibold text-white">Gas-Insulated Switchgear (GIS)</h3>
+                            <p id="sub-desc" class="text-sm text-purple-100/85 leading-relaxed">
+                                Hermetically sealed SF6 metal-enclosed switchgear bays requiring up to 70% less land than
+                                conventional switchyards—immune to coastal salt fog, industrial dust, and humidity.
+                            </p>
+                        </div>
+
+                        <div class="lg:col-span-8">
+                            <svg class="w-full h-32 sm:h-36" viewBox="0 0 720 130" fill="none" aria-hidden="true">
+                                <!-- HV Line -> Breaker Bay -->
+                                <line x1="125" y1="65" x2="205" y2="65" stroke="#4C1D95" stroke-width="2.5" />
+                                <line x1="125" y1="65" x2="205" y2="65" stroke="#38BDF8" stroke-width="2.5" class="hv-stream" />
+
+                                <!-- Breaker Bay -> Power Transformer -->
+                                <line x1="325" y1="65" x2="405" y2="65" stroke="#4C1D95" stroke-width="2.5" />
+                                <line x1="325" y1="65" x2="405" y2="65" stroke="#F59E0B" stroke-width="2.5" class="hv-stream" />
+
+                                <!-- Transformer -> MV Outgoing Bus -->
+                                <line x1="525" y1="65" x2="595" y2="65" stroke="#4C1D95" stroke-width="2.5" />
+                                <line x1="525" y1="65" x2="595" y2="65" stroke="#F472B6" stroke-width="2.5" class="hv-stream" />
+
+                                <!-- Node 1: HV Incoming -->
+                                <rect x="10" y="34" width="115" height="62" rx="10" fill="#160B2E" stroke="#38BDF8" stroke-width="1.5" />
+                                <text x="67" y="59" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="600">HV INCOMER</text>
+                                <text x="67" y="76" text-anchor="middle" fill="#7DD3FC" font-size="9">66 kV / 33 kV Line</text>
+
+                                <!-- Node 2: Switchgear Bay -->
+                                <rect id="sub-bay-box" x="205" y="30" width="120" height="70" rx="10" fill="#2E1065" stroke="#38BDF8" stroke-width="1.5" />
+                                <text id="sub-bay-title" x="265" y="58" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="600">GIS SF6 BAYS</text>
+                                <text id="sub-bay-sub" x="265" y="75" text-anchor="middle" fill="#FDE68A" font-size="9">Indoor Sealed Bus</text>
+
+                                <!-- Node 3: Power Transformer -->
+                                <rect x="405" y="30" width="120" height="70" rx="10" fill="#160B2E" stroke="#F59E0B" stroke-width="1.5" />
+                                <text x="465" y="58" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="600">TRANSFORMER</text>
+                                <text x="465" y="75" text-anchor="middle" fill="#FBBF24" font-size="9">2x20 MVA • OLTC</text>
+
+                                <!-- Node 4: 11kV Feeders & SCADA -->
+                                <rect x="595" y="34" width="115" height="62" rx="10" fill="#160B2E" stroke="#F472B6" stroke-width="1.5" />
+                                <text x="652" y="59" text-anchor="middle" fill="#FFFFFF" font-size="11" font-weight="600">11 kV FEEDERS</text>
+                                <text x="652" y="76" text-anchor="middle" fill="#F9A8D4" font-size="9">IEC 61850 SCADA</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SIX-PART TURNKEY SUBSTATION EPC SCOPE -->
+        <section class="py-24 bg-white border-b border-pink-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="max-w-2xl mb-14">
+                    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-pink-600 mb-3">
+                        End-to-End Substation Execution
+                    </p>
+                    <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-indigo-950">
+                        Design, civil, switchgear, protection, and charging.
+                    </h2>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7 mb-20">
+                    <!-- 1 -->
+                    <div style="--spot-color: rgba(14, 165, 233, 0.11);"
+                        class="spotlight-card rounded-2xl border border-sky-200/80 bg-white p-8 shadow-sm hover:shadow-xl hover:shadow-sky-500/10">
+                        <span class="relative z-10 w-11 h-11 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 text-white flex items-center justify-center mb-5 shadow-md shadow-sky-500/20">
+                            <i class="fa-solid fa-compass-drafting text-base" aria-hidden="true"></i>
+                        </span>
+                        <h3 class="relative z-10 text-lg font-semibold text-indigo-950">System &amp; Protection Engineering</h3>
+                        <p class="relative z-10 mt-2.5 text-sm text-slate-600 leading-relaxed">
+                            Short-circuit &amp; load-flow analysis, IEEE 80 earth-mat grid design, insulation coordination,
+                            relay protection settings, and utility-approved Single Line Diagrams (SLDs).
+                        </p>
+                    </div>
+
+                    <!-- 2 -->
+                    <div style="--spot-color: rgba(236, 72, 153, 0.11);"
+                        class="spotlight-card rounded-2xl border border-pink-200/80 bg-white p-8 shadow-sm hover:shadow-xl hover:shadow-pink-500/10">
+                        <span class="relative z-10 w-11 h-11 rounded-xl bg-gradient-to-br from-pink-500 to-fuchsia-600 text-white flex items-center justify-center mb-5 shadow-md shadow-pink-500/20">
+                            <i class="fa-solid fa-cube text-base" aria-hidden="true"></i>
+                        </span>
+                        <h3 class="relative z-10 text-lg font-semibold text-indigo-950">Gas-Insulated Switchgear (GIS)</h3>
+                        <p class="relative z-10 mt-2.5 text-sm text-slate-600 leading-relaxed">
+                            Supply, erection, SF6 gas handling, and high-voltage testing of 33 kV and 66 kV indoor GIS
+                            feeder, transformer, and bus-coupler bays.
+                        </p>
+                    </div>
+
+                    <!-- 3 -->
+                    <div style="--spot-color: rgba(245, 158, 11, 0.11);"
+                        class="spotlight-card rounded-2xl border border-amber-200/80 bg-white p-8 shadow-sm hover:shadow-xl hover:shadow-amber-500/10">
+                        <span class="relative z-10 w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center mb-5 shadow-md shadow-amber-500/20">
+                            <i class="fa-solid fa-tower-broadcast text-base" aria-hidden="true"></i>
+                        </span>
+                        <h3 class="relative z-10 text-lg font-semibold text-indigo-950">Air-Insulated Switchgear (AIS)</h3>
+                        <p class="relative z-10 mt-2.5 text-sm text-slate-600 leading-relaxed">
+                            Outdoor switchyard steel gantries, SF6 / vacuum circuit breakers, motorized isolators,
+                            instrument transformers (CT/PT), surge arrestors, and busbar stringing.
+                        </p>
+                    </div>
+
+                    <!-- 4 -->
+                    <div style="--spot-color: rgba(139, 92, 246, 0.11);"
+                        class="spotlight-card rounded-2xl border border-violet-200/80 bg-white p-8 shadow-sm hover:shadow-xl hover:shadow-violet-500/10">
+                        <span class="relative z-10 w-11 h-11 rounded-xl bg-gradient-to-br from-violet-600 to-indigo-700 text-white flex items-center justify-center mb-5 shadow-md shadow-violet-500/20">
+                            <i class="fa-solid fa-bolt-lightning text-base" aria-hidden="true"></i>
+                        </span>
+                        <h3 class="relative z-10 text-lg font-semibold text-indigo-950">Power Transformers &amp; CRP</h3>
+                        <p class="relative z-10 mt-2.5 text-sm text-slate-600 leading-relaxed">
+                            EHV/HV power transformers with On-Load Tap Changers (OLTC), RTCC panels, Control &amp; Relay
+                            Panels (CRP), and redundant 110V/220V DC battery-charger systems.
+                        </p>
+                    </div>
+
+                    <!-- 5 -->
+                    <div style="--spot-color: rgba(20, 184, 166, 0.11);"
+                        class="spotlight-card rounded-2xl border border-teal-200/80 bg-white p-8 shadow-sm hover:shadow-xl hover:shadow-teal-500/10">
+                        <span class="relative z-10 w-11 h-11 rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600 text-white flex items-center justify-center mb-5 shadow-md shadow-teal-500/20">
+                            <i class="fa-solid fa-building text-base" aria-hidden="true"></i>
+                        </span>
+                        <h3 class="relative z-10 text-lg font-semibold text-indigo-950">Civil, Cable Trenches &amp; Fire Systems</h3>
+                        <p class="relative z-10 mt-2.5 text-sm text-slate-600 leading-relaxed">
+                            GIS control buildings, EOT cranes, transformer foundations with baffle walls &amp; oil-soak
+                            pits, RCC cable trenches, and nitrogen injection / HVW spray fire protection.
+                        </p>
+                    </div>
+
+                    <!-- 6 -->
+                    <div style="--spot-color: rgba(192, 38, 211, 0.11);"
+                        class="spotlight-card rounded-2xl border border-fuchsia-200/80 bg-white p-8 shadow-sm hover:shadow-xl hover:shadow-fuchsia-500/10">
+                        <span class="relative z-10 w-11 h-11 rounded-xl bg-gradient-to-br from-fuchsia-600 to-pink-600 text-white flex items-center justify-center mb-5 shadow-md shadow-fuchsia-500/20">
+                            <i class="fa-solid fa-clipboard-check text-base" aria-hidden="true"></i>
+                        </span>
+                        <h3 class="relative z-10 text-lg font-semibold text-indigo-950">Pre-Commissioning &amp; CEIG Charging</h3>
+                        <p class="relative z-10 mt-2.5 text-sm text-slate-600 leading-relaxed">
+                            Primary &amp; secondary relay injection, SF6 dew-point/leakage verification, transformer oil
+                            BDV &amp; tan-delta testing, CEIG statutory inspection, and grid synchronization.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- GIS vs AIS Comparison Table -->
+                <div id="comparison" class="max-w-2xl mb-10">
+                    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700 mb-3">
+                        Engineering Selection Guide
+                    </p>
+                    <h2 class="text-3xl font-semibold tracking-tight text-indigo-950">
+                        GIS vs. AIS Substation Architecture
+                    </h2>
+                </div>
+
+                <div class="overflow-x-auto rounded-2xl border border-pink-100 shadow-sm">
+                    <table class="w-full text-left border-collapse text-sm">
+                        <thead>
+                            <tr class="bg-gradient-to-r from-rose-50/85 via-amber-50/55 to-violet-50/85 border-b border-pink-100 text-indigo-950 font-semibold">
+                                <th class="py-4 px-6">Parameter</th>
+                                <th class="py-4 px-6 text-sky-700 bg-sky-50/60 border-x border-sky-100">Gas-Insulated Substation (GIS)</th>
+                                <th class="py-4 px-6">Air-Insulated Substation (AIS)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-pink-100/80 text-slate-600">
+                            <tr class="hover:bg-pink-50/20">
+                                <td class="py-4 px-6 font-medium text-indigo-950">Land / Footprint Requirement</td>
+                                <td class="py-4 px-6 bg-sky-50/20 border-x border-sky-100 font-semibold text-indigo-950 tabular-nums">Up to 70% smaller footprint (Indoor modular bays)</td>
+                                <td class="py-4 px-6">Larger open switchyard area required for air clearances</td>
+                            </tr>
+                            <tr class="hover:bg-pink-50/20">
+                                <td class="py-4 px-6 font-medium text-indigo-950">Environmental &amp; Coastal Immunity</td>
+                                <td class="py-4 px-6 bg-sky-50/20 border-x border-sky-100">Completely sealed against salt spray, pollution &amp; wildlife</td>
+                                <td class="py-4 px-6">Exposed insulators require periodic washing in coastal/dusty zones</td>
+                            </tr>
+                            <tr class="hover:bg-pink-50/20">
+                                <td class="py-4 px-6 font-medium text-indigo-950">Maintenance &amp; Reliability</td>
+                                <td class="py-4 px-6 bg-sky-50/20 border-x border-sky-100">Minimal maintenance; 10+ year major inspection intervals</td>
+                                <td class="py-4 px-6">Routine insulator, isolator, and breaker mechanism servicing</td>
+                            </tr>
+                            <tr class="hover:bg-pink-50/20">
+                                <td class="py-4 px-6 font-medium text-indigo-950">Standards &amp; Automation</td>
+                                <td class="py-4 px-6 bg-sky-50/20 border-x border-sky-100">IEC 62271-203, IEC 61850 SAS, Online SF6 density monitoring</td>
+                                <td class="py-4 px-6">IEC 62271, CBIP Substation Manual, IEC 61850 CRP</td>
+                            </tr>
+                            <tr class="hover:bg-pink-50/20">
+                                <td class="py-4 px-6 font-medium text-indigo-950">Best Suited For</td>
+                                <td class="py-4 px-6 bg-sky-50/20 border-x border-sky-100">Urban utilities, industrial estates, coastal &amp; space-constrained sites</td>
+                                <td class="py-4 px-6">Solar pooling substations, rural grid yards &amp; bay extensions</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. FLAGSHIP SUBSTATION DEPLOYMENT -->
+        <section class="py-20 bg-gradient-to-br from-rose-50/65 via-amber-50/35 to-violet-50/65 border-b border-pink-100">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="rounded-3xl overflow-hidden bg-white border border-pink-200/80 shadow-lg shadow-pink-950/5 grid lg:grid-cols-12 items-stretch">
+                    <div class="lg:col-span-5 relative min-h-[260px] bg-indigo-950">
+                        <img src="images/kvgis.png"
+                            onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1400&q=85';"
+                            alt="2x20 MVA, 66/11 kV GIS at Kilwani, Silvassa, Daman"
+                            class="w-full h-full object-cover object-center" />
+                        <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 text-white text-xs font-bold shadow-sm">
+                            2x20 MVA • 66/11 kV GIS
+                        </span>
+                    </div>
+                    <div class="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center">
+                        <div class="text-xs font-semibold uppercase tracking-[0.18em] text-sky-700">
+                            Active Flagship Substation Project
+                        </div>
+                        <h3 class="mt-2 text-2xl sm:text-3xl font-semibold text-indigo-950">
+                            2x20 MVA, 66/11 kV GIS at Kilwani, Silvassa, Daman
+                        </h3>
+                        <p class="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+                            Turnkey execution of a 40 MVA (2x20 MVA), 66/11 kV Gas-Insulated Switchgear (GIS) substation
+                            at Kilwani, Silvassa, Daman—complete with 66 kV SF6 GIS bays, power transformers, 11 kV
+                            switchgear panels, protection relays, SCADA integration, and utility commissioning.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-2.5 text-xs font-semibold text-indigo-950">
+                            <span class="px-3 py-1.5 rounded-full bg-sky-50 border border-sky-200/80">66/11 kV GIS Switchgear</span>
+                            <span class="px-3 py-1.5 rounded-full bg-pink-50 border border-pink-200/80">2x20 MVA Transformers</span>
+                            <span class="px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200/80">Turnkey EPC &amp; Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. CONSULTATION SECTION -->
+        <section id="consultation" class="py-24 bg-gradient-to-br from-fuchsia-50/80 via-orange-50/50 to-sky-50/80">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+                <div class="grid lg:grid-cols-12 gap-12 items-start">
+
+                    <div class="lg:col-span-5 space-y-8">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-[0.18em] text-pink-600 mb-3">
+                                HV Substation EPC Desk
+                            </p>
+                            <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight text-indigo-950">
+                                Request Site Visit
+                            </h2>
+                            <p class="mt-4 text-base text-slate-600 leading-relaxed">
+                                Share your voltage class, MVA transformer rating, or bay extension requirement. Our HV
+                                substation engineering team will review your SLD and schedule a technical site survey.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-4 border-t border-pink-200/70 text-sm">
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-pink-500 font-semibold block">Centralized Engineering Helpline</span>
+                                <a href="tel:+918148133644"
+                                    class="text-xl font-semibold text-indigo-950 hover:text-pink-600 transition mt-1 inline-block tabular-nums">
+                                    +91 81481 33644
+                                </a>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase tracking-wider text-violet-500 font-semibold block">Email</span>
+                                <a href="mailto:info@suntasticsolarsystems.com"
+                                    class="text-slate-700 hover:text-pink-600 transition mt-1 inline-block">
+                                    info@suntasticsolarsystems.com
+                                </a>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4 pt-2 text-xs text-slate-600 leading-relaxed">
+                                <div>
+                                    <strong class="text-indigo-950 block mb-0.5">Chennai Office</strong>
+                                    No.69/27A, First Pillaiyar Koil St, Chrompet, Chennai – 44
+                                </div>
+                                <div>
+                                    <strong class="text-indigo-950 block mb-0.5">Coimbatore Hub</strong>
+                                    No.185, Kovai Auto Mobile Nagar, Madukkarai, Coimbatore, Tamil Nadu 641105
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="spotlight-card lg:col-span-7 bg-white rounded-2xl border border-pink-200/80 p-8 sm:p-10 shadow-lg shadow-pink-500/5">
+                        <form id="consultation-form" onsubmit="submitConsultation(event)" class="relative z-10 space-y-6">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px" />
+
+                            <div>
+                                <label class="block text-xs uppercase tracking-wider text-pink-600 font-semibold mb-3">
+                                    Substation Architecture
+                                </label>
+                                <div class="grid grid-cols-3 gap-3">
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="subtype" value="GIS Substation" class="peer sr-only" checked />
+                                        <div class="py-3 px-3 rounded-xl border border-pink-100 peer-checked:border-transparent peer-checked:bg-gradient-to-r peer-checked:from-sky-500 peer-checked:to-indigo-600 peer-checked:text-white text-slate-700 text-xs sm:text-sm font-medium text-center transition">
+                                            GIS Substation
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="subtype" value="AIS Substation" class="peer sr-only" />
+                                        <div class="py-3 px-3 rounded-xl border border-pink-100 peer-checked:border-transparent peer-checked:bg-gradient-to-r peer-checked:from-amber-500 peer-checked:to-orange-600 peer-checked:text-white text-slate-700 text-xs sm:text-sm font-medium text-center transition">
+                                            AIS Substation
+                                        </div>
+                                    </label>
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="subtype" value="Bay Extension / Evacuation" class="peer sr-only" />
+                                        <div class="py-3 px-3 rounded-xl border border-pink-100 peer-checked:border-transparent peer-checked:bg-gradient-to-r peer-checked:from-pink-600 peer-checked:to-fuchsia-600 peer-checked:text-white text-slate-700 text-xs sm:text-sm font-medium text-center transition">
+                                            Bay / Evacuation
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="f-name" class="block text-xs font-medium text-slate-600 mb-1.5">Contact Name *</label>
+                                    <input type="text" name="fname" id="f-name" autocomplete="name" required placeholder="Your full name"
+                                        class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition" />
+                                </div>
+                                <div>
+                                    <label for="f-company" class="block text-xs font-medium text-slate-600 mb-1.5">Utility / Organisation *</label>
+                                    <input type="text" name="company" id="f-company" autocomplete="organization" required placeholder="Organisation name"
+                                        class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition" />
+                                </div>
+                            </div>
+
+                            <div class="grid sm:grid-cols-2 gap-5">
+                                <div>
+                                    <label for="f-phone" class="block text-xs font-medium text-slate-600 mb-1.5">Mobile Number *</label>
+                                    <input type="tel" name="number" id="f-phone" inputmode="numeric" autocomplete="tel-national" maxlength="10" required pattern="[0-9]{10}"
+                                        placeholder="10-digit mobile number"
+                                        class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm tabular-nums focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition" />
+                                </div>
+                                <div>
+                                    <label for="f-rating" class="block text-xs font-medium text-slate-600 mb-1.5">Voltage &amp; MVA Rating *</label>
+                                    <input type="text" name="rating" id="f-rating" required placeholder="e.g. 66/11 kV, 2x20 MVA"
+                                        class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition" />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="f-location" class="block text-xs font-medium text-slate-600 mb-1.5">Project Location *</label>
+                                <input type="text" name="location" id="f-location" required placeholder="e.g. Silvassa, Chennai, Coimbatore"
+                                    class="w-full px-4 py-3 rounded-xl border border-pink-100 text-base sm:text-sm focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 outline-none transition" />
+                            </div>
+
+                            <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-end gap-4">
+                                <button type="submit" id="submit-btn"
+                                    class="magnetic-btn px-8 py-3.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-sm font-semibold transition shadow-md shadow-pink-500/25">
+                                    Request Substation Proposal
+                                </button>
+                            </div>
+                            <p id="form-status" class="text-xs text-pink-700 min-h-[1rem]" role="status" aria-live="polite"></p>
+                            <p class="text-xs text-slate-400">By submitting, you agree to our <a href="privacy-policy.html" class="underline hover:text-pink-600">Privacy Policy</a>.</p>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 7. TWO-TIER ENTERPRISE FOOTER -->
+    <footer class="bg-gradient-to-b from-[#1A0B36] via-[#130829] to-[#0B051A] text-purple-200/80 relative mt-28">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="-translate-y-1/2 rounded-2xl bg-gradient-to-r from-[#F97316] via-[#EC4899] to-[#7C3AED] px-8 py-10 sm:px-14 sm:py-12 shadow-2xl shadow-pink-600/30 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                <div>
+                    <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+                        Get in touch with our team of experts
+                    </h2>
+                    <p class="mt-2 text-sm text-white/95">
+                        MNRE &amp; TANGEDCO Empanelled Solar EPC • Serving Tamil Nadu &amp; Kerala
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-6">
+                    <a href="#consultation"
+                        class="magnetic-btn px-7 py-3.5 rounded-lg bg-white hover:bg-pink-50 text-pink-700 text-sm font-semibold shadow-sm transition">
+                        Contact us
+                    </a>
+
+                    <a href="tel:+918148133644" class="flex items-center gap-3.5 group">
+                        <span
+                            class="w-12 h-12 rounded-full bg-white text-pink-600 flex items-center justify-center shadow-sm group-hover:scale-105 transition">
+                            <i class="fa-solid fa-phone-volume text-lg"></i>
+                        </span>
+                        <div>
+                            <span class="block text-xs text-white/90 font-medium">Need any help</span>
+                            <span class="block text-base sm:text-lg font-bold text-white tracking-tight tabular-nums">+91 81481 33644</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-14">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-fuchsia-900/50">
+                <div class="lg:col-span-5 space-y-5">
+                    <a href="index.html" class="inline-flex items-center gap-3">
+                        <img src="images/logo.png" alt="Suntastic Engineering"
+                            class="h-[54px] w-auto object-contain bg-white px-3 py-1.5 rounded-lg"
+                            onerror="if(!this.dataset.TriedAlt){this.dataset.TriedAlt='1';this.src='images/5b55c9a5e03751532348837Suntastic-Logo.png';}else{this.style.display='none';document.getElementById('footer-fallback-logo').style.display='flex';}" />
+                        <div id="footer-fallback-logo" class="hidden items-center gap-2.5">
+                            <svg class="w-10 h-10 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4" stroke-dasharray="12 6" />
+                                <circle cx="32" cy="32" r="20" stroke="#EC4899" stroke-width="3" stroke-dasharray="10 5" />
+                            </svg>
+                            <span class="font-bold text-xl tracking-wider text-white">
+                                SUN TASTIC<sup class="text-xs font-semibold ml-0.5 text-pink-400">TM</sup>
+                            </span>
+                        </div>
+                    </a>
+                    <p class="text-sm text-purple-200/75 leading-relaxed max-w-sm">
+                        Providing innovative solar solutions for homes, industries, and government infrastructure.
+                        Committed to a sustainable future across South India.
+                    </p>
+                    <address class="not-italic text-xs text-purple-300/65 leading-relaxed max-w-sm space-y-2">
+                        <p><span class="text-pink-300">Registered office:</span> No. 69/27A, First Pillaiyar Koil Street, Lakshmipuram, Chrompet, Chennai – 600 044</p>
+                        <p><span class="text-pink-300">Coimbatore branch:</span> No.185, Kovai Auto Mobile Nagar, Madukkarai, Coimbatore, Tamil Nadu 641105</p>
+                        <p>Also at Palakkad and Thiruvananthapuram</p>
+                    </address>
+                    <div class="flex items-center gap-5 pt-2 text-purple-300">
+                        <a href="https://www.facebook.com/profile.php?id=61586789438858" target="_blank" rel="noopener" aria-label="Facebook"
+                            class="hover:text-sky-400 transition text-lg"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/suntastic_engineering" target="_blank" rel="noopener"
+                            aria-label="Instagram" class="hover:text-pink-400 transition text-lg"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/suntastic-engineering-pvt-ltd/" target="_blank"
+                            rel="noopener" aria-label="LinkedIn" class="hover:text-amber-400 transition text-lg"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 space-y-3.5 text-sm">
+                    <div class="text-white font-semibold tracking-tight mb-4">Legal</div>
+                    <ul class="space-y-3">
+                        <li><a href="privacy-policy.html" class="hover:text-pink-300 transition">Privacy Policy</a></li>
+                        <li><a href="about-us.html#empanelments" class="hover:text-pink-300 transition">Empanelments</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-3 space-y-3.5 text-sm">
+                    <div class="text-white font-semibold tracking-tight mb-4">Solutions</div>
+                    <ul class="space-y-3">
+                        <li><a href="megawatt-scale.html" class="hover:text-amber-300 transition">Megawatt Scale</a></li>
+                        <li><a href="on-grid.html" class="hover:text-pink-300 transition">On-Grid Solar</a></li>
+                        <li><a href="off-grid.html" class="hover:text-violet-300 transition">Off-Grid Solar</a></li>
+                        <li><a href="hybrid.html" class="hover:text-teal-300 transition">Hybrid Solar</a></li>
+                        <li><a href="substations.html" class="text-white font-medium hover:text-sky-300 transition">Substations</a></li>
+                        <li><a href="bess.html" class="hover:text-fuchsia-300 transition">BESS</a></li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-2 space-y-3.5 text-sm">
+                    <div class="text-white font-semibold tracking-tight mb-4">Company</div>
+                    <ul class="space-y-3">
+                        <li><a href="about-us.html" class="hover:text-pink-300 transition">About Us</a></li>
+                        <li><a href="residential.html" class="hover:text-amber-300 transition">Residential Rooftop</a></li>
+                        <li><a href="calculator.html" class="text-amber-400 hover:text-pink-400 font-medium transition">Solar Calculator</a></li>
+                        <li><a href="blog.html" class="hover:text-pink-300 transition">Blog</a></li>
+                        <li><a href="career.html" class="hover:text-pink-300 transition">Career</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-purple-300/60">
+                <div>© 2026 Suntastic Engineering Private Limited. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON -->
+    <a href="https://api.whatsapp.com/send?phone=918148133644&text=Hi%20Suntastic%20Engineering,%20I%20would%20like%20to%20discuss%20an%20AIS%20or%20GIS%20Substation%20project."
+        target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat with us"
+        class="fixed bottom-6 right-6 z-40 wa-float px-4 h-12 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-pink-600 hover:to-orange-500 text-white shadow-xl shadow-emerald-500/30 flex items-center gap-2.5 transition-all duration-300 hover:scale-105 group">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="text-xs font-semibold tracking-wide pr-0.5">Chat with us</span>
+    </a>
+
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            mobileBtn.setAttribute('aria-expanded', String(open));
+        }
+        mobileBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') setMenu(false); });
+        window.matchMedia('(min-width: 1024px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+
+        document.querySelectorAll('.spotlight-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+                card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+            });
+        });
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = (e.clientX - rect.left - rect.width / 2) * 0.14;
+                const y = (e.clientY - rect.top - rect.height / 2) * 0.18;
+                btn.style.transform = `translate(${x}px, ${y}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0px, 0px)';
+            });
+        });
+
+        // Interactive GIS vs AIS Substation Switcher
+        (function () {
+            const btns = document.querySelectorAll('.sub-btn');
+            const badge = document.getElementById('sub-badge');
+            const title = document.getElementById('sub-title');
+            const desc = document.getElementById('sub-desc');
+            const bayTitle = document.getElementById('sub-bay-title');
+            const baySub = document.getElementById('sub-bay-sub');
+            const bayBox = document.getElementById('sub-bay-box');
+
+            function setSub(type) {
+                const isGis = type === 'gis';
+                btns.forEach(b => {
+                    const active = b.dataset.sub === type;
+                    b.className = active
+                        ? 'sub-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 text-white shadow-sm transition'
+                        : 'sub-btn px-4 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:text-indigo-950 transition';
+                });
+
+                if (isGis) {
+                    badge.textContent = '66/11 kV & 33/11 kV Indoor GIS';
+                    title.textContent = 'Gas-Insulated Switchgear (GIS)';
+                    desc.textContent = 'Hermetically sealed SF6 metal-enclosed switchgear bays requiring up to 70% less land than conventional switchyards—immune to coastal salt fog, industrial dust, and humidity.';
+                    bayTitle.textContent = 'GIS SF6 BAYS';
+                    baySub.textContent = 'Indoor Sealed Bus';
+                    bayBox.setAttribute('stroke', '#38BDF8');
+                } else {
+                    badge.textContent = '11 kV to 110 kV Outdoor Switchyard';
+                    title.textContent = 'Air-Insulated Switchgear (AIS)';
+                    desc.textContent = 'Cost-effective outdoor gantry switchyards engineered for solar pooling stations and grid interconnections with modular bay expandability and straightforward visual inspection.';
+                    bayTitle.textContent = 'AIS YARD BAYS';
+                    baySub.textContent = 'Gantry + VCB / SF6';
+                    bayBox.setAttribute('stroke', '#F59E0B');
+                }
+            }
+
+            btns.forEach(b => b.addEventListener('click', () => setSub(b.dataset.sub)));
+        })();
+
+        const WA_NUMBER = '918148133644';
+        function submitConsultation(e) {
+            e.preventDefault();
+            const form = e.target;
+            if (form.website && form.website.value) return;
+
+            const msg = encodeURIComponent(
+                `Hello Suntastic Engineering,\n\nSubstation EPC Enquiry:\n• Architecture: ${form.subtype.value}\n• Contact Name: ${form.fname.value.trim()}\n• Organisation: ${form.company.value.trim()}\n• Mobile: ${form.number.value.trim()}\n• Voltage & MVA Rating: ${form.rating.value.trim()}\n• Location: ${form.location.value.trim()}`
+            );
+            const url = `https://api.whatsapp.com/send?phone=${WA_NUMBER}&text=${msg}`;
+            const w = window.open(url, '_blank');
+            if (w) { w.opener = null; } else { window.location.href = url; }
+
+            const btn = document.getElementById('submit-btn');
+            const status = document.getElementById('form-status');
+            btn.textContent = 'Opening WhatsApp…';
+            if (status) status.textContent = 'Last step: tap Send in WhatsApp to confirm your Substation enquiry.';
+            setTimeout(() => { btn.textContent = 'Request Substation Proposal'; form.reset(); }, 2500);
+        }
+    </script>
+</body>
+
+</html>
