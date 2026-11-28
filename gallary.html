@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- SEO Metadata -->
+    <title>Photo Gallery | Suntastic Engineering — Solar EPC &amp; Grid Infrastructure</title>
+    <meta name="description"
+        content="High-definition engineering photo archive of Suntastic Engineering's megawatt solar plants, BESS installations, GIS substations, SCADA automation, and rooftop solar arrays." />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" href="images/logo.png" />
+    <link rel="canonical" href="https://suntasticsolarsystems.com/gallary.html" />
+    <meta name="theme-color" content="#1E103C" />
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Photo Gallery | Suntastic Engineering" />
+    <meta property="og:description"
+        content="Explore high-resolution photography of Suntastic Engineering's utility solar, BESS, substation, and rooftop installations." />
+    <meta property="og:site_name" content="Suntastic Engineering" />
+    <meta property="og:image" content="https://suntasticsolarsystems.com/images/logo.png" />
+
+    <!-- Editorial Minimalist Typography: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+                    },
+                    colors: {
+                        alabaster: '#FDF8FC',
+                        obsidian: '#160B2E',
+                        amber: {
+                            500: '#F59E0B',
+                            600: '#D97706',
+                            700: '#B45309',
+                        },
+                        magenta: {
+                            50: '#FDF2F8',
+                            100: '#FCE7F3',
+                            500: '#EC4899',
+                            600: '#DB2777',
+                            700: '#BE185D',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Native SPA-Grade Multi-Page View Transitions */
+        @view-transition {
+            navigation: auto;
+        }
+
+        .tabular-nums {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Subtle Top Solar-Spectrum Accent Bar on Header (Matches index.html) */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #F59E0B 0%, #F97316 25%, #EC4899 55%, #8B5CF6 80%, #0EA5E9 100%);
+            z-index: 60;
+        }
+
+        /* Luminous Daylight Prism Mesh + Subtle Ambient Grid Pattern (Matches index.html) */
+        .architectural-grid-bg {
+            background-color: #FFFFFF;
+            background-image:
+                radial-gradient(at 8% 12%, rgba(245, 158, 11, 0.12) 0px, transparent 42%),
+                radial-gradient(at 90% 10%, rgba(236, 72, 153, 0.13) 0px, transparent 44%),
+                radial-gradient(at 52% 44%, rgba(139, 92, 246, 0.07) 0px, transparent 48%),
+                radial-gradient(at 85% 65%, rgba(14, 165, 233, 0.08) 0px, transparent 40%),
+                radial-gradient(rgba(190, 24, 93, 0.06) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+        }
+
+        /* Masonry Card Entrance & Optical Hover */
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.35s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(236, 72, 153, 0.45);
+            box-shadow: 0 22px 42px -16px rgba(22, 11, 46, 0.22), 0 0 0 1px rgba(245, 158, 11, 0.16);
+        }
+
+        .gallery-item img {
+            transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.45s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.025);
+        }
+
+        /* Inline Card Info Drawer Animation */
+        .card-info-drawer {
+            transform: translateY(100%);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.28s ease;
+        }
+
+        .gallery-item.is-info-open .card-info-drawer {
+            transform: translateY(0%);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Fullscreen Lightbox Transitions */
+        #lightbox-modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.3s ease;
+        }
+
+        #lightbox-modal.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #lightbox-stage-img {
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+        }
+
+        #lightbox-stage-img.is-zoomed {
+            transform: scale(1.65);
+            cursor: zoom-out;
+        }
+
+        #lightbox-info-sheet {
+            transform: translateY(18px);
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s ease;
+        }
+
+        #lightbox-info-sheet.is-visible {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Hide scrollbars cleanly on filmstrip */
+        .no-scrollbar {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        html {
+            scroll-padding-top: 96px;
+        }
+
+        .wa-float {
+            bottom: max(1.5rem, env(safe-area-inset-bottom)) !important;
+            right: max(1.5rem, env(safe-area-inset-right)) !important;
+        }
+
+        /* Large-screen scale-up (>=1700px wide, matching index.html) */
+        @media (min-width: 1700px) {
+            html {
+                font-size: 20px;
+                scroll-padding-top: 120px;
+            }
+
+            header img[alt="Suntastic Engineering"] {
+                height: 75px !important;
+            }
+
+            footer img[alt="Suntastic Engineering"] {
+                height: 67px !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white text-indigo-950 font-sans antialiased selection:bg-pink-600 selection:text-white">
+
+    <!-- 1. HIGH-CONVERSION NAVIGATION BAR (Consistent with index.html) -->
+    <header
+        class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-pink-100/90 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- Official Suntastic Brand Logo -->
+            <a href="index.html" class="flex items-center gap-3 shrink-0">
+                <img src="images/logo.png" alt="Suntastic Engineering" class="h-[60px] w-auto object-contain"
+                    onerror="this.style.display='none';document.getElementById('fallback-logo').style.display='flex';" />
+                <div id="fallback-logo" class="hidden items-center gap-2.5">
+                    <svg class="w-11 h-11 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
+                        <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4" stroke-dasharray="12 6" />
+                        <circle cx="32" cy="32" r="20" stroke="#EC4899" stroke-width="3" stroke-dasharray="10 5" />
+                        <circle cx="32" cy="32" r="14" stroke="#8B5CF6" stroke-width="2.5" stroke-dasharray="8 4" />
+                    </svg>
+                    <span class="font-bold text-xl tracking-wider text-indigo-950">
+                        SUN TASTIC<sup class="text-xs font-semibold ml-0.5 text-pink-600">TM</sup>
+                    </span>
+                </div>
+            </a>
+
+            <!-- Center Navigation -->
+            <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-700">
+                <a href="about-us.html" class="hover:text-pink-600 transition whitespace-nowrap">About Us</a>
+
+                <!-- Solutions Dropdown (Solid Opaque Card — Glitch-Free Hover) -->
+                <div class="relative group py-6">
+                    <button type="button"
+                        class="flex items-center gap-1.5 hover:text-pink-600 transition whitespace-nowrap">
+                        <span>Solutions</span>
+                        <i
+                            class="fa-solid fa-chevron-down text-xs text-pink-400 group-hover:rotate-180 transition-transform"></i>
+                    </button>
+                    <div
+                        class="absolute left-0 top-full pt-1 opacity-0 invisible pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto transition-all duration-150 z-50">
+                        <div
+                            class="w-72 bg-white rounded-xl border border-pink-100 shadow-xl shadow-pink-500/10 p-2 space-y-1">
+                            <a href="solutions/megawatt-scale.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-amber-50 transition">
+                                <div class="text-xs font-semibold text-orange-700">Megawatt Scale</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Utility &amp; industrial solar power plants</div>
+                            </a>
+                            <a href="solutions/on-grid.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-pink-50 transition">
+                                <div class="text-xs font-semibold text-pink-700">On-Grid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Grid-tied net-metering solar systems</div>
+                            </a>
+                            <a href="solutions/off-grid.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-violet-50 transition">
+                                <div class="text-xs font-semibold text-violet-700">Off-Grid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Standalone solar + battery power</div>
+                            </a>
+                            <a href="solutions/hybrid.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-teal-50 transition">
+                                <div class="text-xs font-semibold text-teal-700">Hybrid</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Net-metering with seamless backup</div>
+                            </a>
+                            <a href="solutions/substations.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-sky-50 transition">
+                                <div class="text-xs font-semibold text-sky-700">Substations</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Turnkey AIS &amp; GIS HV substations</div>
+                            </a>
+                            <a href="solutions/bess.html"
+                                class="block px-3.5 py-2.5 rounded-lg hover:bg-fuchsia-50 transition">
+                                <div class="text-xs font-semibold text-fuchsia-700">BESS</div>
+                                <div class="text-xs text-slate-500 mt-0.5">Battery Energy Storage Systems</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="residential.html" class="hover:text-pink-600 transition whitespace-nowrap">Residential Rooftop</a>
+                <a href="calculator.html" class="hover:text-pink-600 transition whitespace-nowrap">Solar Calculator</a>
+                <a href="index.html#projects" class="hover:text-pink-600 transition whitespace-nowrap">Projects</a>
+                <a href="blog.html" class="hover:text-pink-600 transition whitespace-nowrap">Blog</a>
+            </nav>
+
+            <!-- Right Action: Direct Helpline + Sunset CTA -->
+            <div class="hidden md:flex items-center gap-5 shrink-0">
+                <a href="tel:+918148133644"
+                    class="text-sm font-medium text-indigo-950 hover:text-pink-600 transition whitespace-nowrap flex items-center gap-2 tabular-nums">
+                    <i class="fa-solid fa-phone text-xs text-pink-600"></i>
+                    <span>+91 81481 33644</span>
+                </a>
+                <a href="index.html#consultation"
+                    class="magnetic-btn px-5 py-2.5 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white font-semibold text-sm shadow-md shadow-pink-500/25 transition whitespace-nowrap">
+                    Get Free Quote
+                </a>
+            </div>
+
+            <!-- Mobile Menu Trigger -->
+            <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu"
+                class="lg:hidden p-2 text-indigo-900 hover:text-pink-600" aria-label="Menu">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-pink-100 px-6 py-6 space-y-4">
+            <a href="about-us.html" class="block text-base font-medium text-indigo-950 hover:text-pink-600">About Us</a>
+            <div class="space-y-2.5 pt-1 pb-1 border-y border-pink-100/80">
+                <div class="text-xs font-semibold uppercase tracking-wider text-pink-600">Solutions</div>
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="solutions/megawatt-scale.html"
+                        class="block text-sm font-medium text-indigo-950 hover:text-orange-600">Megawatt Scale</a>
+                    <a href="solutions/on-grid.html"
+                        class="block text-sm font-medium text-indigo-950 hover:text-pink-600">On-Grid</a>
+                    <a href="solutions/off-grid.html"
+                        class="block text-sm font-medium text-indigo-950 hover:text-violet-600">Off-Grid</a>
+                    <a href="solutions/hybrid.html"
+                        class="block text-sm font-medium text-indigo-950 hover:text-teal-600">Hybrid</a>
+                    <a href="solutions/substations.html"
+                        class="block text-sm font-medium text-indigo-950 hover:text-sky-600">Substations</a>
+                    <a href="solutions/bess.html"
+                        class="block text-sm font-medium text-indigo-950 hover:text-fuchsia-600">BESS</a>
+                </div>
+            </div>
+            <a href="residential.html" class="block text-base font-medium text-indigo-950 hover:text-pink-600">Residential Rooftop</a>
+            <a href="calculator.html" class="block text-base font-medium text-indigo-950 hover:text-violet-600">Solar Calculator</a>
+            <a href="index.html#projects" class="block text-base font-medium text-indigo-950 hover:text-pink-600">Projects</a>
+            <a href="blog.html" class="block text-base font-medium text-indigo-950 hover:text-violet-600">Blog</a>
+            <div class="pt-4 border-t border-pink-100 flex flex-col gap-3">
+                <a href="tel:+918148133644" class="text-sm font-medium text-pink-700 tabular-nums">Call +91 81481 33644</a>
+                <a href="index.html#consultation"
+                    class="w-full py-3 rounded-full bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 hover:from-orange-600 hover:via-pink-700 hover:to-fuchsia-700 text-white text-center text-sm font-semibold shadow-md shadow-pink-500/20">
+                    Get Free Quote
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. EDITORIAL GALLERY HEADER & FILTER BAR -->
+    <section class="pt-14 pb-10 lg:pt-20 lg:pb-12 architectural-grid-bg border-b border-pink-100">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+                <div class="max-w-2xl">
+                    <div class="inline-flex items-center gap-2 mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-pink-500"></span>
+                        <p class="text-xs font-semibold uppercase tracking-[0.2em] text-pink-600">
+                            Visual Archive
+                        </p>
+                    </div>
+                    <h1 class="text-3xl sm:text-5xl font-semibold tracking-tight text-indigo-950 leading-[1.1]">
+                        Project &amp; Engineering
+                        <span
+                            class="bg-gradient-to-r from-orange-500 via-pink-600 to-violet-600 bg-clip-text text-transparent">
+                            Photo Gallery
+                        </span>
+                    </h1>
+                    <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+                        Click any photograph to inspect it in full screen. Use the <span
+                            class="font-medium text-indigo-950">Info</span> link on any image to view project specifications.
+                    </p>
+                </div>
+
+                <!-- Category Filter Pills & Live Frame Count -->
+                <div class="flex flex-wrap items-center gap-2" role="tablist" aria-label="Filter gallery photos">
+                    <button type="button" data-filter="all"
+                        class="gallery-filter-btn is-active px-4 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 text-white shadow-sm transition">
+                        All Photos (<span id="gallery-count-all">10</span>)
+                    </button>
+                    <button type="button" data-filter="utility"
+                        class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-pink-200/80 text-slate-700 hover:border-pink-400 hover:text-pink-600 transition">
+                        Utility &amp; Megawatt
+                    </button>
+                    <button type="button" data-filter="grid"
+                        class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-pink-200/80 text-slate-700 hover:border-pink-400 hover:text-pink-600 transition">
+                        Substations &amp; SCADA
+                    </button>
+                    <button type="button" data-filter="storage"
+                        class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-pink-200/80 text-slate-700 hover:border-pink-400 hover:text-pink-600 transition">
+                        BESS &amp; Hybrid
+                    </button>
+                    <button type="button" data-filter="rooftop"
+                        class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-pink-200/80 text-slate-700 hover:border-pink-400 hover:text-pink-600 transition">
+                        Rooftop &amp; Off-Grid
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. PURE IMAGE MASONRY GALLERY (All Non-Logo HD Photos at True Native Aspect Ratio) -->
+    <main class="py-12 lg:py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <!-- Responsive Multi-Column Masonry Grid: displays every photo uncropped at its natural proportions -->
+            <div id="gallery-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-6">
+                <!-- Cards are hydrated cleanly from GALLERY_PHOTOS below -->
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 4. FULLSCREEN LIGHTBOX VIEWER (Only Images in Fullscreen + Toggleable Info Link) -->
+    <div id="lightbox-modal" role="dialog" aria-modal="true" aria-labelledby="lb-info-title"
+        class="fixed inset-0 z-[100] bg-[#0B051A]/96 backdrop-blur-2xl flex flex-col justify-between select-none">
+
+        <!-- Top Lightbox Toolbar -->
+        <div class="relative z-20 flex items-center justify-between px-4 sm:px-8 h-16 sm:h-20 border-b border-white/10">
+            <div class="flex items-center gap-3 text-white/90">
+                <span id="lb-counter"
+                    class="px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs font-semibold tracking-widest tabular-nums">
+                    01 / 10
+                </span>
+                <span id="lb-category-pill"
+                    class="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-amber-300">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+                    <span id="lb-category-text">Utility Solar</span>
+                </span>
+            </div>
+
+            <!-- Action Controls: Info Link Toggle, Zoom, Native Monitor Fullscreen, Close -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <a href="#lb-info-sheet" id="lb-info-toggle" role="button" aria-expanded="false"
+                    class="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/10 hover:bg-pink-600/80 border border-white/20 text-white text-xs font-semibold transition">
+                    <i class="fa-solid fa-circle-info text-amber-300"></i>
+                    <span>Image Info</span>
+                </a>
+
+                <button type="button" id="lb-zoom-btn" aria-label="Toggle zoom"
+                    class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white flex items-center justify-center transition"
+                    title="Zoom (Z)">
+                    <i class="fa-solid fa-magnifying-glass-plus text-xs"></i>
+                </button>
+
+                <button type="button" id="lb-fullscreen-btn" aria-label="Toggle monitor fullscreen"
+                    class="hidden sm:flex w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 border border-white/15 text-white items-center justify-center transition"
+                    title="Monitor Fullscreen (F)">
+                    <i id="lb-fullscreen-icon" class="fa-solid fa-expand text-xs"></i>
+                </button>
+
+                <button type="button" id="lb-close-btn" aria-label="Close fullscreen gallery"
+                    class="w-9 h-9 rounded-full bg-white/10 hover:bg-rose-600 border border-white/15 text-white flex items-center justify-center transition"
+                    title="Close (Esc)">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Center Stage: Fullscreen HD Image Viewport -->
+        <div id="lb-stage"
+            class="relative flex-1 flex items-center justify-center overflow-hidden px-4 sm:px-16 py-4">
+
+            <!-- Previous Arrow -->
+            <button type="button" id="lb-prev-btn" aria-label="Previous image"
+                class="absolute left-3 sm:left-6 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-pink-600/85 border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition">
+                <i class="fa-solid fa-chevron-left text-sm"></i>
+            </button>
+
+            <!-- High-Resolution Image -->
+            <img id="lb-stage-img" src="" alt=""
+                class="max-h-[calc(100vh-11.5rem)] max-w-full w-auto h-auto object-contain rounded-xl shadow-2xl cursor-zoom-in" />
+
+            <!-- Next Arrow -->
+            <button type="button" id="lb-next-btn" aria-label="Next image"
+                class="absolute right-3 sm:right-6 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-pink-600/85 border border-white/20 text-white flex items-center justify-center backdrop-blur-md transition">
+                <i class="fa-solid fa-chevron-right text-sm"></i>
+            </button>
+
+            <!-- Toggleable Technical Image Info Drawer (Shown ONLY when "Image Info" link is clicked) -->
+            <div id="lightbox-info-sheet"
+                class="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-8 sm:w-[430px] z-30 rounded-2xl bg-[#160B2E]/95 backdrop-blur-xl border border-pink-400/35 p-5 sm:p-6 text-white shadow-2xl">
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <span id="lb-info-badge"
+                            class="inline-block text-[11px] font-semibold uppercase tracking-wider text-amber-300">
+                            Utility Solar EPC
+                        </span>
+                        <h2 id="lb-info-title" class="mt-1 text-base sm:text-lg font-semibold leading-snug text-white">
+                            Project Title
+                        </h2>
+                    </div>
+                    <button type="button" id="lb-info-close" aria-label="Hide image info"
+                        class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white/80 flex items-center justify-center shrink-0 transition">
+                        <i class="fa-solid fa-xmark text-xs"></i>
+                    </button>
+                </div>
+
+                <p id="lb-info-desc" class="mt-2.5 text-xs sm:text-sm text-purple-100/90 leading-relaxed">
+                    Technical overview of this installation.
+                </p>
+
+                <div class="mt-4 pt-3.5 border-t border-white/15 flex items-center justify-between gap-3 text-xs">
+                    <span id="lb-info-meta" class="text-purple-200/80 font-medium">
+                        Location / Capacity
+                    </span>
+                    <a id="lb-info-link" href="solutions/megawatt-scale.html"
+                        class="inline-flex items-center gap-1.5 font-semibold text-amber-300 hover:text-pink-300 transition shrink-0">
+                        <span>View Solution</span>
+                        <i class="fa-solid fa-arrow-right text-[11px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Thumbnail Filmstrip -->
+        <div class="relative z-20 border-t border-white/10 bg-black/30 px-4 sm:px-8 py-3">
+            <div id="lb-filmstrip"
+                class="max-w-5xl mx-auto flex items-center justify-start sm:justify-center gap-2.5 overflow-x-auto no-scrollbar">
+                <!-- Populated dynamically via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. TWO-TIER ENTERPRISE FOOTER (Matches index.html) -->
+    <footer class="bg-gradient-to-b from-[#1A0B36] via-[#130829] to-[#0B051A] text-purple-200/80 relative mt-28">
+
+        <!-- Top Overlapping CTA Banner -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div
+                class="-translate-y-1/2 rounded-2xl bg-gradient-to-r from-[#F97316] via-[#EC4899] to-[#7C3AED] px-8 py-10 sm:px-14 sm:py-12 shadow-2xl shadow-pink-600/30 flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+                <div>
+                    <h2 class="text-2xl sm:text-4xl font-bold tracking-tight text-white">
+                        Get in touch with our team of experts
+                    </h2>
+                    <p class="mt-2 text-sm text-white/95">
+                        MNRE &amp; TANGEDCO Empanelled Solar EPC • Serving Tamil Nadu &amp; Kerala
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-6">
+                    <a href="index.html#consultation"
+                        class="magnetic-btn px-7 py-3.5 rounded-lg bg-white hover:bg-pink-50 text-pink-700 text-sm font-semibold shadow-sm transition">
+                        Contact us
+                    </a>
+
+                    <a href="tel:+918148133644" class="flex items-center gap-3.5 group">
+                        <span
+                            class="w-12 h-12 rounded-full bg-white text-pink-600 flex items-center justify-center shadow-sm group-hover:scale-105 transition">
+                            <i class="fa-solid fa-phone-volume text-lg"></i>
+                        </span>
+                        <div>
+                            <span class="block text-xs text-white/90 font-medium">Need any help</span>
+                            <span
+                                class="block text-base sm:text-lg font-bold text-white tracking-tight tabular-nums">+91
+                                81481 33644</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dark Footer Content -->
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-4 pb-14">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-14 border-b border-fuchsia-900/50">
+
+                <!-- Brand & Socials (5 Cols) -->
+                <div class="lg:col-span-5 space-y-5">
+                    <a href="index.html" class="inline-flex items-center gap-3">
+                        <img src="images/logo.png" alt="Suntastic Engineering"
+                            class="h-[54px] w-auto object-contain bg-white px-3 py-1.5 rounded-lg"
+                            onerror="this.style.display='none';document.getElementById('footer-fallback-logo').style.display='flex';" />
+                        <div id="footer-fallback-logo" class="hidden items-center gap-2.5">
+                            <svg class="w-10 h-10 text-[#F59E0B]" viewBox="0 0 64 64" fill="none">
+                                <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="4"
+                                    stroke-dasharray="12 6" />
+                                <circle cx="32" cy="32" r="20" stroke="#EC4899" stroke-width="3"
+                                    stroke-dasharray="10 5" />
+                            </svg>
+                            <span class="font-bold text-xl tracking-wider text-white">
+                                SUN TASTIC<sup class="text-xs font-semibold ml-0.5 text-pink-400">TM</sup>
+                            </span>
+                        </div>
+                    </a>
+                    <p class="text-sm text-purple-200/75 leading-relaxed max-w-sm">
+                        Providing innovative solar solutions for homes, industries, and government infrastructure.
+                        Committed to a sustainable future across South India.
+                    </p>
+                    <address class="not-italic text-xs text-purple-300/65 leading-relaxed max-w-sm space-y-2">
+                        <p><span class="text-pink-300">Registered office:</span> No. 69/27A, First Pillaiyar Koil Street,
+                            Lakshmipuram, Chrompet, Chennai – 600 044</p>
+                        <p><span class="text-pink-300">Coimbatore branch:</span> No.185, Kovai Auto Mobile Nagar,
+                            Madukkarai, Coimbatore, Tamil Nadu 641105</p>
+                        <p>Also at Palakkad and Thiruvananthapuram</p>
+                    </address>
+                    <div class="flex items-center gap-5 pt-2 text-purple-300">
+                        <a href="https://www.facebook.com/profile.php?id=61586789438858" target="_blank" rel="noopener"
+                            aria-label="Facebook" class="hover:text-sky-400 transition text-lg"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/suntastic_engineering" target="_blank" rel="noopener"
+                            aria-label="Instagram" class="hover:text-pink-400 transition text-lg"><i
+                                class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/suntastic-engineering-pvt-ltd/" target="_blank"
+                            rel="noopener" aria-label="LinkedIn" class="hover:text-amber-400 transition text-lg"><i
+                                class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column: Legal -->
+                <div class="lg:col-span-2 space-y-3.5 text-sm">
+                    <div class="text-white font-semibold tracking-tight mb-4">Legal</div>
+                    <ul class="space-y-3">
+                        <li><a href="privacy-policy.html" class="hover:text-pink-300 transition">Privacy Policy</a></li>
+                        <li><a href="about-us.html#empanelments"
+                                class="hover:text-pink-300 transition">Empanelments</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column: Company -->
+                <div class="lg:col-span-3 space-y-3.5 text-sm">
+                    <div class="text-white font-semibold tracking-tight mb-4">Company</div>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#proof" class="hover:text-pink-300 transition">About</a></li>
+                        <li><a href="residential.html" class="hover:text-amber-300 transition">Residential Rooftops</a>
+                        </li>
+                        <li><a href="commercial-industrial.html" class="hover:text-pink-300 transition">Commercial &amp;
+                                Industrial EPC</a></li>
+                        <li><a href="on-grid-hybrid.html" class="hover:text-teal-300 transition">On-Grid &amp; Hybrid
+                                Systems</a></li>
+                        <li><a href="index.html#projects" class="hover:text-pink-300 transition">Projects</a></li>
+                        <li><a href="career.html" class="hover:text-pink-300 transition">Career</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column: Resources -->
+                <div class="lg:col-span-2 space-y-3.5 text-sm">
+                    <div class="text-white font-semibold tracking-tight mb-4">Resources</div>
+                    <ul class="space-y-3">
+                        <li><a href="calculator.html"
+                                class="text-amber-400 hover:text-pink-400 font-medium transition">Solar Calculator</a>
+                        </li>
+                        <li><a href="index.html#faq" class="hover:text-pink-300 transition">Subsidy Guide</a></li>
+                        <li><a href="on-grid-hybrid.html" class="hover:text-teal-300 transition">Net-Metering Guide</a>
+                        </li>
+                        <li><a href="blog.html" class="hover:text-pink-300 transition">Blog</a></li>
+                        <li><a href="gallary.html" aria-current="page" class="hover:text-pink-300 transition">Photo
+                                Gallery</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-purple-300/60">
+                <div>© 2026 Suntastic Engineering Private Limited. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP BUTTON (Consistent with index.html) -->
+    <a href="https://api.whatsapp.com/send?phone=918148133644&text=Hi%20Suntastic%20Engineering,%20I%20would%20like%20to%20discuss%20a%20solar%20installation."
+        target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat with us"
+        class="fixed bottom-6 right-6 z-40 wa-float px-4 h-12 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-pink-600 hover:to-orange-500 text-white shadow-xl shadow-emerald-500/30 flex items-center gap-2.5 transition-all duration-300 hover:scale-105 group">
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+        <span class="text-xs font-semibold tracking-wide pr-0.5">Chat with us</span>
+    </a>
+
+    <!-- INTERACTIVE GALLERY & LIGHTBOX SCRIPTS -->
+    <script>
+        // Mobile Menu Toggle (Identical behavior to index.html)
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        function setMenu(open) {
+            mobileMenu.classList.toggle('hidden', !open);
+            mobileBtn.setAttribute('aria-expanded', String(open));
+        }
+        mobileBtn.addEventListener('click', () => setMenu(mobileMenu.classList.contains('hidden')));
+        mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && !document.getElementById('lightbox-modal').classList.contains('is-open')) {
+                setMenu(false);
+            }
+        });
+        window.matchMedia('(min-width: 1024px)').addEventListener('change', e => {
+            if (e.matches) setMenu(false);
+        });
+
+        // Subtle Magnetic Pull on Primary CTA Buttons
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', e => {
+                const rect = btn.getBoundingClientRect();
+                const x = (e.clientX - rect.left - rect.width / 2) * 0.14;
+                const y = (e.clientY - rect.top - rect.height / 2) * 0.18;
+                btn.style.transform = `translate(${x}px, ${y}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0px, 0px)';
+            });
+        });
+
+        // Complete Inventory of All Non-Logo Local HD Photos
+        const GALLERY_PHOTOS = [
+            {
+                src: 'images/Diu/diu.png',
+                fallback: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85',
+                category: 'utility',
+                categoryLabel: 'Utility Solar EPC',
+                title: 'DIU 7.47 Megawatt Solar Power Project',
+                meta: 'Diu • 7.47 MW Utility Grid-Connected',
+                desc: 'Utility-scale 7.47 MW ground-mounted solar power installation engineered and commissioned to deliver clean, grid-synchronized renewable generation in Diu.',
+                link: 'solutions/megawatt-scale.html',
+                linkLabel: 'Megawatt Scale EPC'
+            },
+            {
+                src: 'images/Solutions/megawatt.png',
+                altSrc: 'images/solutions/megawatt.png',
+                fallback: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=2000&q=85',
+                category: 'utility',
+                categoryLabel: 'Megawatt Scale EPC',
+                title: 'Megawatt-Scale Industrial & Utility Solar Plant',
+                meta: 'High-Tension Evacuation • 25-Year Bankable Design',
+                desc: 'Large-format solar power plant engineered with high-efficiency bifacial modules, hot-dip galvanized structures, and high-tension grid synchronization.',
+                link: 'solutions/megawatt-scale.html',
+                linkLabel: 'Explore Megawatt Scale'
+            },
+            {
+                src: 'images/Solutions/bess.png',
+                fallback: 'https://images.unsplash.com/photo-1558449028-b53a39d100fc?auto=format&fit=crop&w=2000&q=85',
+                category: 'storage',
+                categoryLabel: 'Battery Energy Storage (BESS)',
+                title: 'BESS 10 MWh (2x5 MWh) — Malala, Diu',
+                meta: 'Malala, Diu • 10 MWh Containerized LFP Storage',
+                desc: 'Supply, installation, testing, and commissioning of 2x5 MWh containerized Battery Energy Storage Systems for grid frequency stabilization and dispatchable power.',
+                link: 'solutions/bess.html',
+                linkLabel: 'Explore BESS'
+            },
+            {
+                src: 'images/Active Projects/scada.png',
+                fallback: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=2000&q=85',
+                category: 'grid',
+                categoryLabel: 'Grid Automation & Telemetry',
+                title: 'Centralized SCADA Control & Telemetry Room',
+                meta: 'Real-Time Diagnostics • Automated Grid Control',
+                desc: 'Turnkey Supervisory Control and Data Acquisition (SCADA) deployment providing real-time inverter, weather-station, and substation telemetry with automated protection.',
+                link: 'solutions/substations.html',
+                linkLabel: 'Substations & Automation'
+            },
+            {
+                src: 'images/Solutions/substation.png',
+                fallback: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=2000&q=85',
+                category: 'grid',
+                categoryLabel: 'High-Voltage Substations',
+                title: '2x20 MVA, 66/11 kV GIS Substation — Kilwani, Silvassa',
+                meta: 'Silvassa, Daman • 66/11 kV GIS Switchgear',
+                desc: 'Turnkey execution of a 2x20 MVA, 66/11 kV Gas Insulated Switchgear (GIS) substation engineered for high-reliability power transformation and grid evacuation.',
+                link: 'solutions/substations.html',
+                linkLabel: 'Explore Substations'
+            },
+            {
+                src: 'images/Solutions/ongrid.png',
+                fallback: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=2000&q=85',
+                category: 'rooftop',
+                categoryLabel: 'On-Grid Solar Systems',
+                title: 'Grid-Tied Net-Metered Solar Array',
+                meta: 'TANGEDCO & KSEB Net-Metering • Zero-Bill Architecture',
+                desc: 'High-yield grid-interactive solar installation integrated with bi-directional net-metering to offset daytime consumption and export surplus energy to the utility grid.',
+                link: 'solutions/on-grid.html',
+                linkLabel: 'Explore On-Grid'
+            },
+            {
+                src: 'images/Solutions/offgrid.png',
+                fallback: 'https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?auto=format&fit=crop&w=2000&q=85',
+                category: 'rooftop',
+                categoryLabel: 'Off-Grid Solar Systems',
+                title: 'Standalone Off-Grid Solar + Battery Power Plant',
+                meta: 'Independent Power • Remote & Critical Sites',
+                desc: 'Autonomous solar-plus-battery generation system engineered for continuous, dependable electricity in campuses and facilities independent of utility grid availability.',
+                link: 'solutions/off-grid.html',
+                linkLabel: 'Explore Off-Grid'
+            },
+            {
+                src: 'images/Solutions/hybrid.png',
+                fallback: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=2000&q=85',
+                category: 'storage',
+                categoryLabel: 'Hybrid Solar + Storage',
+                title: 'Dual-Mode Hybrid Solar & Storage System',
+                meta: 'Net-Metering + Seamless Outage Backup',
+                desc: 'Intelligent hybrid power architecture uniting utility net-metering savings with automatic millisecond-switchover battery backup and peak-tariff management.',
+                link: 'solutions/hybrid.html',
+                linkLabel: 'Explore Hybrid'
+            },
+            {
+                src: 'images/Sunlit Rooftop Solar Array.png',
+                fallback: 'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=2000&q=85',
+                category: 'rooftop',
+                categoryLabel: 'Rooftop Solar EPC',
+                title: 'Sunlit Residential & Commercial Rooftop Array',
+                meta: 'Cyclone-Rated Hot-Dip GI Structure • PM Surya Ghar',
+                desc: 'Precision-aligned rooftop photovoltaic array mounted on corrosion-resistant hot-dip galvanized structures for maximum annual solar harvest.',
+                link: 'residential.html',
+                linkLabel: 'Residential Rooftop'
+            },
+            {
+                src: 'images/panel2.jpg',
+                fallback: 'https://images.unsplash.com/photo-1613665813446-82a78c468a1d?auto=format&fit=crop&w=2000&q=85',
+                category: 'rooftop',
+                categoryLabel: 'Tier-1 Module Engineering',
+                title: 'High-Efficiency N-Type TOPCon / Mono-PERC Modules',
+                meta: 'ALMM & DCR Certified • 25-Year Linear Warranty',
+                desc: 'Close-up engineering view of high-transmittance anti-reflective solar photovoltaic modules engineered for low thermal degradation in South Indian climates.',
+                link: 'blog.html',
+                linkLabel: 'Technical Brief'
+            }
+        ];
+
+        // Gallery & Fullscreen Lightbox Controller
+        (function () {
+            const gridEl = document.getElementById('gallery-grid');
+            const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+            const countAllEl = document.getElementById('gallery-count-all');
+
+            const modal = document.getElementById('lightbox-modal');
+            const stageImg = document.getElementById('lb-stage-img');
+            const counterEl = document.getElementById('lb-counter');
+            const catTextEl = document.getElementById('lb-category-text');
+            const filmstripEl = document.getElementById('lb-filmstrip');
+
+            const infoToggleBtn = document.getElementById('lb-info-toggle');
+            const infoSheet = document.getElementById('lightbox-info-sheet');
+            const infoCloseBtn = document.getElementById('lb-info-close');
+            const infoBadgeEl = document.getElementById('lb-info-badge');
+            const infoTitleEl = document.getElementById('lb-info-title');
+            const infoDescEl = document.getElementById('lb-info-desc');
+            const infoMetaEl = document.getElementById('lb-info-meta');
+            const infoLinkEl = document.getElementById('lb-info-link');
+
+            const zoomBtn = document.getElementById('lb-zoom-btn');
+            const fullscreenBtn = document.getElementById('lb-fullscreen-btn');
+            const fullscreenIcon = document.getElementById('lb-fullscreen-icon');
+            const closeBtn = document.getElementById('lb-close-btn');
+            const prevBtn = document.getElementById('lb-prev-btn');
+            const nextBtn = document.getElementById('lb-next-btn');
+
+            if (!gridEl || !modal) return;
+            if (countAllEl) countAllEl.textContent = String(GALLERY_PHOTOS.length);
+
+            let activeFilter = 'all';
+            let filteredPhotos = [...GALLERY_PHOTOS];
+            let currentIdx = 0;
+            let isZoomed = false;
+            let isInfoOpen = false;
+
+            function attachImageFallback(imgEl, photo) {
+                imgEl.addEventListener('error', function onErr() {
+                    if (photo.altSrc && !imgEl.dataset.triedAlt) {
+                        imgEl.dataset.triedAlt = '1';
+                        imgEl.src = photo.altSrc;
+                        return;
+                    }
+                    imgEl.removeEventListener('error', onErr);
+                    imgEl.src = photo.fallback;
+                });
+            }
+
+            // Render Pure Image Masonry Cards (No text over the image unless user clicks the "Info" link)
+            function renderGrid() {
+                gridEl.innerHTML = '';
+                filteredPhotos = activeFilter === 'all'
+                    ? [...GALLERY_PHOTOS]
+                    : GALLERY_PHOTOS.filter(p => p.category === activeFilter);
+
+                filteredPhotos.forEach((photo, idx) => {
+                    const figure = document.createElement('figure');
+                    figure.className = 'gallery-item relative rounded-2xl overflow-hidden border border-pink-100 bg-indigo-950 shadow-sm group';
+
+                    figure.innerHTML = `
+                        <button type="button" data-open-idx="${idx}" aria-label="View ${photo.title} in full screen"
+                            class="block w-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-500 cursor-zoom-in">
+                            <img src="${photo.src}" alt="${photo.title}" loading="lazy" decoding="async"
+                                class="w-full h-auto block" />
+                        </button>
+
+                        <!-- Subtle Bottom-Right Controls: Info Link + Fullscreen Trigger -->
+                        <div class="absolute bottom-3 right-3 z-10 flex items-center gap-1.5 opacity-95 sm:opacity-0 sm:group-hover:opacity-100 sm:group-focus-within:opacity-100 transition-opacity duration-200">
+                            <a href="#photo-info-${idx}" data-info-idx="${idx}"
+                                class="photo-info-link inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-indigo-950/75 hover:bg-pink-600/90 backdrop-blur-md border border-white/20 text-white text-xs font-medium shadow-md transition">
+                                <i class="fa-solid fa-circle-info text-amber-300 text-[11px]"></i>
+                                <span>Info</span>
+                            </a>
+                            <button type="button" data-open-idx="${idx}" aria-label="Full screen"
+                                class="w-8 h-8 rounded-full bg-indigo-950/75 hover:bg-indigo-900 backdrop-blur-md border border-white/20 text-white flex items-center justify-center shadow-md transition">
+                                <i class="fa-solid fa-expand text-[11px]"></i>
+                            </button>
+                        </div>
+
+                        <!-- Slide-Up Info Overlay (Revealed ONLY when user clicks the "Info" link) -->
+                        <figcaption id="photo-info-${idx}"
+                            class="card-info-drawer absolute inset-x-0 bottom-0 z-20 bg-[#160B2E]/95 backdrop-blur-xl border-t border-pink-400/30 p-5 text-white">
+                            <div class="flex items-start justify-between gap-3">
+                                <div>
+                                    <span class="text-[11px] font-semibold uppercase tracking-wider text-amber-300 block">
+                                        ${photo.categoryLabel}
+                                    </span>
+                                    <h3 class="mt-0.5 text-sm sm:text-base font-semibold text-white leading-snug">
+                                        ${photo.title}
+                                    </h3>
+                                </div>
+                                <button type="button" data-close-info="${idx}" aria-label="Close image info"
+                                    class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white/85 flex items-center justify-center shrink-0 transition">
+                                    <i class="fa-solid fa-xmark text-xs"></i>
+                                </button>
+                            </div>
+                            <p class="mt-2 text-xs text-purple-100/90 leading-relaxed">
+                                ${photo.desc}
+                            </p>
+                            <div class="mt-3 pt-3 border-t border-white/15 flex items-center justify-between gap-2 text-[11px]">
+                                <span class="text-purple-200/80 truncate">${photo.meta}</span>
+                                <div class="flex items-center gap-3 shrink-0">
+                                    <button type="button" data-open-with-info="${idx}"
+                                        class="font-semibold text-pink-300 hover:text-white transition">
+                                        Fullscreen
+                                    </button>
+                                    <a href="${photo.link}"
+                                        class="inline-flex items-center gap-1 font-semibold text-amber-300 hover:text-white transition">
+                                        <span>${photo.linkLabel}</span>
+                                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </figcaption>
+                    `;
+
+                    const img = figure.querySelector('img');
+                    attachImageFallback(img, photo);
+                    gridEl.appendChild(figure);
+                });
+            }
+
+            // Filter Pill Handlers
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    activeFilter = btn.dataset.filter || 'all';
+                    filterBtns.forEach(b => {
+                        const active = b === btn;
+                        b.className = active
+                            ? 'gallery-filter-btn is-active px-4 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-orange-500 via-pink-600 to-fuchsia-600 text-white shadow-sm transition'
+                            : 'gallery-filter-btn px-4 py-2 rounded-full text-xs font-semibold bg-white border border-pink-200/80 text-slate-700 hover:border-pink-400 hover:text-pink-600 transition';
+                    });
+                    renderGrid();
+                });
+            });
+
+            // Delegated Clicks on Grid (Fullscreen Open vs. Inline Info Link Toggle)
+            gridEl.addEventListener('click', e => {
+                const infoLink = e.target.closest('.photo-info-link');
+                if (infoLink) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const card = infoLink.closest('.gallery-item');
+                    if (card) card.classList.toggle('is-info-open');
+                    return;
+                }
+
+                const closeInfo = e.target.closest('[data-close-info]');
+                if (closeInfo) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const card = closeInfo.closest('.gallery-item');
+                    if (card) card.classList.remove('is-info-open');
+                    return;
+                }
+
+                const openWithInfo = e.target.closest('[data-open-with-info]');
+                if (openWithInfo) {
+                    e.preventDefault();
+                    openLightbox(Number(openWithInfo.dataset.openWithInfo), true);
+                    return;
+                }
+
+                const openTrigger = e.target.closest('[data-open-idx]');
+                if (openTrigger) {
+                    e.preventDefault();
+                    openLightbox(Number(openTrigger.dataset.openIdx), false);
+                }
+            });
+
+            // Lightbox Controls
+            function setZoom(nextZoom) {
+                isZoomed = nextZoom;
+                stageImg.classList.toggle('is-zoomed', isZoomed);
+                zoomBtn.innerHTML = isZoomed
+                    ? '<i class="fa-solid fa-magnifying-glass-minus text-xs"></i>'
+                    : '<i class="fa-solid fa-magnifying-glass-plus text-xs"></i>';
+            }
+
+            function setInfoDrawer(open) {
+                isInfoOpen = open;
+                infoSheet.classList.toggle('is-visible', isInfoOpen);
+                infoToggleBtn.setAttribute('aria-expanded', String(isInfoOpen));
+                infoToggleBtn.classList.toggle('bg-pink-600', isInfoOpen);
+                infoToggleBtn.classList.toggle('border-pink-400', isInfoOpen);
+            }
+
+            function renderFilmstrip() {
+                filmstripEl.innerHTML = '';
+                filteredPhotos.forEach((photo, idx) => {
+                    const thumbBtn = document.createElement('button');
+                    thumbBtn.type = 'button';
+                    thumbBtn.ariaLabel = `Select image ${idx + 1}: ${photo.title}`;
+                    const isCurrent = idx === currentIdx;
+                    thumbBtn.className = `relative shrink-0 w-14 h-10 sm:w-16 sm:h-11 rounded-lg overflow-hidden border-2 transition-all ${isCurrent
+                        ? 'border-amber-400 scale-105 opacity-100 shadow-md shadow-pink-500/30'
+                        : 'border-white/15 opacity-55 hover:opacity-90'
+                        }`;
+                    thumbBtn.innerHTML = `<img src="${photo.src}" alt="" class="w-full h-full object-cover" />`;
+                    attachImageFallback(thumbBtn.querySelector('img'), photo);
+                    thumbBtn.addEventListener('click', () => showLightboxSlide(idx));
+                    filmstripEl.appendChild(thumbBtn);
+                });
+            }
+
+            function showLightboxSlide(index) {
+                if (!filteredPhotos.length) return;
+                currentIdx = (index + filteredPhotos.length) % filteredPhotos.length;
+                const photo = filteredPhotos[currentIdx];
+
+                setZoom(false);
+                stageImg.style.opacity = '0.35';
+                stageImg.dataset.triedAlt = '';
+                stageImg.alt = photo.title;
+                stageImg.src = photo.src;
+                stageImg.onload = () => {
+                    stageImg.style.opacity = '1';
+                };
+                stageImg.onerror = () => {
+                    if (photo.altSrc && !stageImg.dataset.triedAlt) {
+                        stageImg.dataset.triedAlt = '1';
+                        stageImg.src = photo.altSrc;
+                        return;
+                    }
+                    stageImg.onerror = null;
+                    stageImg.src = photo.fallback;
+                };
+
+                const pad = n => String(n).padStart(2, '0');
+                counterEl.textContent = `${pad(currentIdx + 1)} / ${pad(filteredPhotos.length)}`;
+                catTextEl.textContent = photo.categoryLabel;
+
+                infoBadgeEl.textContent = photo.categoryLabel;
+                infoTitleEl.textContent = photo.title;
+                infoDescEl.textContent = photo.desc;
+                infoMetaEl.textContent = photo.meta;
+                infoLinkEl.href = photo.link;
+                infoLinkEl.querySelector('span').textContent = photo.linkLabel;
+
+                renderFilmstrip();
+            }
+
+            function openLightbox(index, showInfoInitially = false) {
+                showLightboxSlide(index);
+                setInfoDrawer(showInfoInitially);
+                modal.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                modal.classList.remove('is-open');
+                setZoom(false);
+                setInfoDrawer(false);
+                document.body.style.overflow = '';
+                if (document.fullscreenElement) {
+                    document.exitFullscreen().catch(() => { });
+                }
+            }
+
+            infoToggleBtn.addEventListener('click', e => {
+                e.preventDefault();
+                setInfoDrawer(!isInfoOpen);
+            });
+
+            infoCloseBtn.addEventListener('click', () => setInfoDrawer(false));
+
+            zoomBtn.addEventListener('click', () => setZoom(!isZoomed));
+            stageImg.addEventListener('click', () => setZoom(!isZoomed));
+
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', () => {
+                    if (!document.fullscreenElement) {
+                        modal.requestFullscreen?.().catch(() => { });
+                    } else {
+                        document.exitFullscreen?.().catch(() => { });
+                    }
+                });
+                document.addEventListener('fullscreenchange', () => {
+                    const isFs = Boolean(document.fullscreenElement);
+                    fullscreenIcon.className = isFs ? 'fa-solid fa-compress text-xs' : 'fa-solid fa-expand text-xs';
+                });
+            }
+
+            closeBtn.addEventListener('click', closeLightbox);
+            prevBtn.addEventListener('click', () => showLightboxSlide(currentIdx - 1));
+            nextBtn.addEventListener('click', () => showLightboxSlide(currentIdx + 1));
+
+            // Click backdrop outside image to close
+            modal.addEventListener('click', e => {
+                if (e.target === modal || e.target.id === 'lb-stage') {
+                    closeLightbox();
+                }
+            });
+
+            // Keyboard Shortcuts inside Lightbox
+            document.addEventListener('keydown', e => {
+                if (!modal.classList.contains('is-open')) return;
+                if (e.key === 'Escape') closeLightbox();
+                else if (e.key === 'ArrowRight') showLightboxSlide(currentIdx + 1);
+                else if (e.key === 'ArrowLeft') showLightboxSlide(currentIdx - 1);
+                else if (e.key.toLowerCase() === 'i') setInfoDrawer(!isInfoOpen);
+                else if (e.key.toLowerCase() === 'z') setZoom(!isZoomed);
+                else if (e.key.toLowerCase() === 'f' && fullscreenBtn) fullscreenBtn.click();
+            });
+
+            // Touch Swipe Support on Mobile Lightbox
+            let touchStartX = 0;
+            stageImg.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].clientX;
+            }, { passive: true });
+            stageImg.addEventListener('touchend', e => {
+                if (isZoomed) return;
+                const deltaX = e.changedTouches[0].clientX - touchStartX;
+                if (Math.abs(deltaX) > 45) {
+                    showLightboxSlide(deltaX < 0 ? currentIdx + 1 : currentIdx - 1);
+                }
+            }, { passive: true });
+
+            // Initial Render
+            renderGrid();
+        })();
+    </script>
+</body>
+
+</html>
